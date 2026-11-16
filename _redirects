@@ -1,0 +1,50 @@
+# Fichiers de travail : s'ils partaient en ligne par erreur, ils ne seraient
+# pas servis. Ceinture et bretelles : la vraie protection reste de ne pas les
+# téléverser du tout.
+/*.avant-*        /404.html   404
+/*.bak            /404.html   404
+/NOTES.md         /404.html   404
+/.DS_Store        /404.html   404
+
+# Page de référence d'un site tiers, conservée comme inspiration. Ses traceurs
+# (Google Tag Manager, Microsoft Clarity, Klaviyo) ont été retirés le
+# 4 septembre 2026 ; il reste qu'elle reproduit le site d'un tiers et elle
+# n'est liée depuis nulle part. Cette règle la rend inatteignable en ligne tout
+# en la conservant sur le poste. Retirer ces deux lignes pour la publier.
+/Maquettes/Le*Gralle/ayocin.html   /404.html   404
+
+# Arborescence du 1er novembre 2026. « Services » devient la page du pack,
+# celle qui porte l'abonnement et les trois montants ; « Réalisations »
+# devient « Résultats », parce qu'on y montre d'abord des chiffres. Les deux
+# anciennes adresses sont indexées et liées depuis l'extérieur : 301 et non
+# 302, le déplacement est définitif, c'est ce qui transmet le poids acquis.
+/services.html       /pack.html       301
+/realisations.html   /resultats.html  301
+
+# La page Contact a ete supprimee le 6 novembre 2026 : la prise de rendez-vous
+# se fait dans la fenetre ouverte par tous les boutons du site. L'ancienne
+# adresse est indexee et partagee : 301 vers l'accueil, qui ouvre la fenetre
+# des qu'il voit #rendez-vous.
+/contact.html   /#rendez-vous   301
+/contact        /#rendez-vous   301
+
+# Site hebergements, 16 novembre 2026 : les pages de services et la page
+# Artisans sont retirees. Elles menent a la page Hebergements.
+/pack.html   /hebergements.html   301
+/pack   /hebergements.html   301
+/site-internet.html   /hebergements.html   301
+/site-internet   /hebergements.html   301
+/identite-visuelle.html   /hebergements.html   301
+/identite-visuelle   /hebergements.html   301
+/automatisation-ia.html   /hebergements.html   301
+/automatisation-ia   /hebergements.html   301
+/artisans-btp.html   /hebergements.html   301
+/artisans-btp   /hebergements.html   301
+/mots-cles.html   /seo.html   301
+/mots-cles   /seo.html   301
+/backlinks.html   /seo.html   301
+/backlinks   /seo.html   301
+/contenus.html   /seo.html   301
+/contenus   /seo.html   301
+/fiche-google.html   /seo.html   301
+/fiche-google   /seo.html   301
