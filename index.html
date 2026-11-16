@@ -3,10 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="icon" href="favicon.ico?v=432" sizes="any">
-<link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32.png?v=432">
-<link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon-16.png?v=432">
-<link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png?v=432">
+<link rel="icon" href="favicon.ico?v=436" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32.png?v=436">
+<link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon-16.png?v=436">
+<link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png?v=436">
 <title>Site internet et réservations pour gîtes et domaines · OBT Agency</title>
 <meta name="description" content="Création de sites pour gîtes, chambres d’hôtes, domaines et lieux de réception, avec notre application de réservation reliée à Airbnb et Booking.">
 <link rel="canonical" href="https://obt-agency.fr/">
@@ -21,9 +21,9 @@
 <meta property="og:image" content="https://obt-agency.fr/assets/img/logo-obt.png">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preload" as="font" type="font/woff2" href="assets/fonts/InterVariable.woff2" crossorigin>
-<link rel="stylesheet" href="css/tokens.css?v=432">
-<link rel="stylesheet" href="css/style.css?v=432">
-<link rel="stylesheet" href="css/refonte.css?v=432">
+<link rel="stylesheet" href="css/tokens.css?v=436">
+<link rel="stylesheet" href="css/style.css?v=436">
+<link rel="stylesheet" href="css/refonte.css?v=436">
 <!-- Marque la page comme pilotée par JS : les animations d'apparition ne sont
      armées que dans ce cas, pour que le contenu reste visible sans JavaScript. -->
 <!-- La page voisine est préchargée : le changement de page est alors instantané. -->
@@ -249,6 +249,7 @@
       <p class="a1__gages">
         <span><svg class="icon" aria-hidden="true"><use href="#i-shield"/></svg>Satisfait ou remboursé</span>
         <span><svg class="icon" aria-hidden="true"><use href="#i-cible"/></svg>Fini les doubles réservations</span>
+        <span><svg class="icon" aria-hidden="true"><use href="#i-fenetre"/></svg>Votre maquette au premier rendez-vous</span>
       </p>
 
     </div>
@@ -267,7 +268,7 @@
      l'image en deux entre l'ancien site et le site refait.
      Les deux maquettes sont dessinees, aucune capture d'un site client.
      ========================================================================= -->
-  <section id="accueil-s5" class="a5 a5--nuit" data-fond="sombre" aria-labelledby="a5-titre">
+  <section id="accueil-s5" class="a5 a5--nuit a5--sans-tete" data-fond="sombre" aria-label="Le site et l&rsquo;application de gestion">
     <span class="a6__arc" aria-hidden="true">
       <i class="a6__arc-cercle a6__arc-cercle--3"></i>
       <i class="a6__arc-cercle a6__arc-cercle--2"></i>
@@ -276,11 +277,6 @@
     <span class="a5__ronds" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
 
     <div class="a5__dedans">
-      <div class="a5__tete">
-        <h2 id="a5-titre" class="a5__titre titre--ligne" data-mots style="--fit-l: min(60px, 3.73vw)">Le site donne envie. L&rsquo;application <span class="a1__surligne">prend la réservation</span><span class="a1__point a1__point--fin">.</span></h2>
-        <p class="a5__chapeau sous--ligne">L&rsquo;un ne va pas sans l&rsquo;autre&nbsp;: sans réservation directe, le voyageur repart réserver ailleurs.</p>
-      </div>
-
       <div class="a5__colonnes">
 
         <!-- ---------------------- a gauche : le site ---------------------- -->
@@ -311,12 +307,18 @@
           <p class="a5__numero">02</p>
           <h3 class="a5__nom">L&rsquo;application de gestion</h3>
           <p class="a5__phrase">Elle se branche sur votre site&nbsp;: un panneau de réservation pour vos voyageurs, un espace de gestion pour vous.</p>
-          <ul class="a5__benefices">
-            <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span><b>Fini les doubles réservations.</b> Votre calendrier Airbnb et Booking est relu toutes les 45 minutes et bloque les dates sur votre site.</span></li>
-            <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span><b>Des réservations en direct, sans commission.</b> Le voyageur choisit ses dates dans un panneau en six langues, vous validez en un clic.</span></li>
-            <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span><b>Le prix du séjour se calcule tout seul.</b> Nuits, personnes, ménage, taxe de séjour, options et réductions&nbsp;: le total s&rsquo;affiche tout de suite.</span></li>
-            <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span><b>Vous restez maître de vos prix.</b> Un tarif, une option, un minimum de nuits&nbsp;: vous le changez vous-même.</span></li>
-            <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span><b>Tout est au même endroit.</b> Un planning, une boîte de réception et une alerte par e-mail à chaque demande.</span></li>
+          <div class="a5__capture">
+            <img src="assets/img/application/application-planning.webp" width="1420" height="888" loading="lazy" decoding="async"
+                 alt="Le planning de l&rsquo;application de gestion, avec les dates prises sur Airbnb et Booking">
+          </div>
+          <p class="a5__source">Votre planning, dans l&rsquo;application.</p>
+          <p class="a5__legende">Ce qui change pour vous</p>
+          <ul class="a5__atouts">
+            <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Fini les doubles réservations avec Airbnb et Booking</li>
+            <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Des réservations en direct, sans commission</li>
+            <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Le prix du séjour calculé tout seul</li>
+            <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Vos prix changés par vous, quand vous voulez</li>
+            <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Planning, demandes et alertes au même endroit</li>
           </ul>
           <p class="a5__voir">
             <a href="hebergements.html#hebergements-s5" class="a1__bouton a1__bouton--bleu">Découvrir l&rsquo;application<svg class="icon" aria-hidden="true"><use href="#i-arrow-right"/></svg></a>
@@ -406,31 +408,16 @@
         <div class="a6__scene">
           <div class="a6__cadre">
 
+            <!-- La maquette du premier rendez-vous, dessinee : un bandeau, une
+                 grande photo, trois blocs. Nathan, 17 novembre 2026. -->
             <div class="a6__vue a6__vue--1 est-actif" aria-hidden="true">
-              <span class="a6__entete"><i></i><b>Votre lieu</b></span>
-              <ul class="a6__controles">
-                <li class="est-ok"><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span></span></li>
-                <li class="est-ok"><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span></span></li>
-                <li class="est-ko"><svg class="icon" aria-hidden="true"><use href="#i-cross"/></svg><span></span></li>
-                <li class="est-ko"><svg class="icon" aria-hidden="true"><use href="#i-cross"/></svg><span></span></li>
-                <li class="est-ko"><svg class="icon" aria-hidden="true"><use href="#i-cross"/></svg><span></span></li>
-              </ul>
+              <span class="a6__entete"><i></i><b>Votre maquette</b></span>
+              <span class="a6__maquette"><i class="a6__mq-nav"></i><i class="a6__mq-photo"><b></b><b></b></i><span class="a6__mq-blocs"><i></i><i></i><i></i></span></span>
             </div>
 
             <div class="a6__vue a6__vue--2" aria-hidden="true"><img class="a6__capture" src="assets/img/realisation-tnature.jpg" width="1600" height="838" loading="lazy" decoding="async" alt=""></div>
 
-            <div class="a6__vue a6__vue--3" aria-hidden="true">
-              <span class="a6__entete"><i></i><b>Votre espace</b></span>
-              <ul class="a6__barres">
-                <li style="--h: 22%"></li>
-                <li style="--h: 34%"></li>
-                <li style="--h: 30%"></li>
-                <li style="--h: 52%"></li>
-                <li style="--h: 68%"></li>
-                <li style="--h: 86%"></li>
-                <li style="--h: 100%"></li>
-              </ul>
-            </div>
+            <div class="a6__vue a6__vue--2 a6__vue--3" aria-hidden="true"><img class="a6__capture" src="assets/img/application/application-tarifs.webp" width="1420" height="888" loading="lazy" decoding="async" alt=""></div>
 
             <div class="a6__vue a6__vue--4" aria-hidden="true">
               <span class="a6__entete"><i></i><b>Vos accès et votre guide</b>
@@ -453,8 +440,8 @@
         <ol class="a6__etapes">
           <li class="a6__etape est-actif" data-etape="1">
             <span class="a6__numero">01</span>
-            <h3 class="a6__nom">On découvre votre lieu</h3>
-            <p class="a6__texte">Vos logements, ce qui fait revenir vos voyageurs, votre site actuel et vos annonces. On en sort avec une direction claire.</p>
+            <h3 class="a6__nom">On vous montre votre maquette</h3>
+            <p class="a6__texte">Dès le premier rendez-vous, vous voyez à quoi ressemblera votre site&nbsp;: une maquette faite pour votre lieu. On en parle ensemble et on en sort avec une direction claire.</p>
             <p class="a6__part">De votre côté&nbsp;: un rendez-vous.</p>
           </li>
           <li class="a6__etape" data-etape="2">
@@ -499,7 +486,7 @@
      flottantes de Blast.
      LA PHOTO : le cadre porte pour l'instant deux silhouettes dessinees. Pour
      poser la vraie image, remplacer le <svg class="a9__silhouettes"> par :
-       <img class="a9__photo" src="assets/img/tom-et-nathan.jpg?v=432"
+       <img class="a9__photo" src="assets/img/tom-et-nathan.jpg?v=436"
             width="1000" height="1200" loading="lazy" decoding="async"
             alt="Tom et Nathan Boyer">
      Cadrage a respecter : Tom a gauche, Nathan a droite, de trois quarts,
@@ -653,7 +640,7 @@
      pas tenir la promesse des 24 heures.
      LA PHOTO DE TOM : la signature porte une pastille a son initiale. Pour
      poser sa photo, remplacer <span class="a11__initiale">T</span> par :
-       <img class="a11__visage" src="assets/img/tom.jpg?v=432" width="96"
+       <img class="a11__visage" src="assets/img/tom.jpg?v=436" width="96"
             height="96" loading="lazy" decoding="async" alt="Tom Boyer">
      ========================================================================= -->
   <section id="accueil-s11" class="a11" aria-labelledby="a11-titre">
@@ -760,7 +747,7 @@
   </div>
 </footer>
 
-<script src="js/main.js?v=432" defer></script>
+<script src="js/main.js?v=436" defer></script>
 <!-- La visionneuse qui ouvrait le site d'un client dans un cadre, par-dessus
      la page, a ete retiree le 5 novembre 2026 : on ne reproduit jamais le site
      d'un client chez nous. Sa capture est un lien vers son adresse, ouvert

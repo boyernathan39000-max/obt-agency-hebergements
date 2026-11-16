@@ -3,10 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="icon" href="favicon.ico?v=432" sizes="any">
-<link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32.png?v=432">
-<link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon-16.png?v=432">
-<link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png?v=432">
+<link rel="icon" href="favicon.ico?v=436" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32.png?v=436">
+<link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon-16.png?v=436">
+<link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png?v=436">
 <title>Test de visibilité gratuit · OBT Agency</title>
 <meta name="description" content="Testez la visibilité de votre site en une minute : vitesse, fiche Google, balises, mobile. Le résultat s'affiche tout de suite, sans inscription.">
 <link rel="canonical" href="https://obt-agency.fr/test-visibilite.html">
@@ -21,9 +21,9 @@
 <meta property="og:image" content="https://obt-agency.fr/assets/img/logo-obt.png">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preload" as="font" type="font/woff2" href="assets/fonts/InterVariable.woff2" crossorigin>
-<link rel="stylesheet" href="css/tokens.css?v=432">
-<link rel="stylesheet" href="css/style.css?v=432">
-<link rel="stylesheet" href="css/refonte.css?v=432">
+<link rel="stylesheet" href="css/tokens.css?v=436">
+<link rel="stylesheet" href="css/style.css?v=436">
+<link rel="stylesheet" href="css/refonte.css?v=436">
 <!-- Marque la page comme pilotée par JS : les animations d'apparition ne sont
      armées que dans ce cas, pour que le contenu reste visible sans JavaScript. -->
 <!-- La page voisine est préchargée : le changement de page est alors instantané. -->
@@ -388,6 +388,32 @@
       </div>
     </div>
   </section>
+  <!-- =====================================================================
+       L'APPLICATION DE RESERVATION, rappelee sur chaque page. Une carte, une
+       vraie capture (nom du client floute), un bouton vers le parcours de
+       la page Hebergements. Nathan, 17 novembre 2026.
+       ===================================================================== -->
+  <section id="test-visibilite-app" class="apb" aria-labelledby="test-visibilite-app-titre">
+    <div class="apb__dedans">
+      <div class="apb__carte">
+        <div class="apb__texte">
+          <p class="apb__marque"><svg class="icon" aria-hidden="true"><use href="#i-maison"/></svg>Pour les hébergements</p>
+          <h2 id="test-visibilite-app-titre" class="apb__titre">Votre site, avec notre application de réservation.</h2>
+          <ul class="apb__points">
+            <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Plus de doubles réservations&nbsp;: Airbnb et Booking relus toutes les 45 minutes</li>
+            <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Des réservations en direct, sans commission</li>
+            <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Le prix du séjour calculé tout seul, vos tarifs changés par vous</li>
+          </ul>
+          <p class="apb__action"><a href="hebergements.html#hebergements-s5" class="a1__bouton a1__bouton--bleu">Découvrir l&rsquo;application<svg class="icon" aria-hidden="true"><use href="#i-arrow-right"/></svg></a></p>
+        </div>
+        <div class="apb__fenetre" aria-hidden="true">
+          <span class="ap__barre"><i></i><i></i><i></i><b>Votre planning</b></span>
+          <img src="assets/img/application/application-planning.webp" width="1420" height="888" loading="lazy" decoding="async" alt="">
+        </div>
+      </div>
+    </div>
+  </section>
+
 </main>
 
 <!-- ============================================================
@@ -456,7 +482,7 @@
   </div>
 </footer>
 
-<script src="js/main.js?v=432" defer></script>
+<script src="js/main.js?v=436" defer></script>
 <!-- Barre d'appel flottante, commune aux cinq pages. Elle reste accessible où
      qu'on soit dans la page : c'est le raccourci vers la prise de contact. -->
 

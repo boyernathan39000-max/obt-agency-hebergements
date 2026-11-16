@@ -3,10 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="icon" href="favicon.ico?v=432" sizes="any">
-<link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32.png?v=432">
-<link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon-16.png?v=432">
-<link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png?v=432">
+<link rel="icon" href="favicon.ico?v=436" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32.png?v=436">
+<link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon-16.png?v=436">
+<link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png?v=436">
 <title>Site internet pour gîtes, chambres d’hôtes et domaines · OBT Agency</title>
 <meta name="description" content="Gîtes, chambres d’hôtes, domaines : un site qui donne envie de séjourner et qui reçoit vos réservations en direct. Hébergé et entretenu par nous.">
 <link rel="canonical" href="https://obt-agency.fr/hebergements.html">
@@ -21,9 +21,9 @@
 <meta property="og:image" content="https://obt-agency.fr/assets/img/logo-obt.png">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preload" as="font" type="font/woff2" href="assets/fonts/InterVariable.woff2" crossorigin>
-<link rel="stylesheet" href="css/tokens.css?v=432">
-<link rel="stylesheet" href="css/style.css?v=432">
-<link rel="stylesheet" href="css/refonte.css?v=432">
+<link rel="stylesheet" href="css/tokens.css?v=436">
+<link rel="stylesheet" href="css/style.css?v=436">
+<link rel="stylesheet" href="css/refonte.css?v=436">
 <!-- Marque la page comme pilotée par JS : les animations d'apparition ne sont
      armées que dans ce cas, pour que le contenu reste visible sans JavaScript. -->
 <!-- La page voisine est préchargée : le changement de page est alors instantané. -->
@@ -235,17 +235,10 @@
 
       <p class="a1__sous">Gîtes, chambres d&rsquo;hôtes, domaines et lieux de réception&nbsp;: un site qui donne envie de séjourner et qui reçoit vos réservations en direct.</p>
 
-      <p class="a1__action">
-        <a href="#rendez-vous" data-rdv-ouvrir class="a1__bouton">
-          <span class="a1__bouton-points" aria-hidden="true"><i></i><i></i><i></i></span>
-          Réserver le diagnostic de mon site
-          <svg class="icon" aria-hidden="true"><use href="#i-arrow-right"/></svg>
-        </a>
-      </p>
-
       <p class="a1__gages">
         <span><svg class="icon" aria-hidden="true"><use href="#i-shield"/></svg>Satisfait ou remboursé</span>
         <span><svg class="icon" aria-hidden="true"><use href="#i-clock"/></svg>Hébergé et entretenu par nous</span>
+        <span><svg class="icon" aria-hidden="true"><use href="#i-fenetre"/></svg>Votre maquette au premier rendez-vous</span>
       </p>
 
     </div>
@@ -337,7 +330,8 @@
   </section>
 
   <!-- =====================================================================
-       S4, LES RESULTATS. Le carrousel des realisations de la page Creation
+       S4, LES OFFRES. A gauche le site seul, volontairement maigre ; a droite
+       le site complet, celui qu'on vend. Ancien commentaire : le carrousel des realisations de la page Creation
        de site, avec les seuls sites du secteur (demande de Nathan, 5 novembre
        2026 : une page de secteur ne montre que son secteur). Chaque
        carte montre la capture du bandeau et ouvre le vrai site du client
@@ -355,13 +349,31 @@
         <h2 id="hebergements-s4-title" class="po__titre titre--ligne" style="--fit-l: min(60px, 5.27vw)">Le site complet, <span class="a1__insecable"><span class="a1__surligne est-peint">application comprise</span><span class="a1__point a1__point--fin">.</span></span></h2>
       </div>
 
-      <div class="po__grille po__grille--une">
+      <div class="po__grille po__grille--choix">
+        <!-- La petite offre, a gauche : le site seul, remis en dossiers. Elle
+             est la pour que le site complet saute aux yeux. Nathan, 17 novembre 2026. -->
+        <article class="po__offre po__offre--seul">
+          <h3 class="po__nom">Le site seul</h3>
+          <p class="po__pour">Le site livré en dossiers. La suite, c&rsquo;est à vous de la gérer.</p>
+          <p class="po__compte"><b>3</b> des 11 lignes comprises</p>
+          <ul class="po__liste">
+            <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span>Version ordinateur et version mobile</span><b class="visually-hidden">compris</b></li>
+            <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span>Mise en sécurité et conformité du site</span><b class="visually-hidden">compris</b></li>
+            <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span>Remise des dossiers du site</span><b class="visually-hidden">compris</b></li>
+            <li class="est-absent"><svg class="icon" aria-hidden="true"><use href="#i-cross"/></svg><span>Maquette au premier rendez-vous</span><b class="visually-hidden">non compris</b></li>
+            <li class="est-absent"><svg class="icon" aria-hidden="true"><use href="#i-cross"/></svg><span>Application de gestion reliée au site</span><b class="visually-hidden">non compris</b></li>
+            <li class="est-absent"><svg class="icon" aria-hidden="true"><use href="#i-cross"/></svg><span>Hébergement, sauvegardes et mises à jour</span><b class="visually-hidden">non compris</b></li>
+            <li class="est-absent"><svg class="icon" aria-hidden="true"><use href="#i-cross"/></svg><span>Assistance et modifications de contenu</span><b class="visually-hidden">non compris</b></li>
+          </ul>
+        </article>
+
         <article class="po__offre po__offre--avant">
           <p class="po__etiquette">Populaire</p>
           <h3 class="po__nom">Le site complet</h3>
           <p class="po__pour">Le site posé pour durer, entretenu par nous, mois après mois.</p>
-          <p class="po__compte"><b>9</b> des 10 lignes comprises</p>
+          <p class="po__compte"><b>10</b> des 11 lignes comprises</p>
           <ul class="po__liste">
+            <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span>Maquette de votre site au premier rendez-vous</span><b class="visually-hidden">compris</b></li>
             <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span>Version ordinateur et version mobile</span><b class="visually-hidden">compris</b></li>
             <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span>Formulaire de contact créé puis testé par nous</span><b class="visually-hidden">compris</b></li>
             <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span>Mise en sécurité et conformité du site</span><b class="visually-hidden">compris</b></li>
@@ -411,64 +423,83 @@
         <p class="sr__chapeau">Les doubles réservations, la commission qui mange la marge, les prix à calculer à la main, le webmaster à relancer, les demandes éparpillées&nbsp;: elle règle les cinq. Construite et tenue par nous, elle est proposée avec la création de votre site.</p>
       </div>
 
-      <ul class="sr__grille sr__grille--cinq">
-        <li class="sr__fenetre">
-          <div class="sr__cadre">
-            <span class="sr__barre"><i></i><i></i><i></i><span class="sr__outil"><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Airbnb et Booking</span></span>
-            <span class="sr__ecran">
-              <img class="sr__capture" src="assets/img/application/application-planning.webp" width="1420" height="888" loading="lazy" decoding="async" alt="Le planning de l’application, avec les dates déjà prises sur Airbnb et Booking">
-            </span>
-          </div>
-          <p class="sr__legende"><b>Fini les doubles réservations</b><span>Votre calendrier Airbnb et Booking est relu toutes les 45 minutes et bloque les dates sur votre site. Vous ne recopiez plus rien à la main.</span></p>
-        </li>
-        <li class="sr__fenetre">
-          <div class="sr__cadre">
-            <span class="sr__barre"><i></i><i></i><i></i><span class="sr__outil"><svg class="icon" aria-hidden="true"><use href="#i-fenetre"/></svg>Le formulaire</span></span>
-            <span class="sr__ecran">
-              <img class="sr__capture" src="assets/img/application/application-formulaire.webp" width="1420" height="888" loading="lazy" decoding="async" alt="Les questions du formulaire de demande, réglées par le propriétaire">
-            </span>
-          </div>
-          <p class="sr__legende"><b>En direct, sans commission</b><span>Le voyageur choisit ses dates sur votre site, dans un panneau en six langues. Vous validez la demande ou l&rsquo;abandonnez en un clic.</span></p>
-        </li>
-        <li class="sr__fenetre">
-          <div class="sr__cadre">
-            <span class="sr__barre"><i></i><i></i><i></i><span class="sr__outil"><svg class="icon" aria-hidden="true"><use href="#i-agenda"/></svg>Le prix du séjour</span></span>
-            <span class="sr__ecran">
-              <img class="sr__capture" src="assets/img/application/application-options.webp" width="1420" height="888" loading="lazy" decoding="async" alt="Les options d’un séjour : ménage, taxe de séjour, chauffage">
-            </span>
-          </div>
-          <p class="sr__legende"><b>Le prix se calcule tout seul</b><span>Jour de la semaine, nombre de personnes, enfants, ménage, taxe de séjour, draps, petit déjeuner, réductions&nbsp;: le voyageur voit le total tout de suite.</span></p>
-        </li>
-        <li class="sr__fenetre">
-          <div class="sr__cadre">
-            <span class="sr__barre"><i></i><i></i><i></i><span class="sr__outil"><svg class="icon" aria-hidden="true"><use href="#i-fenetre"/></svg>Vos tarifs</span></span>
-            <span class="sr__ecran">
-              <img class="sr__capture" src="assets/img/application/application-tarifs.webp" width="1420" height="888" loading="lazy" decoding="async" alt="L’écran des tarifs, pour changer ses prix sur les dates de son choix">
-            </span>
-          </div>
-          <p class="sr__legende"><b>Vous restez maître de vos prix</b><span>Un tarif, une option, un minimum de nuits, une règle&nbsp;: vous le changez vous-même, sans écrire à un webmaster. Un guide vous accompagne écran par écran.</span></p>
-        </li>
-        <li class="sr__fenetre">
-          <div class="sr__cadre">
-            <span class="sr__barre"><i></i><i></i><i></i><span class="sr__outil"><svg class="icon" aria-hidden="true"><use href="#i-agenda"/></svg>Vos logements</span></span>
-            <span class="sr__ecran">
-              <img class="sr__capture" src="assets/img/application/application-logements.webp" width="1420" height="888" loading="lazy" decoding="async" alt="Les logements tels que les voyageurs les voient">
-            </span>
-          </div>
-          <p class="sr__legende"><b>Tout est au même endroit</b><span>Un planning, une boîte de réception qui dit quelles demandes valider et une alerte par e-mail à chaque demande.</span></p>
-        </li>
-        <li class="sr__fenetre">
-          <div class="sr__cadre">
-            <span class="sr__barre"><i></i><i></i><i></i><span class="sr__outil"><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Vos conditions</span></span>
-            <span class="sr__ecran">
-              <img class="sr__capture" src="assets/img/application/application-conditions.webp" width="1420" height="888" loading="lazy" decoding="async" alt="Les conditions du séjour, écrites par le propriétaire">
-            </span>
-          </div>
-          <p class="sr__legende"><b>Vos règles, écrites par vous</b><span>Arrivée, départ, annulation, animaux&nbsp;: le voyageur lit vos conditions juste avant d&rsquo;envoyer sa demande.</span></p>
-        </li>
-      </ul>
-      <p class="sr__entre sr__note">Le panneau parle six langues&nbsp;: français, anglais, espagnol, néerlandais, allemand et italien. La synchronisation des calendriers concerne Airbnb et Booking, pour les gîtes.</p>
-      <p class="sr__entre sr__note">Vous remplissez un formulaire, compter 30 à 45 minutes. Nous créons votre espace, nous l&rsquo;intégrons à votre site et vous recevez vos accès et votre guide à la mise en ligne.</p>
+      <!-- Le parcours de l'application : six ecrans qui defilent de droite a
+           gauche pendant qu'on descend la page (la section reste epinglee le
+           temps du trajet). Au telephone, on les fait glisser du doigt.
+           Nathan, 17 novembre 2026. -->
+      <div class="ap" data-parcours>
+        <div class="ap__scene">
+          <ol class="ap__rail" data-parcours-rail>
+          <li class="ap__etape">
+            <div class="ap__fenetre">
+              <span class="ap__barre"><i></i><i></i><i></i><b>Votre planning</b></span>
+              <img class="ap__capture" src="assets/img/application/application-planning.webp" width="1420" height="888" loading="lazy" decoding="async" alt="Le planning de l’application, avec les dates déjà prises sur Airbnb et Booking">
+            </div>
+            <div class="ap__texte">
+              <span class="ap__num">01</span>
+              <h3 class="ap__titre">Fini les doubles réservations</h3>
+              <p class="ap__dit">Votre calendrier Airbnb et Booking est relu toutes les 45 minutes et bloque les dates sur votre site. Vous ne recopiez plus rien à la main.</p>
+            </div>
+          </li>
+          <li class="ap__etape">
+            <div class="ap__fenetre">
+              <span class="ap__barre"><i></i><i></i><i></i><b>Vos demandes</b></span>
+              <img class="ap__capture" src="assets/img/application/application-formulaire.webp" width="1420" height="888" loading="lazy" decoding="async" alt="Les questions du formulaire de demande, réglées par le propriétaire">
+            </div>
+            <div class="ap__texte">
+              <span class="ap__num">02</span>
+              <h3 class="ap__titre">Des réservations en direct, sans commission</h3>
+              <p class="ap__dit">Le voyageur choisit ses dates sur votre site, dans un panneau en six langues. Vous validez la demande ou l&rsquo;abandonnez en un clic.</p>
+            </div>
+          </li>
+          <li class="ap__etape">
+            <div class="ap__fenetre">
+              <span class="ap__barre"><i></i><i></i><i></i><b>Vos options</b></span>
+              <img class="ap__capture" src="assets/img/application/application-options.webp" width="1420" height="888" loading="lazy" decoding="async" alt="Les options d’un séjour : ménage, taxe de séjour, chauffage">
+            </div>
+            <div class="ap__texte">
+              <span class="ap__num">03</span>
+              <h3 class="ap__titre">Le prix du séjour se calcule tout seul</h3>
+              <p class="ap__dit">Jour de la semaine, nombre de personnes, enfants, ménage, taxe de séjour, draps, petit déjeuner, réductions&nbsp;: le voyageur voit le total tout de suite.</p>
+            </div>
+          </li>
+          <li class="ap__etape">
+            <div class="ap__fenetre">
+              <span class="ap__barre"><i></i><i></i><i></i><b>Vos tarifs</b></span>
+              <img class="ap__capture" src="assets/img/application/application-tarifs.webp" width="1420" height="888" loading="lazy" decoding="async" alt="L’écran des tarifs, pour changer ses prix sur les dates de son choix">
+            </div>
+            <div class="ap__texte">
+              <span class="ap__num">04</span>
+              <h3 class="ap__titre">Vous restez maître de vos prix</h3>
+              <p class="ap__dit">Un tarif, un minimum de nuits, une date spéciale&nbsp;: vous le changez vous-même, sans écrire à un webmaster. Un guide vous accompagne écran par écran.</p>
+            </div>
+          </li>
+          <li class="ap__etape">
+            <div class="ap__fenetre">
+              <span class="ap__barre"><i></i><i></i><i></i><b>Vos logements</b></span>
+              <img class="ap__capture" src="assets/img/application/application-logements.webp" width="1420" height="888" loading="lazy" decoding="async" alt="Les logements tels que les voyageurs les voient">
+            </div>
+            <div class="ap__texte">
+              <span class="ap__num">05</span>
+              <h3 class="ap__titre">Vos logements, tels que vos voyageurs les voient</h3>
+              <p class="ap__dit">Une photo, les couchages, le nombre de places et le minimum de nuits pour chaque chambre et chaque gîte.</p>
+            </div>
+          </li>
+          <li class="ap__etape">
+            <div class="ap__fenetre">
+              <span class="ap__barre"><i></i><i></i><i></i><b>Vos conditions</b></span>
+              <img class="ap__capture" src="assets/img/application/application-conditions.webp" width="1420" height="888" loading="lazy" decoding="async" alt="Les conditions du séjour, écrites par le propriétaire">
+            </div>
+            <div class="ap__texte">
+              <span class="ap__num">06</span>
+              <h3 class="ap__titre">Vos règles, écrites par vous</h3>
+              <p class="ap__dit">Arrivée, départ, annulation, animaux&nbsp;: le voyageur lit vos conditions juste avant d&rsquo;envoyer sa demande.</p>
+            </div>
+          </li>
+          </ol>
+          <div class="ap__avance" aria-hidden="true"><i data-parcours-barre></i></div>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -489,8 +520,8 @@
         <ol class="p3__etapes">
           <li class="p3__etape est-actif">
             <p class="p3__num">01</p>
-            <h3 class="p3__titre">Cadrage et audit</h3>
-            <p class="p3__dit">Un rendez-vous pour comprendre votre activité, vos services, vos besoins réels et ce qu&rsquo;il faut changer sur la maquette de départ. On en sort avec une direction claire.</p>
+            <h3 class="p3__titre">La maquette, dès le premier rendez-vous</h3>
+            <p class="p3__dit">On vous présente une maquette de votre site, faite pour votre lieu. On la reprend ensemble&nbsp;: vos logements, vos besoins réels, ce qu&rsquo;il faut changer. On en sort avec une direction claire.</p>
           </li>
           <li class="p3__etape">
             <p class="p3__num">02</p>
@@ -876,7 +907,7 @@
   </div>
 </footer>
 
-<script src="js/main.js?v=432" defer></script>
+<script src="js/main.js?v=436" defer></script>
 <!-- Barre d'appel flottante, commune aux cinq pages. Elle reste accessible où
      qu'on soit dans la page : c'est le raccourci vers la prise de contact. -->
 

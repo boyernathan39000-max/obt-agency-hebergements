@@ -3641,3 +3641,49 @@
     init();
   }
 })();
+
+/* =========================================================================
+   LE PARCOURS DE L'APPLICATION (hebergements.html, S5)
+   Sur grand ecran, la scene reste epinglee et le rang des six ecrans glisse
+   de droite a gauche au rythme du defilement : un pixel descendu, un pixel
+   de trajet. Au telephone et si le visiteur demande moins d'animations, on
+   laisse le rang defiler au doigt (scroll-snap en CSS). Nathan, 17/11/2026.
+   ========================================================================= */
+(function () {
+  var bloc = document.querySelector('[data-parcours]');
+  if (!bloc) return;
+  var scene = bloc.querySelector('.ap__scene');
+  var rail = bloc.querySelector('[data-parcours-rail]');
+  var barre = bloc.querySelector('[data-parcours-barre]');
+  var grand = window.matchMedia('(min-width: 900px)');
+  var calme = window.matchMedia('(prefers-reduced-motion: reduce)');
+  var trajet = 0;
+
+  function mesure() {
+    var epingle = grand.matches && !calme.matches;
+    bloc.classList.toggle('ap--epingle', epingle);
+    rail.style.transform = '';
+    if (!epingle) { bloc.style.height = ''; trajet = 0; return; }
+    trajet = Math.max(0, rail.scrollWidth - scene.clientWidth);
+    bloc.style.height = (window.innerHeight + trajet) + 'px';
+    avance();
+  }
+  function avance() {
+    var p;
+    if (bloc.classList.contains('ap--epingle')) {
+      var haut = bloc.getBoundingClientRect().top;
+      p = trajet ? Math.min(1, Math.max(0, -haut / trajet)) : 0;
+      rail.style.transform = 'translate3d(' + (-p * trajet).toFixed(1) + 'px,0,0)';
+    } else {
+      var max = scene.scrollWidth - scene.clientWidth;
+      p = max > 0 ? scene.scrollLeft / max : 0;
+    }
+    if (barre) barre.style.setProperty('--p', p.toFixed(3));
+  }
+  window.addEventListener('scroll', avance, { passive: true });
+  scene.addEventListener('scroll', avance, { passive: true });
+  window.addEventListener('resize', mesure);
+  if (grand.addEventListener) { grand.addEventListener('change', mesure); calme.addEventListener('change', mesure); }
+  window.addEventListener('load', mesure);
+  mesure();
+})();
