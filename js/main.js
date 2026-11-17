@@ -2275,7 +2275,6 @@
   function squeletteTest() {
     return ''
       + '<div class="modale__tete">'
-      + '  <p class="a1__pastille modale__pastille">Test de visibilité gratuit</p>'
       + '  <h2 class="modale__titre">Vos concurrents sortent <span class="a1__surligne est-peint">avant vous</span>&nbsp;?</h2>'
       + '  <p class="modale__sous">On relève ce qui vous fait perdre des clients, sur votre site comme sur votre fiche Google. Résultat à l’écran en trente secondes.</p>'
       + '  <p class="modale__gages">'
@@ -3664,7 +3663,13 @@
     bloc.classList.toggle('ap--epingle', epingle);
     rail.style.transform = '';
     if (!epingle) { bloc.style.height = ''; scene.style.top = ''; trajet = 0; return; }
-    trajet = Math.max(0, rail.scrollWidth - scene.clientWidth);
+    // Le trajet s'arrete pile quand la derniere etape est centree. On le
+    // mesure sur sa position reelle : scrollWidth gonflait le trajet sur
+    // certains navigateurs (Safari) et laissait un ecran vide a la fin.
+    var etapes = rail.querySelectorAll('.ap__etape');
+    var der = etapes[etapes.length - 1].getBoundingClientRect();
+    var sc = scene.getBoundingClientRect();
+    trajet = Math.max(0, Math.round((der.left + der.width / 2) - (sc.left + sc.width / 2)));
     // La scene ne prend que la hauteur de ses ecrans : elle s'epingle au
     // milieu de la fenetre, sans grand vide sous le sous-titre.
     var h = scene.offsetHeight;

@@ -8031,7 +8031,7 @@ main .ex-chap > .ex-tableau-cadre + p { margin-top: 18px; }
 .a1__bouton--bleu .a1__bouton-points i { background: #fff; }
 
 /* ---------- la comparaison en trois cartes ---------- */
-.cf { position: relative; overflow-x: clip; background: #F3F5FA; padding-block: clamp(64px, 8vw, 110px); }
+.cf { position: relative; overflow-x: clip; background: #FAF9F5; padding-block: clamp(64px, 8vw, 110px); }
 .cf__ronds { position: absolute; inset: 0; z-index: 0; pointer-events: none; }
 .cf__ronds i { position: absolute; display: block; border-radius: 50%; }
 .cf__ronds i:nth-child(1) { width: 260px; height: 260px; left: 3%;  top: 70px;     background: var(--c-accent-light); opacity: .28; }
@@ -8045,7 +8045,7 @@ main .ex-chap > .ex-tableau-cadre + p { margin-top: 18px; }
 .cf__sous { margin: 0 auto; max-width: 52ch; font-size: clamp(15px, 1.6vw, 17px); line-height: 1.6; color: var(--c-text-muted); }
 
 .cf__grille { display: grid; gap: 22px; align-items: start; }
-@media (min-width: 1000px) { .cf__grille { grid-template-columns: minmax(0, 1fr) minmax(0, 1.08fr) minmax(0, 1fr); gap: 20px; } .cf__carte--seul, .cf__carte--agence { margin-top: 26px; } }
+@media (min-width: 1000px) { .cf__grille { grid-template-columns: minmax(0, 1fr) minmax(0, 1.08fr) minmax(0, 1fr); gap: 20px; align-items: center; } }
 .cf__carte { position: relative; overflow: hidden; display: flex; flex-direction: column; border-radius: 28px; padding: clamp(26px, 2.6vw, 36px); background: #fff; border: 1px solid rgba(18, 21, 26, .07); box-shadow: 0 24px 50px -36px rgba(18, 21, 26, .35); }
 .cf__carte--agence { background: #FBFBFC; }
 .cf__nom { margin: 0 0 22px; font-size: clamp(22px, 2vw, 27px); font-weight: 600; letter-spacing: -.025em; color: var(--c-text); min-height: 34px; display: flex; align-items: center; }
@@ -8102,7 +8102,7 @@ main .ex-chap > .ex-tableau-cadre + p { margin-top: 18px; }
 .cf__jauge-tete em { font-style: italic; }
 .cf__jauge-piste { display: block; height: 10px; border-radius: 999px; background: #E7E9EE; overflow: hidden; }
 .cf__jauge-piste i { display: block; height: 100%; width: var(--niveau); border-radius: inherit; }
-.cf__jauge--faible .cf__jauge-piste i { background: #8B9098; }
+.cf__jauge--faible .cf__jauge-piste i { background: #E04848; }
 .cf__jauge--moyenne .cf__jauge-piste i { background: #F5B300; }
 .cf__jauge--totale .cf__jauge-piste { background: rgba(255, 255, 255, .14); }
 .cf__jauge--totale .cf__jauge-piste i { background: #4ADE98; }
@@ -8129,7 +8129,7 @@ main .ex-chap > .ex-tableau-cadre + p { margin-top: 18px; }
 .cf__rassure-pied { margin: 0; font-size: 13.5px; color: var(--c-text-faint); }
 
 /* ---------- les cinq promesses ---------- */
-.pm { background: #fff; padding-block: clamp(64px, 8vw, 110px); }
+.pm { background: #FAF9F5; padding-block: clamp(64px, 8vw, 110px); }
 .pm__dedans { max-width: 1260px; margin-inline: auto; padding-left: max(20px, env(safe-area-inset-left, 0px)); padding-right: max(20px, env(safe-area-inset-right, 0px)); }
 .pm__titre { margin: 0 auto clamp(36px, 4.4vw, 60px); text-align: center; font-size: clamp(28px, 3.8vw, 48px); line-height: 1.1; letter-spacing: -.04em; font-weight: 700; color: var(--c-text); text-wrap: balance; }
 .pm__grille { margin: 0; padding: 0; list-style: none; display: grid; gap: 34px 20px; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); }
@@ -8156,7 +8156,7 @@ main .ex-chap > .ex-tableau-cadre + p { margin-top: 18px; }
 .pm__pied { margin: 0; text-align: center; font: 500 13px/1 ui-monospace, "SF Mono", Menlo, monospace; letter-spacing: .06em; color: var(--c-text-faint); }
 
 /* ---------- le bandeau d'appel ---------- */
-.cta { padding-block: clamp(28px, 4vw, 56px); background: var(--c-bg); }
+.cta { padding-block: clamp(28px, 4vw, 56px); background: #FAF9F5; }
 .cta__dedans { max-width: 1320px; margin-inline: auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
 .cta__bande { position: relative; overflow: hidden; display: grid; gap: 22px 40px; align-items: center; padding: clamp(28px, 4vw, 56px) clamp(24px, 4.4vw, 64px); border-radius: 32px; background: #0B1A44; color: #fff; }
 @media (min-width: 900px) { .cta__bande { grid-template-columns: minmax(0, 1fr) auto; } }
@@ -8173,7 +8173,7 @@ main .ex-chap > .ex-tableau-cadre + p { margin-top: 18px; }
 .cta__action .a1__bouton { padding: 18px 26px 18px 22px; font-size: 16px; }
 
 /* ---------- Resultats : l'application posee sur la table ---------- */
-.ac { position: relative; overflow-x: clip; background: #F3F5FA; padding-block: clamp(64px, 8vw, 110px); }
+.ac { position: relative; overflow-x: clip; background: #FAF9F5; padding-block: clamp(64px, 8vw, 110px); }
 .ac__ronds { position: absolute; inset: 0; z-index: 0; pointer-events: none; }
 .ac__ronds i { position: absolute; display: block; border-radius: 50%; }
 .ac__ronds i:nth-child(1) { width: 300px; height: 300px; left: -90px; top: 18%; background: var(--c-accent-light); opacity: .25; }
@@ -8192,17 +8192,22 @@ main .ex-chap > .ex-tableau-cadre + p { margin-top: 18px; }
 /* sur grand ecran, les ecrans sont eparpilles : decales et un peu tournes */
 @media (min-width: 1000px) {
   .ac__table { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 56px 46px; }
-  .ac__carte--2 { transform: translateY(54px); }
-  .ac__carte--3 { transform: translateY(-10px); }
-  .ac__carte--4 { transform: translateY(18px); }
-  .ac__carte--5 { transform: translateY(70px); }
-  .ac__carte--6 { transform: translateY(6px); }
-  .ac__carte--1 .ac__fenetre { transform: rotate(-2.2deg); }
-  .ac__carte--2 .ac__fenetre { transform: rotate(1.4deg); }
-  .ac__carte--3 .ac__fenetre { transform: rotate(-1deg); }
-  .ac__carte--4 .ac__fenetre { transform: rotate(1.8deg); }
-  .ac__carte--5 .ac__fenetre { transform: rotate(-1.6deg); }
-  .ac__carte--6 .ac__fenetre { transform: rotate(2.2deg); }
+  .ac__carte--1 { transform: rotate(-2.2deg); }
+  .ac__carte--2 { transform: translateY(54px) rotate(1.4deg); }
+  .ac__carte--3 { transform: translateY(-10px) rotate(-1deg); }
+  .ac__carte--4 { transform: translateY(18px) rotate(1.8deg); }
+  .ac__carte--5 { transform: translateY(70px) rotate(-1.6deg); }
+  .ac__carte--6 { transform: translateY(6px) rotate(2.2deg); }
   .ac__table { padding-bottom: 70px; }
 }
 @media (max-width: 999px) { .cf__carte--nous { order: -1; } }
+
+/* Resultats : le numero devient un badge rond pose en haut a gauche de
+   l'ecran ; l'ecran et son texte penchent ensemble. Nathan, 17/11/2026. */
+.ac__ecran { position: relative; margin-bottom: 18px; }
+.ac__ecran .ac__fenetre { margin-bottom: 0; }
+.ac__num { position: absolute; z-index: 2; left: -14px; top: -16px; width: 46px; height: 46px; margin: 0; border-radius: 50%; display: grid; place-items: center; background: var(--c-accent); color: #fff; font-size: 17px; font-weight: 700; letter-spacing: -.02em; box-shadow: 0 10px 22px -10px rgba(37, 88, 214, .9); }
+.sr--carrousels { padding-top: clamp(20px, 3vw, 44px); }
+
+/* REGLE DU SITE (Nathan, 17/11/2026) : toutes les sections ont le fond de
+   la section heros de l'accueil (#FAF9F5) ou un fond nuit. Aucun autre. */

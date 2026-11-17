@@ -3,10 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="icon" href="favicon.ico?v=439" sizes="any">
-<link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32.png?v=439">
-<link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon-16.png?v=439">
-<link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png?v=439">
+<link rel="icon" href="favicon.ico?v=440" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32.png?v=440">
+<link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon-16.png?v=440">
+<link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png?v=440">
 <title>Nos sites en ligne et notre application · OBT Agency</title>
 <meta name="description" content="Les sites conçus et mis en ligne par OBT Agency, et les écrans de notre application de réservation pour les hébergements.">
 <link rel="canonical" href="https://obt-agency.fr/resultats.html">
@@ -21,9 +21,9 @@
 <meta property="og:image" content="https://obt-agency.fr/assets/img/logo-obt.png">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preload" as="font" type="font/woff2" href="assets/fonts/InterVariable.woff2" crossorigin>
-<link rel="stylesheet" href="css/tokens.css?v=439">
-<link rel="stylesheet" href="css/style.css?v=439">
-<link rel="stylesheet" href="css/refonte.css?v=439">
+<link rel="stylesheet" href="css/tokens.css?v=440">
+<link rel="stylesheet" href="css/style.css?v=440">
+<link rel="stylesheet" href="css/refonte.css?v=440">
 <!-- Les pages voisines sont préchargées : le changement de page est instantané. -->
 <link rel="prefetch" href="index.html" as="document">
 <!-- Marque la page comme pilotée par JS : les animations d'apparition ne sont
@@ -190,15 +190,8 @@
        par secteur. Chaque carte ouvre le vrai site du client dans un autre
        onglet. Nathan, 6 novembre 2026.
        ===================================================================== -->
-  <section id="resultats-s2" class="sr" aria-labelledby="resultats-s2-title">
+  <section id="resultats-s2" class="sr sr--carrousels" aria-label="Les sites que nous avons mis en ligne">
     <span class="sr__ronds" aria-hidden="true"><i></i><i></i><i></i></span>
-    <div class="sr__dedans">
-      <div class="sr__tete">
-        <h2 id="resultats-s2-title" class="sr__titre">Les sites qu&rsquo;on a <span class="a1__insecable"><span class="a1__surligne est-peint">mis en ligne</span><span class="a1__point a1__point--fin">.</span></span></h2>
-      </div>
-
-      <p class="sr__entre">Les sites d&rsquo;artisans qu&rsquo;on a mis en ligne</p>
-    </div>
     <div class="carousel pr__carrousel" data-carousel>
       <button class="carousel-arrow carousel-arrow--prev" type="button" data-carousel-prev aria-label="Réalisation précédente">
         <svg class="icon" aria-hidden="true"><use href="#i-arrow-right"/></svg>
@@ -230,9 +223,6 @@
       <button class="carousel-arrow carousel-arrow--next" type="button" data-carousel-next aria-label="Réalisation suivante">
         <svg class="icon" aria-hidden="true"><use href="#i-arrow-right"/></svg>
       </button>
-    </div>
-    <div class="sr__dedans">
-      <p class="sr__entre">Les sites d&rsquo;hébergement qu&rsquo;on a mis en ligne</p>
     </div>
     <div class="carousel pr__carrousel" data-carousel>
       <button class="carousel-arrow carousel-arrow--prev" type="button" data-carousel-prev aria-label="Réalisation précédente">
@@ -284,38 +274,32 @@
       </div>
       <ol class="ac__table">
         <li class="ac__carte ac__carte--1">
-          <div class="ac__fenetre"><span class="ap__barre"><i></i><i></i><i></i><b>Votre planning</b></span><img src="assets/img/application/application-planning.webp" width="1420" height="888" loading="lazy" decoding="async" alt=""></div>
-          <p class="ac__num">01</p>
+          <div class="ac__ecran"><span class="ac__num" aria-hidden="true">01</span><div class="ac__fenetre"><span class="ap__barre"><i></i><i></i><i></i><b>Votre planning</b></span><img src="assets/img/application/application-planning.webp" width="1420" height="888" loading="lazy" decoding="async" alt=""></div></div>
           <h3 class="ac__nom">Fini les doubles réservations</h3>
           <p class="ac__dit">Airbnb et Booking relus toutes les 45 minutes, les dates bloquées sur votre site.</p>
         </li>
         <li class="ac__carte ac__carte--2">
-          <div class="ac__fenetre"><span class="ap__barre"><i></i><i></i><i></i><b>Vos demandes</b></span><img src="assets/img/application/application-formulaire.webp" width="1420" height="888" loading="lazy" decoding="async" alt=""></div>
-          <p class="ac__num">02</p>
+          <div class="ac__ecran"><span class="ac__num" aria-hidden="true">02</span><div class="ac__fenetre"><span class="ap__barre"><i></i><i></i><i></i><b>Vos demandes</b></span><img src="assets/img/application/application-formulaire.webp" width="1420" height="888" loading="lazy" decoding="async" alt=""></div></div>
           <h3 class="ac__nom">En direct, sans commission</h3>
           <p class="ac__dit">Le voyageur demande ses dates chez vous. Vous validez en un clic.</p>
         </li>
         <li class="ac__carte ac__carte--3">
-          <div class="ac__fenetre"><span class="ap__barre"><i></i><i></i><i></i><b>Vos options</b></span><img src="assets/img/application/application-options.webp" width="1420" height="888" loading="lazy" decoding="async" alt=""></div>
-          <p class="ac__num">03</p>
+          <div class="ac__ecran"><span class="ac__num" aria-hidden="true">03</span><div class="ac__fenetre"><span class="ap__barre"><i></i><i></i><i></i><b>Vos options</b></span><img src="assets/img/application/application-options.webp" width="1420" height="888" loading="lazy" decoding="async" alt=""></div></div>
           <h3 class="ac__nom">Le prix se calcule tout seul</h3>
           <p class="ac__dit">Ménage, taxe de séjour, petit déjeuner&nbsp;: le total s&rsquo;affiche tout de suite.</p>
         </li>
         <li class="ac__carte ac__carte--4">
-          <div class="ac__fenetre"><span class="ap__barre"><i></i><i></i><i></i><b>Vos tarifs</b></span><img src="assets/img/application/application-tarifs.webp" width="1420" height="888" loading="lazy" decoding="async" alt=""></div>
-          <p class="ac__num">04</p>
+          <div class="ac__ecran"><span class="ac__num" aria-hidden="true">04</span><div class="ac__fenetre"><span class="ap__barre"><i></i><i></i><i></i><b>Vos tarifs</b></span><img src="assets/img/application/application-tarifs.webp" width="1420" height="888" loading="lazy" decoding="async" alt=""></div></div>
           <h3 class="ac__nom">Vos prix, changés par vous</h3>
           <p class="ac__dit">Un tarif, une date spéciale, un minimum de nuits, sans attendre personne.</p>
         </li>
         <li class="ac__carte ac__carte--5">
-          <div class="ac__fenetre"><span class="ap__barre"><i></i><i></i><i></i><b>Vos logements</b></span><img src="assets/img/application/application-logements.webp" width="1420" height="888" loading="lazy" decoding="async" alt=""></div>
-          <p class="ac__num">05</p>
+          <div class="ac__ecran"><span class="ac__num" aria-hidden="true">05</span><div class="ac__fenetre"><span class="ap__barre"><i></i><i></i><i></i><b>Vos logements</b></span><img src="assets/img/application/application-logements.webp" width="1420" height="888" loading="lazy" decoding="async" alt=""></div></div>
           <h3 class="ac__nom">Chaque chambre, bien présentée</h3>
           <p class="ac__dit">Photo, couchages, nombre de places, pour chaque chambre et chaque gîte.</p>
         </li>
         <li class="ac__carte ac__carte--6">
-          <div class="ac__fenetre"><span class="ap__barre"><i></i><i></i><i></i><b>Vos conditions</b></span><img src="assets/img/application/application-conditions.webp" width="1420" height="888" loading="lazy" decoding="async" alt=""></div>
-          <p class="ac__num">06</p>
+          <div class="ac__ecran"><span class="ac__num" aria-hidden="true">06</span><div class="ac__fenetre"><span class="ap__barre"><i></i><i></i><i></i><b>Vos conditions</b></span><img src="assets/img/application/application-conditions.webp" width="1420" height="888" loading="lazy" decoding="async" alt=""></div></div>
           <h3 class="ac__nom">Vos règles, lues avant la demande</h3>
           <p class="ac__dit">Arrivée, départ, annulation, animaux&nbsp;: tout est dit avant de réserver.</p>
         </li>
@@ -407,7 +391,7 @@
   </div>
 </footer>
 
-<script src="js/main.js?v=439" defer></script>
+<script src="js/main.js?v=440" defer></script>
 <!-- La visionneuse qui ouvrait le site d'un client dans un cadre, par-dessus
      la page, a ete retiree le 5 novembre 2026 : on ne reproduit jamais le site
      d'un client chez nous. Sa capture est un lien vers son adresse, ouvert
