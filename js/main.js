@@ -2041,7 +2041,7 @@
       + '      <span class="a1__etoiles" aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</span><b>5/5</b>'
       + '    </a>'
       + '  </div>'
-      + '  <h2 class="modale__titre">Votre diagnostic de visibilité, <span class="a1__surligne est-peint">en trente minutes</span><span class="a1__point a1__point--fin">.</span></h2>'
+      + '  <h2 class="modale__titre">Votre rendez-vous maquette, <span class="a1__surligne est-peint">en trente minutes</span><span class="a1__point a1__point--fin">.</span></h2>'
       + '  <p class="modale__gages">'
       + '    <span><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Gratuit</span>'
       + '    <span><svg class="icon" aria-hidden="true"><use href="#i-clock"/></svg>30 minutes</span>'
@@ -2103,7 +2103,7 @@
       + '    <input type="checkbox" name="botcheck" class="piege-robot" tabindex="-1" autocomplete="off" aria-hidden="true">'
       + '    <p class="rdv__pied">'
       + '      <button type="button" class="rdv__retour" data-rdv-retour="2"><svg class="icon" aria-hidden="true"><use href="#i-arrow-right"/></svg>Changer de prestation</button>'
-      + '      <button type="submit" class="a1__bouton a1__bouton--bleu">Réserver mon diagnostic<svg class="icon" aria-hidden="true"><use href="#i-arrow-right"/></svg></button>'
+      + '      <button type="submit" class="a1__bouton a1__bouton--bleu">Réserver mon rendez-vous maquette<svg class="icon" aria-hidden="true"><use href="#i-arrow-right"/></svg></button>'
       + '      <span class="rdv__dit" data-rdv-dit role="status" hidden></span>'
       + '    </p>'
       + '  </form>'
@@ -2111,7 +2111,7 @@
 
       + '<div class="rdv__fini" data-rdv-fini hidden>'
       + '  <span class="rdv__coche" aria-hidden="true"><svg class="icon"><use href="#i-check"/></svg></span>'
-      + '  <h3>C’est noté, votre diagnostic est réservé.</h3>'
+      + '  <h3>C’est noté, votre rendez-vous maquette est réservé.</h3>'
       + '  <p>Vous recevez la confirmation par e-mail d’ici une minute, avec le lien de l’appel et de quoi le déplacer si besoin.</p>'
       + '  <p class="rdv__quand"><svg class="icon" aria-hidden="true"><use href="#i-agenda"/></svg><span data-rdv-fini-quand></span></p>'
       + '</div>'
@@ -2143,7 +2143,7 @@
      Nathan et Tom, 16 novembre 2026. Trois temps dans la meme carte :
        1. l'adresse du site (obligatoire) et la fiche Google (facultative) ;
        2. un apercu flou du rapport, l'e-mail et l'accord RGPD a cocher ;
-       3. le merci, avec le bouton du diagnostic.
+       3. le merci, avec le bouton de la maquette.
      La demande part chez nous par le formulaire du site. En fond, on lance
      l'analyse du site pour joindre la note a la demande : si elle ne repond
      pas a temps, la demande part sans elle.
@@ -2192,8 +2192,8 @@
       + '<div class="au__etape au__merci" data-au-etape="3" hidden>'
       + '  <span class="au__coche-merci" aria-hidden="true"><svg class="icon"><use href="#i-check"/></svg></span>'
       + '  <h2 class="modale__titre au__titre">Merci, votre audit <span class="a1__surligne est-peint">est en route</span><span class="a1__point a1__point--fin">.</span></h2>'
-      + '  <p class="au__merci-dit">Il arrive dans votre boîte mail. Pour le lire avec nous et savoir par quoi commencer, réservez votre diagnostic.</p>'
-      + '  <p class="au__action"><a href="#rendez-vous" data-rdv-ouvrir class="a1__bouton a1__bouton--bleu">Réserver le diagnostic de mon site<svg class="icon" aria-hidden="true"><use href="#i-arrow-right"/></svg></a></p>'
+      + '  <p class="au__merci-dit">Il arrive dans votre boîte mail. Pour le lire avec nous et savoir par quoi commencer, réservez votre rendez-vous maquette.</p>'
+      + '  <p class="au__action"><a href="#rendez-vous" data-rdv-ouvrir class="a1__bouton a1__bouton--bleu">Demander ma maquette<svg class="icon" aria-hidden="true"><use href="#i-arrow-right"/></svg></a></p>'
       + '</div>'
       + '</div>';
   }
@@ -2331,7 +2331,7 @@
       + '    <ul class="tv__amain-liste" data-tv-amain></ul></div>'
       + '  <p class="tv__pied">'
       + '    <button type="button" class="a1__bouton a1__bouton--bleu" data-tv-rapport>Recevoir le rapport complet<svg class="icon" aria-hidden="true"><use href="#i-arrow-right"/></svg></button>'
-      + '    <a href="#rendez-vous" data-rdv-ouvrir class="a1__bouton" data-tv-rdv><span class="a1__bouton-points" aria-hidden="true"><i></i><i></i><i></i></span>Réserver un diagnostic<svg class="icon" aria-hidden="true"><use href="#i-arrow-right"/></svg></a>'
+      + '    <a href="#rendez-vous" data-rdv-ouvrir class="a1__bouton a1__bouton--bleu" data-tv-rdv><span class="a1__bouton-points" aria-hidden="true"><i></i><i></i><i></i></span>Demander ma maquette<svg class="icon" aria-hidden="true"><use href="#i-arrow-right"/></svg></a>'
       + '    <button type="button" class="tv__retour" data-tv-recommencer><svg class="icon" aria-hidden="true"><use href="#i-arrow-right"/></svg>Refaire un test</button>'
       + '  </p>'
       + '  <div class="tv__rapport" data-tv-boite-rapport hidden>'
@@ -2351,7 +2351,7 @@
       + '    <span class="tv__coche" aria-hidden="true"><svg class="icon"><use href="#i-check"/></svg></span>'
       + '    <h3>C’est parti, votre rapport arrive.</h3>'
       + '    <p>Vous le recevez par e-mail dans l’heure qui suit, avec chaque point détaillé et l’ordre dans lequel s’y prendre.</p>'
-      + '    <p class="tv__pied tv__pied--centre"><a href="#rendez-vous" data-rdv-ouvrir class="a1__bouton a1__bouton--bleu" data-tv-rdv>Réserver un diagnostic<svg class="icon" aria-hidden="true"><use href="#i-arrow-right"/></svg></a></p>'
+      + '    <p class="tv__pied tv__pied--centre"><a href="#rendez-vous" data-rdv-ouvrir class="a1__bouton a1__bouton--bleu" data-tv-rdv>Demander ma maquette<svg class="icon" aria-hidden="true"><use href="#i-arrow-right"/></svg></a></p>'
       + '  </div>'
       + '</div>'
       + '</div>';
@@ -2423,7 +2423,7 @@
     document.addEventListener('keydown', function (e) { if (e.key === 'Escape') ferme(); });
 
     /* --- la prise de rendez-vous, ouverte par la bulle --- */
-    var mRdv = fabrique('rdv', squeletteRdv(), 'Réserver un diagnostic');
+    var mRdv = fabrique('rdv', squeletteRdv(), 'Demander ma maquette');
     mRdv.querySelectorAll('[data-rdv]').forEach(initRdv);
 
     ouvreRendezVous = function () { ouvre(mRdv); return true; };
@@ -2448,9 +2448,9 @@
     var bulle = document.createElement('button');
     bulle.type = 'button';
     bulle.className = 'bulle-rdv';
-    bulle.setAttribute('aria-label', 'Réserver un diagnostic');
+    bulle.setAttribute('aria-label', 'Demander ma maquette');
     bulle.innerHTML = '<svg class="icon" aria-hidden="true"><use href="#i-agenda"/></svg>'
-      + '<span class="bulle-rdv__infobulle">Réserver un diagnostic</span>';
+      + '<span class="bulle-rdv__infobulle">Demander ma maquette</span>';
     bulle.addEventListener('click', function () { ouvre(mRdv); });
     document.body.appendChild(bulle);
 
@@ -3743,4 +3743,16 @@
   window.addEventListener('resize', mesure);
   window.addEventListener('load', mesure);
   mesure();
+})();
+
+
+/* =========================================================================
+   LES PLACES DU JOUR (accueil, carte OBT de la comparaison)
+   Un chiffre fixe par jour de la semaine, choisi par Nathan le 17/11/2026 :
+   lundi 3, mardi 4, mercredi 2, jeudi 5, vendredi 3, samedi 4, dimanche 5.
+   ========================================================================= */
+(function () {
+  var PAR_JOUR = [5, 3, 4, 2, 5, 3, 4]; // getDay() : 0 = dimanche
+  var n = PAR_JOUR[new Date().getDay()];
+  document.querySelectorAll('[data-places]').forEach(function (el) { el.textContent = n; });
 })();

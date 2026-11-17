@@ -3,10 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="icon" href="favicon.ico?v=438" sizes="any">
-<link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32.png?v=438">
-<link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon-16.png?v=438">
-<link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png?v=438">
+<link rel="icon" href="favicon.ico?v=439" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32.png?v=439">
+<link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon-16.png?v=439">
+<link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png?v=439">
 <title>Site internet pour gîtes, chambres d’hôtes et domaines · OBT Agency</title>
 <meta name="description" content="Gîtes, chambres d’hôtes, domaines : un site qui donne envie de séjourner et qui reçoit vos réservations en direct. Hébergé et entretenu par nous.">
 <link rel="canonical" href="https://obt-agency.fr/">
@@ -21,9 +21,9 @@
 <meta property="og:image" content="https://obt-agency.fr/assets/img/logo-obt.png">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preload" as="font" type="font/woff2" href="assets/fonts/InterVariable.woff2" crossorigin>
-<link rel="stylesheet" href="css/tokens.css?v=438">
-<link rel="stylesheet" href="css/style.css?v=438">
-<link rel="stylesheet" href="css/refonte.css?v=438">
+<link rel="stylesheet" href="css/tokens.css?v=439">
+<link rel="stylesheet" href="css/style.css?v=439">
+<link rel="stylesheet" href="css/refonte.css?v=439">
 <!-- Marque la page comme pilotée par JS : les animations d'apparition ne sont
      armées que dans ce cas, pour que le contenu reste visible sans JavaScript. -->
 <!-- La page voisine est préchargée : le changement de page est alors instantané. -->
@@ -180,7 +180,7 @@
   </nav>
 
   <div class="header-actions">
-    <a href="#rendez-vous" data-rdv-ouvrir class="btn btn--nav header-cta">Réserver un diagnostic</a>
+    <a href="#rendez-vous" data-rdv-ouvrir class="btn btn--nav header-cta">Demander ma maquette</a>
     <button class="nav-toggle" type="button" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="primary-nav">
       <svg class="icon" aria-hidden="true"><use href="#i-menu"/></svg>
     </button>
@@ -232,7 +232,7 @@
        S2, LA VIDEO. Copie conforme de la section video de l'accueil (bloc
        .a3) : meme ecran, memes cases de performance, demande de Nathan du
        5 novembre 2026 pour que les trois pages de secteur partagent le meme
-       gabarit. Un seul bouton dessous : le diagnostic. La video du secteur se posera dans l'ecran
+       gabarit. Un seul bouton dessous : la maquette. La video du secteur se posera dans l'ecran
        comme celle de l'accueil, voir le mode d'emploi en tete de .a3.
        ===================================================================== -->
   <section id="hebergements-s2" class="a3" aria-label="Notre presentation en video et nos resultats">
@@ -252,9 +252,9 @@
       </div>
 
       <p class="a3__action">
-        <a href="#rendez-vous" data-rdv-ouvrir class="a1__bouton">
+        <a href="#rendez-vous" data-rdv-ouvrir class="a1__bouton a1__bouton--bleu">
           <span class="a1__bouton-points" aria-hidden="true"><i></i><i></i><i></i></span>
-          Réserver un diagnostic
+          Demander ma maquette
           <svg class="icon" aria-hidden="true"><use href="#i-arrow-right"/></svg>
         </a>
       </p>
@@ -313,81 +313,75 @@
   </section>
 
   <!-- =====================================================================
-       S4, LA COMPARAISON. Remplace les offres (Nathan, 17 novembre 2026) :
-       faire son site seul sur une plateforme, passer par une agence
-       classique, ou venir chez nous. Aucun montant, aucun chiffre.
+       S4, LA COMPARAISON EN TROIS CARTES. Nathan, 17 novembre 2026, d'apres
+       une grille de prix qu'il a envoyee : a gauche l'auto-creation, au
+       milieu nous (la carte foncee), a droite l'agence traditionnelle. Prix
+       de depart donnes par Nathan. Le nombre de places change selon le jour
+       (js : « places du jour »). Fond clair, des ronds, pas de degrade.
        ===================================================================== -->
-  <section id="hebergements-s4" class="po po--arc cmp" data-fond="sombre" aria-labelledby="hebergements-s4-title">
-    <span class="a6__arc" aria-hidden="true">
-      <i class="a6__arc-cercle a6__arc-cercle--3"></i>
-      <i class="a6__arc-cercle a6__arc-cercle--2"></i>
-      <i class="a6__arc-cercle a6__arc-cercle--1"></i>
-    </span>
-    <span class="po__ronds" aria-hidden="true"><i></i><i></i><i></i></span>
-    <div class="po__dedans">
-      <div class="po__tete">
-        <h2 id="hebergements-s4-title" class="po__titre titre--ligne" style="--fit-l: min(60px, 5.27vw)">Faire seul, une agence ou <span class="a1__insecable"><span class="a1__surligne est-peint">nous</span><span class="a1__point a1__point--fin">.</span></span></h2>
-        <p class="cmp__sous">Trois façons d&rsquo;avoir le site de votre lieu. Voici ce que chacune vous laisse sur les bras.</p>
+  <section id="hebergements-s4" class="cf" aria-labelledby="hebergements-s4-title">
+    <span class="cf__ronds" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+    <div class="cf__dedans">
+      <div class="cf__tete">
+        <h2 id="hebergements-s4-title" class="cf__titre titre--ligne">Faire seul, une agence ou <span class="a1__insecable"><span class="a1__surligne est-peint">nous</span><span class="a1__point a1__point--fin">.</span></span></h2>
+        <p class="cf__sous">Trois façons d&rsquo;avoir le site de votre lieu. Voici ce que chacune vous laisse sur les bras.</p>
       </div>
 
-      <div class="cmp__tableau" role="table" aria-label="Comparaison : site fait seul, agence traditionnelle, OBT Agency">
-        <div class="cmp__ligne cmp__ligne--tete" role="row">
-          <span class="cmp__critere" role="columnheader"><span class="visually-hidden">Critère</span></span>
-          <span class="cmp__col cmp__col--nous" role="columnheader"><b class="cmp__marque"><img src="assets/img/logo-obt.png" width="1200" height="300" alt="OBT Agency" decoding="async"></b></span>
-          <span class="cmp__col" role="columnheader"><b>Site fait seul</b><small>Wix, Squarespace, Jimdo</small></span>
-          <span class="cmp__col" role="columnheader"><b>Agence traditionnelle</b><small>Le devis, puis le site</small></span>
-        </div>
-        <div class="cmp__ligne" role="row">
-          <span class="cmp__critere" role="rowheader">Une maquette de votre site</span>
-          <span class="cmp__case cmp__case--oui cmp__case--nous" role="cell" data-col="OBT Agency"><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span><b class="visually-hidden">oui : </b>Dès le premier rendez-vous</span></span>
-          <span class="cmp__case cmp__case--non" role="cell" data-col="Site fait seul"><svg class="icon" aria-hidden="true"><use href="#i-cross"/></svg><span><b class="visually-hidden">non : </b>Un modèle à remplir vous-même</span></span>
-          <span class="cmp__case cmp__case--mi" role="cell" data-col="Agence traditionnelle"><svg class="icon" aria-hidden="true"><use href="#i-moins"/></svg><span><b class="visually-hidden">en partie : </b>Après le devis signé</span></span>
-        </div>
-        <div class="cmp__ligne" role="row">
-          <span class="cmp__critere" role="rowheader">Application de réservation reliée au site</span>
-          <span class="cmp__case cmp__case--oui cmp__case--nous" role="cell" data-col="OBT Agency"><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span><b class="visually-hidden">oui : </b>Comprise, faite par nous</span></span>
-          <span class="cmp__case cmp__case--non" role="cell" data-col="Site fait seul"><svg class="icon" aria-hidden="true"><use href="#i-cross"/></svg><span><b class="visually-hidden">non : </b>Un module à installer et régler</span></span>
-          <span class="cmp__case cmp__case--mi" role="cell" data-col="Agence traditionnelle"><svg class="icon" aria-hidden="true"><use href="#i-moins"/></svg><span><b class="visually-hidden">en partie : </b>Rarement, ou chez un autre prestataire</span></span>
-        </div>
-        <div class="cmp__ligne" role="row">
-          <span class="cmp__critere" role="rowheader">Calendrier synchronisé avec Airbnb et Booking</span>
-          <span class="cmp__case cmp__case--oui cmp__case--nous" role="cell" data-col="OBT Agency"><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span><b class="visually-hidden">oui : </b>Pour les gîtes, sans double réservation</span></span>
-          <span class="cmp__case cmp__case--non" role="cell" data-col="Site fait seul"><svg class="icon" aria-hidden="true"><use href="#i-cross"/></svg><span><b class="visually-hidden">non : </b>À brancher vous-même</span></span>
-          <span class="cmp__case cmp__case--mi" role="cell" data-col="Agence traditionnelle"><svg class="icon" aria-hidden="true"><use href="#i-moins"/></svg><span><b class="visually-hidden">en partie : </b>Selon l&rsquo;agence</span></span>
-        </div>
-        <div class="cmp__ligne" role="row">
-          <span class="cmp__critere" role="rowheader">Réservations en direct, sans commission</span>
-          <span class="cmp__case cmp__case--oui cmp__case--nous" role="cell" data-col="OBT Agency"><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span><b class="visually-hidden">oui : </b>Le voyageur réserve chez vous</span></span>
-          <span class="cmp__case cmp__case--mi" role="cell" data-col="Site fait seul"><svg class="icon" aria-hidden="true"><use href="#i-moins"/></svg><span><b class="visually-hidden">en partie : </b>Selon les réglages que vous faites</span></span>
-          <span class="cmp__case cmp__case--mi" role="cell" data-col="Agence traditionnelle"><svg class="icon" aria-hidden="true"><use href="#i-moins"/></svg><span><b class="visually-hidden">en partie : </b>Selon l&rsquo;outil choisi</span></span>
-        </div>
-        <div class="cmp__ligne" role="row">
-          <span class="cmp__critere" role="rowheader">Hébergement, sauvegardes et mises à jour</span>
-          <span class="cmp__case cmp__case--oui cmp__case--nous" role="cell" data-col="OBT Agency"><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span><b class="visually-hidden">oui : </b>Compris, on s&rsquo;en occupe</span></span>
-          <span class="cmp__case cmp__case--mi" role="cell" data-col="Site fait seul"><svg class="icon" aria-hidden="true"><use href="#i-moins"/></svg><span><b class="visually-hidden">en partie : </b>À surveiller vous-même</span></span>
-          <span class="cmp__case cmp__case--mi" role="cell" data-col="Agence traditionnelle"><svg class="icon" aria-hidden="true"><use href="#i-moins"/></svg><span><b class="visually-hidden">en partie : </b>Souvent en supplément</span></span>
-        </div>
-        <div class="cmp__ligne" role="row">
-          <span class="cmp__critere" role="rowheader">Modifications de contenu</span>
-          <span class="cmp__case cmp__case--oui cmp__case--nous" role="cell" data-col="OBT Agency"><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span><b class="visually-hidden">oui : </b>Sur simple message</span></span>
-          <span class="cmp__case cmp__case--non" role="cell" data-col="Site fait seul"><svg class="icon" aria-hidden="true"><use href="#i-cross"/></svg><span><b class="visually-hidden">non : </b>Vous les faites, le soir</span></span>
-          <span class="cmp__case cmp__case--mi" role="cell" data-col="Agence traditionnelle"><svg class="icon" aria-hidden="true"><use href="#i-moins"/></svg><span><b class="visually-hidden">en partie : </b>Sur devis</span></span>
-        </div>
-        <div class="cmp__ligne" role="row">
-          <span class="cmp__critere" role="rowheader">Vos interlocuteurs</span>
-          <span class="cmp__case cmp__case--oui cmp__case--nous" role="cell" data-col="OBT Agency"><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span><b class="visually-hidden">oui : </b>Tom et Nathan, du début à la fin</span></span>
-          <span class="cmp__case cmp__case--non" role="cell" data-col="Site fait seul"><svg class="icon" aria-hidden="true"><use href="#i-cross"/></svg><span><b class="visually-hidden">non : </b>Un centre d&rsquo;aide en ligne</span></span>
-          <span class="cmp__case cmp__case--mi" role="cell" data-col="Agence traditionnelle"><svg class="icon" aria-hidden="true"><use href="#i-moins"/></svg><span><b class="visually-hidden">en partie : </b>Un chef de projet, qui peut changer</span></span>
-        </div>
+      <div class="cf__grille">
+        <article class="cf__carte cf__carte--seul">
+          <h3 class="cf__nom">Auto-création</h3>
+          <p class="cf__prix"><small>à partir de</small><b>50&nbsp;€</b><small>par mois</small></p>
+          <p class="cf__dit">Vous montez le site vous-même, le soir, sur Wix, Jimdo ou un outil du même genre.</p>
+          <p class="cf__eti">Ce qui manque</p>
+          <ul class="cf__liste cf__liste--absent"><li><svg class="icon" aria-hidden="true"><use href="#i-cross"/></svg><span>Rendu professionnel</span></li><li><svg class="icon" aria-hidden="true"><use href="#i-cross"/></svg><span>Mots-clés intégrés</span></li><li><svg class="icon" aria-hidden="true"><use href="#i-cross"/></svg><span>Balises méta et SEO intégrés</span></li><li><svg class="icon" aria-hidden="true"><use href="#i-cross"/></svg><span>FAQ intégrée</span></li><li><svg class="icon" aria-hidden="true"><use href="#i-cross"/></svg><span>Sécurisation du site</span></li><li><svg class="icon" aria-hidden="true"><use href="#i-cross"/></svg><span>Déclaration à Google Search Console et à Bing</span></li></ul>
+          <div class="cf__jauge cf__jauge--faible" role="img" aria-label="Tranquillité : faible"><p class="cf__jauge-tete"><span>Tranquillité</span><em>Faible</em></p><span class="cf__jauge-piste"><i style="--niveau:18%"></i></span></div>
+        </article>
+
+        <article class="cf__carte cf__carte--nous">
+          <span class="cf__carte-ronds" aria-hidden="true"><i></i><i></i><i></i></span>
+          <p class="cf__badge">Le plus choisi</p>
+          <h3 class="cf__nom"><img class="cf__logo" src="assets/img/logo-obt-clair.png" width="1200" height="300" alt="OBT Agency" decoding="async"></h3>
+          <p class="cf__prix"><small>à partir de</small><b>800&nbsp;€</b></p>
+          <p class="cf__delai">Livré en une semaine</p>
+          <p class="cf__dit">Le site de votre lieu, relié à l&rsquo;application de réservation et entretenu par nous.</p>
+          <p class="cf__action"><a href="#rendez-vous" data-rdv-ouvrir class="a1__bouton a1__bouton--bleu"><span class="a1__bouton-points" aria-hidden="true"><i></i><i></i><i></i></span>Demander ma maquette<svg class="icon" aria-hidden="true"><use href="#i-arrow-right"/></svg></a></p>
+          <p class="cf__places"><i aria-hidden="true"></i><span>Plus que <b data-places>3</b>&nbsp;places aujourd&rsquo;hui</span></p>
+          <p class="cf__garantie"><svg class="icon" aria-hidden="true"><use href="#i-shield"/></svg>Satisfait ou remboursé</p>
+          <p class="cf__eti">Tout est compris</p>
+          <ul class="cf__liste"><li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span>Version ordinateur et version mobile</span></li><li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span>Formulaire de contact créé puis testé par nous</span></li><li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span>Mise en sécurité et conformité du site</span></li><li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span>Rendez-vous de cadrage de votre activité</span></li><li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span>Référencement posé à la mise en ligne&nbsp;: mots-clés, balises, descriptions</span></li><li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span>Déclaration de votre site à <span class="a1__insecable">Google <svg class="icon icon--marque icon--google" aria-hidden="true"><use href="#i-google"/></svg></span> et à <span class="a1__insecable">Bing <svg class="icon icon--marque icon--bing" aria-hidden="true"><use href="#i-bing"/></svg></span></span></li><li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span>Hébergement, sauvegardes et mises à jour</span></li><li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span>Assistance 24&nbsp;h sur 24 et modifications de contenu</span></li><li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span>Application de gestion reliée au site, pour les hébergements</span></li></ul>
+          <div class="cf__jauge cf__jauge--totale" role="img" aria-label="Tranquillité : totale"><p class="cf__jauge-tete"><span>Tranquillité</span><em>Totale</em></p><span class="cf__jauge-piste"><i style="--niveau:100%"></i></span></div>
+        </article>
+
+        <article class="cf__carte cf__carte--agence">
+          <h3 class="cf__nom">Agence traditionnelle</h3>
+          <p class="cf__prix"><small>à partir de</small><b>2&nbsp;500&nbsp;€</b></p>
+          <p class="cf__dit">Un devis, un acompte, puis l&rsquo;attente avant de voir quoi que ce soit.</p>
+          <p class="cf__eti">Ce qui coince</p>
+          <ul class="cf__liste cf__liste--coince"><li><svg class="icon" aria-hidden="true"><use href="#i-cross"/></svg><span>Deux mois de délai, au minimum</span></li><li><svg class="icon" aria-hidden="true"><use href="#i-cross"/></svg><span>Pas d&rsquo;application de gestion</span></li><li><svg class="icon" aria-hidden="true"><use href="#i-cross"/></svg><span>Réactivité faible&nbsp;: une semaine pour une modification</span></li><li><svg class="icon" aria-hidden="true"><use href="#i-cross"/></svg><span>Chaque modification facturée en plus</span></li><li><svg class="icon" aria-hidden="true"><use href="#i-cross"/></svg><span>Hébergement et mises à jour en supplément</span></li><li><svg class="icon" aria-hidden="true"><use href="#i-cross"/></svg><span>Aucune maquette avant le devis signé</span></li></ul>
+          <div class="cf__jauge cf__jauge--moyenne" role="img" aria-label="Tranquillité : moyenne"><p class="cf__jauge-tete"><span>Tranquillité</span><em>Moyenne</em></p><span class="cf__jauge-piste"><i style="--niveau:66%"></i></span></div>
+        </article>
       </div>
 
-      <p class="cmp__action">
-        <a href="#rendez-vous" data-rdv-ouvrir class="a1__bouton a1__bouton--nuit">
-          <span class="a1__bouton-points" aria-hidden="true"><i></i><i></i><i></i></span>
-          Réserver un diagnostic
-          <svg class="icon" aria-hidden="true"><use href="#i-arrow-right"/></svg>
-        </a>
-      </p>
+      <p class="cf__note">Montants de départ. Le prix de votre site est écrit noir sur blanc au premier rendez-vous.</p>
+
+      <div class="cf__rassure">
+        <span class="cf__bouclier" aria-hidden="true"><i></i><i></i><svg class="icon"><use href="#i-shield"/></svg></span>
+        <div class="cf__rassure-texte">
+          <h3 class="cf__rassure-titre">Peur que le site ne vous plaise pas&nbsp;? C&rsquo;est notre risque, pas le vôtre.</h3>
+          <p>Vous voyez la maquette avant qu&rsquo;on construise quoi que ce soit. Si elle ne vous ressemble pas, on la reprend jusqu&rsquo;à ce qu&rsquo;elle vous ressemble. Toujours pas convaincu&nbsp;? Satisfait ou remboursé.</p>
+          <a href="#rendez-vous" data-rdv-ouvrir class="cf__lien">Une question avant&nbsp;? Réservez un appel<svg class="icon" aria-hidden="true"><use href="#i-arrow-right"/></svg></a>
+        </div>
+        <div class="cf__rassure-cote">
+          <p class="cf__rassure-sur"><svg class="icon" aria-hidden="true"><use href="#i-shield"/></svg>Aucun paiement sur le site</p>
+          <ul class="cf__pastilles">
+            <li>Satisfait ou remboursé</li>
+            <li>Site à votre nom</li>
+            <li>Maquette au premier rendez-vous</li>
+            <li>Réponse sous 24&nbsp;h ouvrées</li>
+          </ul>
+          <p class="cf__rassure-pied">Tout passe par un devis écrit, signé avec vous.</p>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -417,7 +411,7 @@
           <li class="ap__etape">
             <div class="ap__fenetre">
               <span class="ap__barre"><i></i><i></i><i></i><b>Votre planning</b></span>
-              <img class="ap__capture" src="assets/img/application/application-planning.webp" width="1420" height="888" loading="lazy" decoding="async" alt="Le planning de l’application, avec les dates déjà prises sur Airbnb et Booking">
+              <img class="ap__capture" src="assets/img/application/application-planning.webp" width="1420" height="888" loading="eager" decoding="async" alt="Le planning de l’application, avec les dates déjà prises sur Airbnb et Booking">
             </div>
             <div class="ap__texte">
               <span class="ap__num">01</span>
@@ -428,7 +422,7 @@
           <li class="ap__etape">
             <div class="ap__fenetre">
               <span class="ap__barre"><i></i><i></i><i></i><b>Vos demandes</b></span>
-              <img class="ap__capture" src="assets/img/application/application-formulaire.webp" width="1420" height="888" loading="lazy" decoding="async" alt="Les questions du formulaire de demande, réglées par le propriétaire">
+              <img class="ap__capture" src="assets/img/application/application-formulaire.webp" width="1420" height="888" loading="eager" decoding="async" alt="Les questions du formulaire de demande, réglées par le propriétaire">
             </div>
             <div class="ap__texte">
               <span class="ap__num">02</span>
@@ -439,7 +433,7 @@
           <li class="ap__etape">
             <div class="ap__fenetre">
               <span class="ap__barre"><i></i><i></i><i></i><b>Vos options</b></span>
-              <img class="ap__capture" src="assets/img/application/application-options.webp" width="1420" height="888" loading="lazy" decoding="async" alt="Les options d’un séjour : ménage, taxe de séjour, chauffage">
+              <img class="ap__capture" src="assets/img/application/application-options.webp" width="1420" height="888" loading="eager" decoding="async" alt="Les options d’un séjour : ménage, taxe de séjour, chauffage">
             </div>
             <div class="ap__texte">
               <span class="ap__num">03</span>
@@ -450,7 +444,7 @@
           <li class="ap__etape">
             <div class="ap__fenetre">
               <span class="ap__barre"><i></i><i></i><i></i><b>Vos tarifs</b></span>
-              <img class="ap__capture" src="assets/img/application/application-tarifs.webp" width="1420" height="888" loading="lazy" decoding="async" alt="L’écran des tarifs, pour changer ses prix sur les dates de son choix">
+              <img class="ap__capture" src="assets/img/application/application-tarifs.webp" width="1420" height="888" loading="eager" decoding="async" alt="L’écran des tarifs, pour changer ses prix sur les dates de son choix">
             </div>
             <div class="ap__texte">
               <span class="ap__num">04</span>
@@ -461,7 +455,7 @@
           <li class="ap__etape">
             <div class="ap__fenetre">
               <span class="ap__barre"><i></i><i></i><i></i><b>Vos logements</b></span>
-              <img class="ap__capture" src="assets/img/application/application-logements.webp" width="1420" height="888" loading="lazy" decoding="async" alt="Les logements tels que les voyageurs les voient">
+              <img class="ap__capture" src="assets/img/application/application-logements.webp" width="1420" height="888" loading="eager" decoding="async" alt="Les logements tels que les voyageurs les voient">
             </div>
             <div class="ap__texte">
               <span class="ap__num">05</span>
@@ -472,7 +466,7 @@
           <li class="ap__etape">
             <div class="ap__fenetre">
               <span class="ap__barre"><i></i><i></i><i></i><b>Vos conditions</b></span>
-              <img class="ap__capture" src="assets/img/application/application-conditions.webp" width="1420" height="888" loading="lazy" decoding="async" alt="Les conditions du séjour, écrites par le propriétaire">
+              <img class="ap__capture" src="assets/img/application/application-conditions.webp" width="1420" height="888" loading="eager" decoding="async" alt="Les conditions du séjour, écrites par le propriétaire">
             </div>
             <div class="ap__texte">
               <span class="ap__num">06</span>
@@ -484,6 +478,46 @@
           <div class="ap__avance" aria-hidden="true"><i data-parcours-barre></i></div>
         </div>
       </div>
+    </div>
+  </section>
+
+  <!-- =====================================================================
+       S6, LES CINQ PROMESSES. A la place de la methode en sept etapes,
+       d'apres une capture envoyee par Nathan le 17 novembre 2026. Tuiles de
+       couleur pleine avec des ronds, jamais de degrade.
+       ===================================================================== -->
+  <section id="hebergements-s6" class="pm" aria-labelledby="hebergements-s6-title">
+    <div class="pm__dedans">
+      <h2 id="hebergements-s6-title" class="pm__titre">Cinq promesses derrière <span class="a1__insecable"><span class="a1__surligne est-peint">chaque site</span><span class="a1__point a1__point--fin">.</span></span></h2>
+      <ul class="pm__grille">
+        <li class="pm__promesse">
+          <span class="pm__tuile pm__tuile--bleu" aria-hidden="true"><i></i><i></i><i></i><svg class="icon"><use href="#i-fenetre"/></svg></span>
+          <h3 class="pm__nom">La maquette au premier rendez-vous</h3>
+          <p class="pm__dit">Vous voyez votre site dès la première rencontre, avant de décider quoi que ce soit.</p>
+        </li>
+        <li class="pm__promesse">
+          <span class="pm__tuile pm__tuile--nuit" aria-hidden="true"><i></i><i></i><i></i><svg class="icon"><use href="#i-clock"/></svg></span>
+          <h3 class="pm__nom">Livré en une semaine</h3>
+          <p class="pm__dit">La maquette validée, votre site est en ligne dans la semaine.</p>
+        </li>
+        <li class="pm__promesse">
+          <span class="pm__tuile pm__tuile--vert" aria-hidden="true"><i></i><i></i><i></i><svg class="icon"><use href="#i-shield"/></svg></span>
+          <h3 class="pm__nom">Satisfait ou remboursé</h3>
+          <p class="pm__dit">Le site ne vous plaît pas&nbsp;? On le reprend, ou on vous rembourse.</p>
+        </li>
+        <li class="pm__promesse">
+          <span class="pm__tuile pm__tuile--jaune" aria-hidden="true"><i></i><i></i><i></i><svg class="icon"><use href="#i-star"/></svg></span>
+          <h3 class="pm__nom">Écrit à la main</h3>
+          <p class="pm__dit">Pas de texte fabriqué à la chaîne&nbsp;: chaque page parle de votre lieu.</p>
+        </li>
+        <li class="pm__promesse">
+          <span class="pm__tuile pm__tuile--ciel" aria-hidden="true"><i></i><i></i><i></i><svg class="icon"><use href="#i-maison"/></svg></span>
+          <h3 class="pm__nom">Deux interlocuteurs, du début à la fin</h3>
+          <p class="pm__dit">Tom et Nathan, les mêmes du premier rendez-vous aux mises à jour.</p>
+        </li>
+      </ul>
+      <p class="pm__action"><a href="#rendez-vous" data-rdv-ouvrir class="a1__bouton a1__bouton--bleu"><span class="a1__bouton-points" aria-hidden="true"><i></i><i></i><i></i></span>Demander ma maquette<svg class="icon" aria-hidden="true"><use href="#i-arrow-right"/></svg></a></p>
+      <p class="pm__pied">Satisfait ou remboursé</p>
     </div>
   </section>
 
@@ -618,36 +652,19 @@
   </section>
 
   <!-- =====================================================================
-       S8, LA FIN. A gauche la phrase et les boutons, a droite la carte de
-       l'offre qu'on pousse sur cette page. Aucun montant.
+       L'APPEL DE FIN. Un bandeau large, le titre a gauche, le bouton bleu a
+       droite (capture envoyee par Nathan le 17 novembre 2026). Il mene a la
+       prise de rendez-vous pour la maquette.
        ===================================================================== -->
-  <section id="hebergements-s9" class="ab-fp" data-fond="sombre" aria-labelledby="hebergements-s9-title">
-    <span class="ab-fp__ronds" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
-
-    <div class="ab-fp__dedans">
-      <div>
-        <h2 id="hebergements-s9-title" class="ab-fp__titre">Le voyageur hésite entre trois adresses.<br>
-          <span class="ab-fp__clair">Que ce soit la vôtre</span><span class="a1__point a1__point--fin">.</span></h2>
-        <p class="ab-fp__sous">On regarde votre lieu, on vous dit ce qu&rsquo;il faut, vous repartez avec le prix écrit.</p>
-        <p class="ab-fp__action">
-          <a href="#rendez-vous" data-rdv-ouvrir class="a1__bouton a1__bouton--bleu">
-            <span class="a1__bouton-points" aria-hidden="true"><i></i><i></i><i></i></span>
-            Réserver le diagnostic de mon site
-            <svg class="icon" aria-hidden="true"><use href="#i-arrow-right"/></svg>
-          </a>
-        </p>
-      </div>
-
-      <div class="ab-fp__carte">
-        <p class="ab-fp__eti">Le plus choisi</p>
-        <p class="ab-fp__nom">Le site complet</p>
-        <ul class="ab-fp__liste">
-          <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Version ordinateur et version mobile</li>
-          <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Reliée à votre application de gestion</li>
-          <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Hébergement, sauvegardes et mises à jour</li>
-          <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Modifications de contenu sur simple message</li>
-        </ul>
-        <p class="ab-fp__pied">Le site est à votre nom depuis le premier jour. <a href="#hebergements-s4">Voir la comparaison</a>.</p>
+  <section id="hebergements-s9" class="cta" aria-labelledby="hebergements-s9-titre">
+    <div class="cta__dedans">
+      <div class="cta__bande">
+        <span class="cta__ronds" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+        <div class="cta__texte">
+          <h2 id="hebergements-s9-titre" class="cta__titre">Le voyageur hésite entre trois adresses. Que ce soit la vôtre.</h2>
+          <p class="cta__sous">On regarde votre lieu ensemble et on vous montre la maquette de votre site. Vous repartez avec le prix écrit.</p>
+        </div>
+        <p class="cta__action"><a href="#rendez-vous" data-rdv-ouvrir class="a1__bouton a1__bouton--bleu"><span class="a1__bouton-points" aria-hidden="true"><i></i><i></i><i></i></span>Réserver mon rendez-vous maquette<svg class="icon" aria-hidden="true"><use href="#i-arrow-right"/></svg></a></p>
       </div>
     </div>
   </section>
@@ -688,14 +705,14 @@
         <ul>
           <li><a href="index.html">Accueil</a></li>
           <li><a href="resultats.html">Résultats</a></li>
-          <li><a href="#rendez-vous" data-rdv-ouvrir>Réserver un diagnostic</a></li>
+          <li><a href="#rendez-vous" data-rdv-ouvrir>Demander ma maquette</a></li>
         </ul>
       </nav>
 
       <div class="footer-col" id="rendez-vous">
         <p class="footer-col-title">Coordonnées</p>
         <ul>
-          <li><a href="#rendez-vous" data-rdv-ouvrir>Réserver un diagnostic en ligne</a></li>
+          <li><a href="#rendez-vous" data-rdv-ouvrir>Réserver un rendez-vous maquette</a></li>
           <li><a href="mailto:contact@obt-agency.fr">contact@obt-agency.fr</a></li>
           <li class="footer-col-plain">Partout en France, à distance</li>
           <li class="footer-col-plain">Réponse sous 24 h ouvrées</li>
@@ -718,7 +735,7 @@
   </div>
 </footer>
 
-<script src="js/main.js?v=438" defer></script>
+<script src="js/main.js?v=439" defer></script>
 <!-- Barre d'appel flottante, commune aux cinq pages. Elle reste accessible où
      qu'on soit dans la page : c'est le raccourci vers la prise de contact. -->
 
