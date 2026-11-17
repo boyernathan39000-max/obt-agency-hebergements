@@ -3657,22 +3657,27 @@
   var barre = bloc.querySelector('[data-parcours-barre]');
   var grand = window.matchMedia('(min-width: 900px)');
   var calme = window.matchMedia('(prefers-reduced-motion: reduce)');
-  var trajet = 0;
+  var trajet = 0, arret = 0;
 
   function mesure() {
     var epingle = grand.matches && !calme.matches;
     bloc.classList.toggle('ap--epingle', epingle);
     rail.style.transform = '';
-    if (!epingle) { bloc.style.height = ''; trajet = 0; return; }
+    if (!epingle) { bloc.style.height = ''; scene.style.top = ''; trajet = 0; return; }
     trajet = Math.max(0, rail.scrollWidth - scene.clientWidth);
-    bloc.style.height = (window.innerHeight + trajet) + 'px';
+    // La scene ne prend que la hauteur de ses ecrans : elle s'epingle au
+    // milieu de la fenetre, sans grand vide sous le sous-titre.
+    var h = scene.offsetHeight;
+    arret = Math.max(76, Math.round((window.innerHeight - h) / 2 + 30));
+    scene.style.top = arret + 'px';
+    bloc.style.height = (h + trajet) + 'px';
     avance();
   }
   function avance() {
     var p;
     if (bloc.classList.contains('ap--epingle')) {
       var haut = bloc.getBoundingClientRect().top;
-      p = trajet ? Math.min(1, Math.max(0, -haut / trajet)) : 0;
+      p = trajet ? Math.min(1, Math.max(0, (arret - haut) / trajet)) : 0;
       rail.style.transform = 'translate3d(' + (-p * trajet).toFixed(1) + 'px,0,0)';
     } else {
       var max = scene.scrollWidth - scene.clientWidth;
@@ -3684,6 +3689,58 @@
   scene.addEventListener('scroll', avance, { passive: true });
   window.addEventListener('resize', mesure);
   if (grand.addEventListener) { grand.addEventListener('change', mesure); calme.addEventListener('change', mesure); }
+  window.addEventListener('load', mesure);
+  mesure();
+})();
+
+
+/* =========================================================================
+   LES RONDS QUI REMONTENT
+   Nathan a aime le rond qui remonte a la fin du parcours de l'application
+   (17 novembre 2026) : on donne ce mouvement aux ronds de chaque section.
+   Pendant que la section traverse l'ecran, ses ronds montent un peu plus
+   vite que le texte, chacun a sa vitesse. Un rond ne sort jamais de sa
+   section : son trajet est borne par la place qu'il a en haut et en bas
+   (regle « ronds jamais coupes »). Rien si le visiteur demande moins
+   d'animations.
+   ========================================================================= */
+(function () {
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  var AMPLEUR = [90, 50, 130, 70, 110];
+  var ronds = [];
+  document.querySelectorAll('main > section > [class*="__ronds"]').forEach(function (boite) {
+    var section = boite.parentElement;
+    if (section.querySelector('[data-parcours]')) return; // le parcours a deja le sien
+    Array.prototype.forEach.call(boite.children, function (rond, k) {
+      ronds.push({ el: rond, section: section, amp: AMPLEUR[k % AMPLEUR.length], haut: 0, bas: 0 });
+    });
+  });
+  if (!ronds.length) return;
+
+  function mesure() {
+    ronds.forEach(function (r) {
+      r.el.style.translate = '';
+      var s = r.section.getBoundingClientRect();
+      var b = r.el.getBoundingClientRect();
+      if (!b.height || getComputedStyle(r.el).display === 'none') { r.haut = r.bas = 0; return; }
+      r.haut = Math.max(0, Math.min(r.amp, b.top - s.top));
+      r.bas = Math.max(0, Math.min(r.amp, s.bottom - b.bottom));
+    });
+    bouge();
+  }
+  function bouge() {
+    var vh = window.innerHeight;
+    ronds.forEach(function (r) {
+      if (!r.haut && !r.bas) return;
+      var s = r.section.getBoundingClientRect();
+      if (s.bottom < -200 || s.top > vh + 200) return;
+      var p = Math.min(1, Math.max(0, (vh - s.top) / (vh + s.height)));
+      var y = r.bas - p * (r.bas + r.haut);
+      r.el.style.translate = '0 ' + y.toFixed(1) + 'px';
+    });
+  }
+  window.addEventListener('scroll', bouge, { passive: true });
+  window.addEventListener('resize', mesure);
   window.addEventListener('load', mesure);
   mesure();
 })();

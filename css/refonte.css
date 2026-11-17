@@ -7966,3 +7966,9 @@ main .ex-chap > .ex-tableau-cadre + p { margin-top: 18px; }
 .apb__action { margin: 6px 0 0; display: flex; }
 .apb__fenetre { border-radius: 16px; overflow: hidden; background: #fff; box-shadow: 0 30px 60px -30px rgba(0, 0, 0, .7); }
 .apb__fenetre img { display: block; width: 100%; height: auto; }
+/* Le parcours epingle : la scene garde sa hauteur, le JavaScript la pose au
+   milieu de la fenetre. Moins de vide sous le sous-titre. Nathan, 17/11/2026. */
+.ap--epingle .ap__scene { height: auto; padding-top: 10px; display: block; }
+#hebergements-s5 .sr__tete { margin-bottom: 0; }
+#hebergements-s5 .ap { margin-top: clamp(18px, 2.2vw, 28px); }
+.ap--epingle .ap__avance { margin-top: 22px; }
