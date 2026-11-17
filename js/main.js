@@ -3643,7 +3643,7 @@
 })();
 
 /* =========================================================================
-   LE PARCOURS DE L'APPLICATION (hebergements.html, S5)
+   LE PARCOURS DE L'APPLICATION (accueil, section S5)
    Sur grand ecran, la scene reste epinglee et le rang des six ecrans glisse
    de droite a gauche au rythme du defilement : un pixel descendu, un pixel
    de trajet. Au telephone et si le visiteur demande moins d'animations, on

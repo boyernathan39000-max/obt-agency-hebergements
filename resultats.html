@@ -3,10 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="icon" href="favicon.ico?v=437" sizes="any">
-<link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32.png?v=437">
-<link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon-16.png?v=437">
-<link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png?v=437">
+<link rel="icon" href="favicon.ico?v=438" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32.png?v=438">
+<link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon-16.png?v=438">
+<link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png?v=438">
 <title>Résultats clients, positions et appels · OBT Agency</title>
 <meta name="description" content="Les sites internet conçus et livrés par OBT Agency pour ses clients.">
 <link rel="canonical" href="https://obt-agency.fr/resultats.html">
@@ -21,12 +21,11 @@
 <meta property="og:image" content="https://obt-agency.fr/assets/img/logo-obt.png">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preload" as="font" type="font/woff2" href="assets/fonts/InterVariable.woff2" crossorigin>
-<link rel="stylesheet" href="css/tokens.css?v=437">
-<link rel="stylesheet" href="css/style.css?v=437">
-<link rel="stylesheet" href="css/refonte.css?v=437">
+<link rel="stylesheet" href="css/tokens.css?v=438">
+<link rel="stylesheet" href="css/style.css?v=438">
+<link rel="stylesheet" href="css/refonte.css?v=438">
 <!-- Les pages voisines sont préchargées : le changement de page est instantané. -->
 <link rel="prefetch" href="index.html" as="document">
-<link rel="prefetch" href="hebergements.html" as="document">
 <!-- Marque la page comme pilotée par JS : les animations d'apparition ne sont
      armées que dans ce cas, pour que le contenu reste visible sans JavaScript. -->
 <script>(function () {
@@ -95,24 +94,7 @@
 
   <nav class="nav" id="primary-nav" aria-label="Navigation principale">
     <ul class="nav-list">
-      <li class="nav-produit nav-produit--simple" data-nav-produit>
-        <button class="nav-produit__bouton" type="button" aria-expanded="false" aria-controls="volet-secteur">
-          Nos secteurs
-          <svg class="icon nav-produit__fleche" aria-hidden="true"><use href="#i-arrow-up"/></svg>
-        </button>
-        <div class="nav-produit__panneau nav-produit__panneau--simple" id="volet-secteur" hidden>
-          <ul class="nav-produit__liste">
-            <li><a href="hebergements.html" data-secteur="hebergements">
-              <span class="nav-produit__icone"><svg class="icon" aria-hidden="true"><use href="#i-maison"/></svg></span>
-              <span class="nav-produit__texte"><strong>Hébergements</strong><small>Gîtes, domaines, chambres d&rsquo;hôtes, hôtels</small></span>
-            </a></li>
-            <li><a href="autre.html" data-secteur="autre">
-              <span class="nav-produit__icone"><svg class="icon" aria-hidden="true"><use href="#i-etincelle"/></svg></span>
-              <span class="nav-produit__texte"><strong>Autre</strong><small>Commerces, professions libérales, services</small></span>
-            </a></li>
-          </ul>
-        </div>
-      </li>
+      <li><a href="index.html">Accueil</a></li>
       <li class="nav-produit nav-produit--simple" data-nav-produit>
         <button class="nav-produit__bouton" type="button" aria-expanded="false" aria-controls="volet-expertise">
           Nos expertises
@@ -143,7 +125,7 @@
           </ul>
         </div>
       </li>
-      <li><a href="blog.html">Blog</a></li>
+      <li><a href="resultats.html" aria-current="page">Résultats</a></li>
     </ul>
   </nav>
 
@@ -186,9 +168,9 @@
       <p class="a1__sous">Les relevés sortent des comptes de nos clients&nbsp;: Search Console, Analytics, la fiche Google. Avant notre arrivée, puis mois après mois.</p>
 
       <p class="a1__action">
-        <a href="test-visibilite.html" class="a1__bouton">
+        <a href="#rendez-vous" data-rdv-ouvrir class="a1__bouton">
           <span class="a1__bouton-points" aria-hidden="true"><i></i><i></i><i></i></span>
-          Faire un test de visibilité
+          Réserver un diagnostic
           <svg class="icon" aria-hidden="true"><use href="#i-arrow-right"/></svg>
         </a>
       </p>
@@ -511,7 +493,7 @@
             <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Des réservations en direct, sans commission</li>
             <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Le prix du séjour calculé tout seul, vos tarifs changés par vous</li>
           </ul>
-          <p class="apb__action"><a href="hebergements.html#hebergements-s5" class="a1__bouton a1__bouton--bleu">Découvrir l&rsquo;application<svg class="icon" aria-hidden="true"><use href="#i-arrow-right"/></svg></a></p>
+          <p class="apb__action"><a href="index.html#hebergements-s5" class="a1__bouton a1__bouton--bleu">Découvrir l&rsquo;application<svg class="icon" aria-hidden="true"><use href="#i-arrow-right"/></svg></a></p>
         </div>
         <div class="apb__fenetre" aria-hidden="true">
           <span class="ap__barre"><i></i><i></i><i></i><b>Votre planning</b></span>
@@ -542,12 +524,8 @@
         <h2 id="resultats-s4-title" class="a11__titre titre--deux" style="--fit-l: min(60px, 6.81vw)"><span class="titre__ligne">Ces relevés sortent</span><br><span class="titre__ligne">de comptes comme le vôtre.</span><br><span class="titre__ligne"><span class="a11__clair">Le prochain peut être le vôtre</span><span class="a1__point a1__point--fin">.</span></span></h2>
 
         <p class="a11__action">
-          <a href="test-visibilite.html" class="a11__bouton">
+          <a href="#rendez-vous" data-rdv-ouvrir class="a11__bouton">
             <span class="a1__bouton-points" aria-hidden="true"><i></i><i></i><i></i></span>
-            Faire un test de visibilité
-            <svg class="icon" aria-hidden="true"><use href="#i-arrow-right"/></svg>
-          </a>
-          <a href="#rendez-vous" data-rdv-ouvrir class="a11__bouton a11__bouton--clair">
             Réserver un diagnostic
             <svg class="icon" aria-hidden="true"><use href="#i-arrow-right"/></svg>
           </a>
@@ -592,7 +570,6 @@
         <ul>
           <li><a href="index.html">Accueil</a></li>
           <li><a href="resultats.html">Résultats</a></li>
-          <li><a href="blog.html">Blog</a></li>
           <li><a href="#rendez-vous" data-rdv-ouvrir>Réserver un diagnostic</a></li>
         </ul>
       </nav>
@@ -623,7 +600,7 @@
   </div>
 </footer>
 
-<script src="js/main.js?v=437" defer></script>
+<script src="js/main.js?v=438" defer></script>
 <!-- La visionneuse qui ouvrait le site d'un client dans un cadre, par-dessus
      la page, a ete retiree le 5 novembre 2026 : on ne reproduit jamais le site
      d'un client chez nous. Sa capture est un lien vers son adresse, ouvert

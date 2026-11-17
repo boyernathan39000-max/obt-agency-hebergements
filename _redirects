@@ -30,16 +30,16 @@
 
 # Site hebergements, 16 novembre 2026 : les pages de services et la page
 # Artisans sont retirees. Elles menent a la page Hebergements.
-/pack.html   /hebergements.html   301
-/pack   /hebergements.html   301
-/site-internet.html   /hebergements.html   301
-/site-internet   /hebergements.html   301
-/identite-visuelle.html   /hebergements.html   301
-/identite-visuelle   /hebergements.html   301
-/automatisation-ia.html   /hebergements.html   301
-/automatisation-ia   /hebergements.html   301
-/artisans-btp.html   /hebergements.html   301
-/artisans-btp   /hebergements.html   301
+/pack.html   /   301
+/pack   /   301
+/site-internet.html   /   301
+/site-internet   /   301
+/identite-visuelle.html   /   301
+/identite-visuelle   /   301
+/automatisation-ia.html   /   301
+/automatisation-ia   /   301
+/artisans-btp.html   /   301
+/artisans-btp   /   301
 /mots-cles.html   /seo.html   301
 /mots-cles   /seo.html   301
 /backlinks.html   /seo.html   301
@@ -48,3 +48,15 @@
 /contenus   /seo.html   301
 /fiche-google.html   /seo.html   301
 /fiche-google   /seo.html   301
+
+# Site hebergements, 17 novembre 2026 : la page Hebergements devient
+# l'accueil. Les pages de secteur, le blog et le test de visibilite sont
+# retires ; leurs adresses menent a l'accueil.
+/hebergements.html   /   301
+/hebergements   /   301
+/autre.html   /   301
+/autre   /   301
+/blog.html   /   301
+/blog   /   301
+/test-visibilite.html   /#rendez-vous   301
+/test-visibilite   /#rendez-vous   301

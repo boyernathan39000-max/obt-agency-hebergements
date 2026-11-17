@@ -3,31 +3,31 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="icon" href="favicon.ico?v=437" sizes="any">
-<link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32.png?v=437">
-<link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon-16.png?v=437">
-<link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png?v=437">
-<title>Site internet et réservations pour gîtes et domaines · OBT Agency</title>
-<meta name="description" content="Création de sites pour gîtes, chambres d’hôtes, domaines et lieux de réception, avec notre application de réservation reliée à Airbnb et Booking.">
+<link rel="icon" href="favicon.ico?v=438" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32.png?v=438">
+<link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon-16.png?v=438">
+<link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png?v=438">
+<title>Site internet pour gîtes, chambres d’hôtes et domaines · OBT Agency</title>
+<meta name="description" content="Gîtes, chambres d’hôtes, domaines : un site qui donne envie de séjourner et qui reçoit vos réservations en direct. Hébergé et entretenu par nous.">
 <link rel="canonical" href="https://obt-agency.fr/">
 <!-- Partage : ce qui s'affiche quand l'adresse est collee dans un
      message, un reseau social ou une messagerie. -->
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="OBT Agency">
 <meta property="og:locale" content="fr_FR">
-<meta property="og:title" content="Site internet et réservations pour gîtes et domaines · OBT Agency">
-<meta property="og:description" content="Création de sites pour gîtes, chambres d’hôtes, domaines et lieux de réception, avec notre application de réservation reliée à Airbnb et Booking.">
+<meta property="og:title" content="Site internet pour gîtes, chambres d’hôtes et domaines · OBT Agency">
+<meta property="og:description" content="Gîtes, chambres d’hôtes, domaines : un site qui donne envie de séjourner et qui reçoit vos réservations en direct. Hébergé et entretenu par nous.">
 <meta property="og:url" content="https://obt-agency.fr/">
 <meta property="og:image" content="https://obt-agency.fr/assets/img/logo-obt.png">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preload" as="font" type="font/woff2" href="assets/fonts/InterVariable.woff2" crossorigin>
-<link rel="stylesheet" href="css/tokens.css?v=437">
-<link rel="stylesheet" href="css/style.css?v=437">
-<link rel="stylesheet" href="css/refonte.css?v=437">
+<link rel="stylesheet" href="css/tokens.css?v=438">
+<link rel="stylesheet" href="css/style.css?v=438">
+<link rel="stylesheet" href="css/refonte.css?v=438">
 <!-- Marque la page comme pilotée par JS : les animations d'apparition ne sont
      armées que dans ce cas, pour que le contenu reste visible sans JavaScript. -->
 <!-- La page voisine est préchargée : le changement de page est alors instantané. -->
-<link rel="prefetch" href="hebergements.html" as="document">
+<link rel="prefetch" href="#rendez-vous" data-rdv-ouvrir as="document">
 <link rel="prefetch" href="#rendez-vous" data-rdv-ouvrir as="document">
 <script>(function () {
   /* La seule chose que ce script fait encore : signaler que JavaScript
@@ -69,12 +69,16 @@
     "knowsLanguage": "fr"
   },
   {
-    "@type": "WebSite",
-    "@id": "https://obt-agency.fr/#site",
-    "url": "https://obt-agency.fr/",
-    "name": "OBT Agency",
-    "inLanguage": "fr-FR",
-    "publisher": { "@id": "https://obt-agency.fr/#entreprise" }
+    "@type": "OfferCatalog",
+    "@id": "https://obt-agency.fr/services.html#catalogue",
+    "name": "Prestations OBT Agency",
+    "provider": { "@id": "https://obt-agency.fr/#entreprise" },
+    "itemListElement": [
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Création et refonte de site web", "serviceType": "Création de site internet" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Création et mise à niveau de fiche Google Business", "serviceType": "Référencement local" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Identité visuelle et charte graphique", "serviceType": "Design graphique" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Automatisation IA et développement sur mesure", "serviceType": "Développement logiciel" } }
+    ]
   }
   ]
 }
@@ -86,45 +90,41 @@
 
 <!-- Sprite d'icônes SVG, inline pour fonctionner en file:// sans requête réseau -->
 <svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
-  <symbol id="i-arrow-right" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
-  <symbol id="i-arrow-up" viewBox="0 0 24 24"><path d="M12 19V5M6 11l6-6 6 6"/></symbol>
-  <symbol id="i-google" viewBox="0 0 48 48" stroke="none"><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/><path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/></symbol>
-  <symbol id="i-maps" viewBox="0 0 24 24" stroke="none"><path fill="#34A853" d="M4.2 15.6 8.6 10l2.6 3.1-4.3 7.4a2.1 2.1 0 0 1-2.8.8 2.1 2.1 0 0 1-.8-2.8z"/><path fill="#FBBC04" d="m8.6 10-4.4 5.6-1.1-2A9 9 0 0 1 2 9.1c0-1.1.2-2.1.6-3z"/><path fill="#4285F4" d="M19.6 11.6a9 9 0 0 1-1 2.2l-4.1 6.7a2.1 2.1 0 0 1-3.6 0l-1.7-2.9 5-8.5z"/><path fill="#1A73E8" d="M11 .4a9 9 0 0 1 8.6 11.2l-5.4-2.5-.5-.9A3 3 0 0 0 9.3 11L2.6 6.1A9 9 0 0 1 11 .4z"/><circle fill="#EA4335" cx="11" cy="9.4" r="3"/></symbol>
   <symbol id="i-claude" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="m4.7144 15.9555 4.7174-2.6471.079-.2307-.079-.1275h-.2307l-.7893-.0486-2.6956-.0729-2.3375-.0971-2.2646-.1214-.5707-.1215-.5343-.7042.0546-.3522.4797-.3218.686.0608 1.5179.1032 2.2767.1578 1.6514.0972 2.4468.255h.3886l.0546-.1579-.1336-.0971-.1032-.0972L6.973 9.8356l-2.55-1.6879-1.3356-.9714-.7225-.4918-.3643-.4614-.1578-1.0078.6557-.7225.8803.0607.2246.0607.8925.686 1.9064 1.4754 2.4893 1.8336.3643.3035.1457-.1032.0182-.0728-.164-.2733-1.3539-2.4467-1.445-2.4893-.6435-1.032-.17-.6194c-.0607-.255-.1032-.4674-.1032-.7285L6.287.1335 6.6997 0l.9957.1336.419.3642.6192 1.4147 1.0018 2.2282 1.5543 3.0296.4553.8985.2429.8318.091.255h.1579v-.1457l.1275-1.706.2368-2.0947.2307-2.6957.0789-.7589.3764-.9107.7468-.4918.5828.2793.4797.686-.0668.4433-.2853 1.8517-.5586 2.9021-.3643 1.9429h.2125l.2429-.2429.9835-1.3053 1.6514-2.0643.7286-.8196.85-.9046.5464-.4311h1.0321l.759 1.1293-.34 1.1657-1.0625 1.3478-.8804 1.1414-1.2628 1.7-.7893 1.36.0729.1093.1882-.0183 2.8535-.607 1.5421-.2794 1.8396-.3157.8318.3886.091.3946-.3278.8075-1.967.4857-2.3072.4614-3.4364.8136-.0425.0304.0486.0607 1.5482.1457.6618.0364h1.621l3.0175.2247.7892.522.4736.6376-.079.4857-1.2142.6193-1.6393-.3886-3.825-.9107-1.3113-.3279h-.1822v.1093l1.0929 1.0686 2.0035 1.8092 2.5075 2.3314.1275.5768-.3218.4554-.34-.0486-2.2039-1.6575-.85-.7468-1.9246-1.621h-.1275v.17l.4432.6496 2.3436 3.5214.1214 1.0807-.17.3521-.6071.2125-.6679-.1214-1.3721-1.9246L14.38 17.959l-1.1414-1.9428-.1397.079-.674 7.2552-.3156.3703-.7286.2793-.6071-.4614-.3218-.7468.3218-1.4753.3886-1.9246.3157-1.53.2853-1.9004.17-.6314-.0121-.0425-.1397.0182-1.4328 1.9672-2.1796 2.9446-1.7243 1.8456-.4128.164-.7164-.3704.0667-.6618.4008-.5889 2.386-3.0357 1.4389-1.882.929-1.0868-.0062-.1579h-.0546l-6.3385 4.1164-1.1293.1457-.4857-.4554.0608-.7467.2307-.2429 1.9064-1.3114Z"/></symbol><symbol id="i-chatgpt" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M22.2819 9.8211a5.9847 5.9847 0 0 0-.5157-4.9108 6.0462 6.0462 0 0 0-6.5098-2.9A6.0651 6.0651 0 0 0 4.9807 4.1818a5.9847 5.9847 0 0 0-3.9977 2.9 6.0462 6.0462 0 0 0 .7427 7.0966 5.98 5.98 0 0 0 .511 4.9107 6.051 6.051 0 0 0 6.5146 2.9001A5.9847 5.9847 0 0 0 13.2599 24a6.0557 6.0557 0 0 0 5.7718-4.2058 5.9894 5.9894 0 0 0 3.9977-2.9001 6.0557 6.0557 0 0 0-.7475-7.0729zm-9.022 12.6081a4.4755 4.4755 0 0 1-2.8764-1.0408l.1419-.0804 4.7783-2.7582a.7948.7948 0 0 0 .3927-.6813v-6.7369l2.02 1.1686a.071.071 0 0 1 .038.052v5.5826a4.504 4.504 0 0 1-4.4945 4.4944zm-9.6607-4.1254a4.4708 4.4708 0 0 1-.5346-3.0137l.142.0852 4.783 2.7582a.7712.7712 0 0 0 .7806 0l5.8428-3.3685v2.3324a.0804.0804 0 0 1-.0332.0615L9.74 19.9502a4.4992 4.4992 0 0 1-6.1408-1.6464zM2.3408 7.8956a4.485 4.485 0 0 1 2.3655-1.9728V11.6a.7664.7664 0 0 0 .3879.6765l5.8144 3.3543-2.0201 1.1685a.0757.0757 0 0 1-.071 0l-4.8303-2.7865A4.504 4.504 0 0 1 2.3408 7.872zm16.5963 3.8558L13.1038 8.364 15.1192 7.2a.0757.0757 0 0 1 .071 0l4.8303 2.7913a4.4944 4.4944 0 0 1-.6765 8.1042v-5.6772a.79.79 0 0 0-.407-.667zm2.0107-3.0231l-.142-.0852-4.7735-2.7818a.7759.7759 0 0 0-.7854 0L9.409 9.2297V6.8974a.0662.0662 0 0 1 .0284-.0615l4.8303-2.7866a4.4992 4.4992 0 0 1 6.6802 4.66zM8.3065 12.863l-2.02-1.1638a.0804.0804 0 0 1-.038-.0567V6.0742a4.4992 4.4992 0 0 1 7.3757-3.4537l-.142.0805L8.704 5.459a.7948.7948 0 0 0-.3927.6813zm1.0976-2.3654l2.602-1.4998 2.6069 1.4998v2.9994l-2.5974 1.4997-2.6067-1.4997Z"/></symbol>
   <symbol id="i-gemini" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M11.04 19.32Q12 21.51 12 24q0-2.49.93-4.68.96-2.19 2.58-3.81t3.81-2.55Q21.51 12 24 12q-2.49 0-4.68-.93a12.3 12.3 0 0 1-3.81-2.58 12.3 12.3 0 0 1-2.58-3.81Q12 2.49 12 0q0 2.49-.96 4.68-.93 2.19-2.55 3.81a12.3 12.3 0 0 1-3.81 2.58Q2.49 12 0 12q2.49 0 4.68.96 2.19.93 3.81 2.55t2.55 3.81"/></symbol>
   <symbol id="i-perplexity" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M22.3977 7.0896h-2.3106V.0676l-7.5094 6.3542V.1577h-1.1554v6.1966L4.4904 0v7.0896H1.6023v10.3976h2.8882V24l6.932-6.3591v6.2005h1.1554v-6.0469l6.9318 6.1807v-6.4879h2.8882V7.0896zm-3.4657-4.531v4.531h-5.355l5.355-4.531zm-13.2862.0676 4.8691 4.4634H5.6458V2.6262zM2.7576 16.332V8.245h7.8476l-6.1149 6.1147v1.9723H2.7576zm2.8882 5.0404v-3.8852h.0001v-2.6488l5.7763-5.7764v7.0111l-5.7764 5.2993zm12.7086.0248-5.7766-5.1509V9.0618l5.7766 5.7766v6.5588zm2.8882-5.0652h-1.733v-1.9723L13.3948 8.245h7.8478v8.087z"/></symbol>
-  <symbol id="i-bing" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M5 2.2 9.7 3.9v12.4l5.8-3.3-2.8-1.3-1.8-4.5 8.1 2.9v4.6L9.7 21.8 5 19.2z"/></symbol>
+  <symbol id="i-arrow-right" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+  <symbol id="i-arrow-up" viewBox="0 0 24 24"><path d="M12 19V5M6 11l6-6 6 6"/></symbol>
+  <symbol id="i-google" viewBox="0 0 48 48" stroke="none"><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/><path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/></symbol>
+    <symbol id="i-bing" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M5 2.2 9.7 3.9v12.4l5.8-3.3-2.8-1.3-1.8-4.5 8.1 2.9v4.6L9.7 21.8 5 19.2z"/></symbol>
   <symbol id="i-recherche" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></symbol>
   <symbol id="i-lien" viewBox="0 0 24 24"><path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 1 0-5.7-5.7l-1.5 1.5"/><path d="M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 1 0 5.7 5.7l1.5-1.5"/></symbol>
   <symbol id="i-document" viewBox="0 0 24 24"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h4"/></symbol>
   <symbol id="i-fenetre" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M7 6.5h.01M10 6.5h.01"/></symbol>
   <symbol id="i-etincelle" viewBox="0 0 24 24"><path d="M12 3l1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9z"/><path d="M18 15l.8 2.2L21 18l-2.2.8L18 21l-.8-2.2L15 18l2.2-.8z"/></symbol>
   <symbol id="i-cible" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="3.5"/><path d="M12 1v3M12 20v3M1 12h3M20 12h3"/></symbol>
+  <symbol id="i-maps" viewBox="0 0 24 24" stroke="none"><path fill="#34A853" d="M4.2 15.6 8.6 10l2.6 3.1-4.3 7.4a2.1 2.1 0 0 1-2.8.8 2.1 2.1 0 0 1-.8-2.8z"/><path fill="#FBBC04" d="m8.6 10-4.4 5.6-1.1-2A9 9 0 0 1 2 9.1c0-1.1.2-2.1.6-3z"/><path fill="#4285F4" d="M19.6 11.6a9 9 0 0 1-1 2.2l-4.1 6.7a2.1 2.1 0 0 1-3.6 0l-1.7-2.9 5-8.5z"/><path fill="#1A73E8" d="M11 .4a9 9 0 0 1 8.6 11.2l-5.4-2.5-.5-.9A3 3 0 0 0 9.3 11L2.6 6.1A9 9 0 0 1 11 .4z"/><circle fill="#EA4335" cx="11" cy="9.4" r="3"/></symbol>
   <symbol id="i-star" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M12 2.5l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.8l-6.1 3.3 1.4-6.8-5.1-4.7 6.9-.8L12 2.5z"/></symbol>
-  <symbol id="i-sparkle" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M12 1.5l1.5 9 9 1.5-9 1.5-1.5 9-1.5-9-9-1.5 9-1.5z"/></symbol>
   <symbol id="i-badge" viewBox="0 0 24 24"><circle cx="12" cy="9" r="6"/><path d="M9 14l-2 7 5-2.5L17 21l-2-7"/></symbol>
   <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></symbol>
-  <symbol id="i-droplet" viewBox="0 0 24 24"><path d="M12 3s6 6.5 6 11a6 6 0 11-12 0c0-4.5 6-11 6-11z"/></symbol>
-  <symbol id="i-thermometer" viewBox="0 0 24 24"><path d="M12 14.5V5a2 2 0 10-4 0v9.5a4 4 0 104 0z"/></symbol>
   <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6l7-3z"/><path d="M9 12l2 2 4-4"/></symbol>
   <symbol id="i-gauge" viewBox="0 0 24 24"><path d="M4 15a8 8 0 1116 0"/><path d="M12 15l3.5-4.5"/><circle cx="12" cy="15" r="1"/></symbol>
-  <symbol id="i-leaf" viewBox="0 0 24 24"><path d="M20 4C10 4 4 10 4 18v2h2c8 0 14-6 14-16z"/><path d="M6 20C10 14 14 10 20 6"/></symbol>
-  <symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12l5 5L19 7"/></symbol>
-  <symbol id="i-cross" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></symbol>
   <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+    <symbol id="i-cross" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></symbol>
+    <symbol id="i-moins" viewBox="0 0 24 24"><path d="M6 12h12"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12l5 5L19 7"/></symbol>
+  <symbol id="i-sparkle" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M12 1.5l1.5 9 9 1.5-9 1.5-1.5 9-1.5-9-9-1.5 9-1.5z"/></symbol>
+  <symbol id="i-wrench" viewBox="0 0 24 24"><path d="M14.7 6.3a4 4 0 00-5.4 5L3 17.6 6.4 21l6.3-6.3a4 4 0 005-5.4l-3 3-2-2 3-3z"/></symbol>
+  <symbol id="i-calendar" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M16 3v4M8 3v4M3 10h18"/></symbol>
   <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
   <symbol id="i-instagram" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M12 0C8.74 0 8.33.01 7.05.07 5.78.13 4.9.33 4.14.63c-.79.3-1.46.71-2.13 1.38S.93 3.35.63 4.14C.33 4.9.13 5.78.07 7.05.01 8.33 0 8.74 0 12s.01 3.67.07 4.95c.06 1.27.26 2.15.56 2.91.3.79.71 1.46 1.38 2.13s1.34 1.08 2.13 1.38c.76.3 1.64.5 2.91.56C8.33 23.99 8.74 24 12 24s3.67-.01 4.95-.07c1.27-.06 2.15-.26 2.91-.56.79-.3 1.46-.71 2.13-1.38s1.08-1.34 1.38-2.13c.3-.76.5-1.64.56-2.91.06-1.28.07-1.69.07-4.95s-.01-3.67-.07-4.95c-.06-1.27-.26-2.15-.56-2.91-.3-.79-.71-1.46-1.38-2.13S20.65.93 19.86.63c-.76-.3-1.64-.5-2.91-.56C15.67.01 15.26 0 12 0zm0 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.24 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.17.43.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.24 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.43.17-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.24-2.23-.41-.56-.22-.96-.48-1.38-.9-.42-.42-.68-.82-.9-1.38-.17-.43-.36-1.06-.41-2.23C2.17 15.58 2.16 15.2 2.16 12s.01-3.58.07-4.85c.05-1.17.24-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.43-.17 1.06-.36 2.23-.41 1.27-.06 1.65-.07 4.85-.07zm0 3.67a6.17 6.17 0 100 12.34 6.17 6.17 0 000-12.34zm0 2.16a4.01 4.01 0 110 8.02 4.01 4.01 0 010-8.02zm6.41-3.87a1.44 1.44 0 100 2.88 1.44 1.44 0 000-2.88z"/></symbol>
   <symbol id="i-tiktok" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M12.53.02C13.84 0 15.14.01 16.44 0c.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></symbol>
   <symbol id="i-facebook" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M22 12.06C22 6.5 17.52 2 12 2S2 6.5 2 12.06c0 5.02 3.66 9.18 8.44 9.94v-7.03H7.9v-2.91h2.54V9.85c0-2.51 1.49-3.9 3.77-3.9 1.1 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.78-1.63 1.57v1.88h2.78l-.45 2.91h-2.33V22c4.78-.76 8.44-4.92 8.44-9.94z"/></symbol>
   <symbol id="i-linkedin" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.07 2.07 0 110-4.14 2.07 2.07 0 010 4.14zm1.78 13.02H3.55V9h3.57v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></symbol>
   <symbol id="i-whatsapp" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M12.04 2C6.6 2 2.2 6.4 2.2 11.84c0 1.74.46 3.44 1.32 4.94L2.1 22l5.35-1.4a9.8 9.8 0 004.59 1.16h.01c5.43 0 9.84-4.4 9.84-9.84 0-2.63-1.02-5.1-2.88-6.96A9.77 9.77 0 0012.04 2zm0 17.9h-.01a8.2 8.2 0 01-4.16-1.14l-.3-.18-3.09.81.83-3.02-.2-.31a8.14 8.14 0 01-1.25-4.35c0-4.51 3.68-8.18 8.19-8.18 2.19 0 4.24.85 5.79 2.4a8.13 8.13 0 012.39 5.79c0 4.51-3.67 8.18-8.19 8.18zm4.49-6.13c-.25-.13-1.45-.72-1.68-.8-.22-.08-.39-.12-.55.12s-.63.8-.77.96c-.14.17-.28.19-.53.07-.25-.13-1.04-.39-1.98-1.22-.73-.65-1.23-1.46-1.37-1.71-.14-.25-.02-.38.11-.5.11-.11.25-.29.37-.44.13-.14.17-.25.25-.41.09-.17.04-.31-.02-.44-.06-.12-.55-1.33-.76-1.82-.2-.48-.4-.41-.55-.42h-.47c-.16 0-.42.06-.64.31-.22.25-.84.82-.84 2s.86 2.32.98 2.48c.12.17 1.69 2.58 4.1 3.62.57.25 1.02.39 1.37.5.57.19 1.1.16 1.51.1.46-.07 1.45-.59 1.65-1.17.2-.57.2-1.06.14-1.17-.06-.1-.22-.17-.47-.29z"/></symbol>
-    <symbol id="i-search-console" viewBox="0 0 24 24" fill="#458CF5" stroke="none"><path d="M8.548 1.156L6.832 2.872v1.682h1.716zm0 3.398v.035H6.832v-.035H3.386L0 7.844v3.577h2.826V8.94c0-.525.429-.954.954-.954h16.476c.525 0 .954.43.954.954v2.48h2.754V7.844l-3.386-3.29H17.3v.035h-1.717v-.035zm7.035 0H17.3V2.872l-1.717-1.716zM8.679 1.188V2.84h6.773V1.188zm11.471 7.07a.834.834 0 00-.132.01l-.543.002c-5.216.014-10.432-.008-15.648.01-.435-.063-.794.436-.716.883v2.264h17.812c-.016-.888.045-1.782-.034-2.666-.104-.342-.427-.502-.739-.502zm-15.422.634a.689.698 0 01.689.698.689.698 0 01-.689.697.689.698 0 01-.688-.697.689.698 0 01.688-.698zm2.134 0a.689.698 0 01.689.698.689.698 0 01-.689.697.689.698 0 01-.688-.697.689.698 0 01.688-.698zM.036 11.645v9.156c0 1.05.858 1.908 1.907 1.908h.883V11.645zm21.174 0v11.064h.882c1.05 0 1.908-.858 1.908-1.908v-9.156zM4.057 13.133v6.85h6.137v-6.85zm13.243.021v3.777l-1.708.977-1.708-.977v-3.758a4.006 4.006 0 000 7.23v2.441h3.457v-2.442a4.006 4.006 0 00-.041-7.248zm-13.243 8.26v1.43h7.925v-1.43z"/></symbol>
-    <symbol id="i-analytics" viewBox="0 0 24 24" fill="#E37400" stroke="none"><path d="M22.84 2.9982v17.9987c.0086 1.6473-1.3197 2.9897-2.967 2.9984a2.9808 2.9808 0 01-.3677-.0208c-1.528-.226-2.6477-1.5558-2.6105-3.1V3.1204c-.0369-1.5458 1.0856-2.8762 2.6157-3.1 1.6361-.1915 3.1178.9796 3.3093 2.6158.014.1201.0208.241.0202.3619zM4.1326 18.0548c-1.6417 0-2.9726 1.331-2.9726 2.9726C1.16 22.6691 2.4909 24 4.1326 24s2.9726-1.3309 2.9726-2.9726-1.331-2.9726-2.9726-2.9726zm7.8728-9.0098c-.0171 0-.0342 0-.0513.0003-1.6495.0904-2.9293 1.474-2.891 3.1256v7.9846c0 2.167.9535 3.4825 2.3505 3.763 1.6118.3266 3.1832-.7152 3.5098-2.327.04-.1974.06-.3983.0593-.5998v-8.9585c.003-1.6474-1.33-2.9852-2.9773-2.9882z"/></symbol>
-    <symbol id="i-semrush" viewBox="0 0 24 24" fill="#FF642D" stroke="none"><path d="M11.9995 0C5.3832 0 .0002 5.383.0002 11.9994c0 6.6165 5.383 11.9995 11.9993 11.9995 6.6164 0 11.9995-5.383 11.9995-11.9995C23.999 5.383 18.616 0 11.9995 0zm5.3936 7.2208c.2495 0 .4435.194.4435.4435 0 .2496-.194.4436-.4435.4436h-1.33c.6931.721 1.1366 1.6911 1.1366 2.7721 0 1.996-1.47 3.6318-3.3826 3.9368v3.0218c0 .2496-.194.4436-.4435.4436h-1.33c-.2496 0-.4436-.194-.4436-.4436 0-.2495.194-.4435.4435-.4435h.8865v-2.5783c-1.9127-.305-3.3827-1.9408-3.3827-3.9368 0-2.2177 1.7743-3.9921 3.992-3.9921h5.3938zm-5.3936 1.7744c-1.2194 0-2.2177.9983-2.2177 2.2177 0 1.2193.9983 2.2176 2.2177 2.2176 1.2194 0 2.2177-.9983 2.2177-2.2176 0-1.2194-.9983-2.2177-2.2177-2.2177z"/></symbol>
-  
+
   <symbol id="i-agenda" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M3 10h18M8 3v4M16 3v4"/></symbol>
   <symbol id="i-palette" viewBox="0 0 24 24"><path d="M12 3.5a8.5 8.5 0 100 17h1.4a1.9 1.9 0 001.5-3 1.9 1.9 0 011.5-3h2.1a1.9 1.9 0 001.9-1.9A9.1 9.1 0 0012 3.5z"/><circle cx="8" cy="10.5" r="1"/><circle cx="12" cy="8" r="1"/><circle cx="16" cy="10.5" r="1"/></symbol>
-  <symbol id="i-wrench" viewBox="0 0 24 24"><path d="M14.7 6.3a4 4 0 00-5.4 5L3 17.6 6.4 21l6.3-6.3a4 4 0 005-5.4l-3 3-2-2 3-3z"/></symbol>
   <symbol id="i-maison" viewBox="0 0 24 24"><path d="M3.5 11 12 4l8.5 7"/><path d="M5.5 9.5V20h13V9.5"/><path d="M10 20v-5.5h4V20"/></symbol>
 </svg>
 
@@ -144,24 +144,7 @@
 
   <nav class="nav" id="primary-nav" aria-label="Navigation principale">
     <ul class="nav-list">
-      <li class="nav-produit nav-produit--simple" data-nav-produit>
-        <button class="nav-produit__bouton" type="button" aria-expanded="false" aria-controls="volet-secteur">
-          Nos secteurs
-          <svg class="icon nav-produit__fleche" aria-hidden="true"><use href="#i-arrow-up"/></svg>
-        </button>
-        <div class="nav-produit__panneau nav-produit__panneau--simple" id="volet-secteur" hidden>
-          <ul class="nav-produit__liste">
-            <li><a href="hebergements.html" data-secteur="hebergements">
-              <span class="nav-produit__icone"><svg class="icon" aria-hidden="true"><use href="#i-maison"/></svg></span>
-              <span class="nav-produit__texte"><strong>Hébergements</strong><small>Gîtes, domaines, chambres d&rsquo;hôtes, hôtels</small></span>
-            </a></li>
-            <li><a href="autre.html" data-secteur="autre">
-              <span class="nav-produit__icone"><svg class="icon" aria-hidden="true"><use href="#i-etincelle"/></svg></span>
-              <span class="nav-produit__texte"><strong>Autre</strong><small>Commerces, professions libérales, services</small></span>
-            </a></li>
-          </ul>
-        </div>
-      </li>
+      <li><a href="index.html" aria-current="page">Accueil</a></li>
       <li class="nav-produit nav-produit--simple" data-nav-produit>
         <button class="nav-produit__bouton" type="button" aria-expanded="false" aria-controls="volet-expertise">
           Nos expertises
@@ -192,7 +175,7 @@
           </ul>
         </div>
       </li>
-      <li><a href="blog.html">Blog</a></li>
+      <li><a href="resultats.html">Résultats</a></li>
     </ul>
   </nav>
 
@@ -205,17 +188,15 @@
   </div>
 </header>
 
-<main id="main">
+<main id="main" class="secteur">
 
-<!-- ============================= S1 : OUVERTURE ============================= -->
-  <!-- A1, LE BANDEAU.
-       Fond creme uni : aucun flou de degrade, demande de Nathan du
-       1er novembre. Le decor est fait de ronds, comme le point du logo, un
-       groupe en haut a gauche et un groupe plus gros en bas a droite.
-       La bulle qui suit « les IA » passe d'une intelligence a l'autre.
-       Le titre se revele mot a mot. Tout se coupe si le visiteur a demande
-       moins d'animations. -->
-  <section id="accueil-s1" class="a1" aria-label="Présentation">
+  <!-- =====================================================================
+       S1, LE BANDEAU. Le meme sur les trois pages de secteur : la note
+       Google au-dessus du titre, un sous-titre d'une ligne, deux boutons,
+       tout centre, aucune maquette. La video est juste dessous et c'est elle
+       qui doit etre regardee. Nathan, 5 novembre 2026.
+       ===================================================================== -->
+  <section id="hebergements-s1" class="a1 a1--secteur" aria-label="Présentation">
     <span class="a1__ronds a1__ronds--haut" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span>
     <span class="a1__ronds a1__ronds--bas" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
 
@@ -233,122 +214,70 @@
         </a>
       </div>
 
-      <h1 class="a1__titre titre--deux titre--accueil" style="--fit-l: min(72px, 5.28vw)">
-        <span class="titre__ligne"><span data-mots>Un site qui donne envie de séjourner.</span></span><br>
-        <span data-mots>Et des réservations <span class="a1__insecable"><span class="a1__surligne">sans commission</span><span class="a1__point a1__point--fin">.</span></span></span>
-      </h1>
+      <h1 class="a1__titre titre--deux" style="--fit-l: min(72px, 4.40vw)"><span data-mots>Vos voyageurs vous trouvent sur Booking.</span><br>
+        <span data-mots>Faites-les <span class="a1__insecable"><span class="a1__surligne">réserver chez vous</span><span class="a1__point a1__point--fin">.</span></span></span></h1>
 
-      <p class="a1__sous">Gîtes, chambres d&rsquo;hôtes, domaines et lieux de réception&nbsp;: on crée votre site et on y branche notre application de réservation, reliée à Airbnb et à Booking.</p>
+      <p class="a1__sous">Gîtes, chambres d&rsquo;hôtes, domaines et lieux de réception&nbsp;: un site qui donne envie de séjourner et qui reçoit vos réservations en direct.</p>
 
-
-      <!-- La preuve en haut du bandeau, a la place du sur-titre. Elle perd son
-           fond : Nathan, 4 novembre 2026. La note reste vraie, c'est la bulle
-           blanche qui saute. La preuve sous les boutons : la note Google, reelle, avec les
-           initiales des personnes qui ont laisse un avis. Pas de visage
-           invente a cote d'une note reelle. -->
       <p class="a1__gages">
         <span><svg class="icon" aria-hidden="true"><use href="#i-shield"/></svg>Satisfait ou remboursé</span>
-        <span><svg class="icon" aria-hidden="true"><use href="#i-cible"/></svg>Fini les doubles réservations</span>
+        <span><svg class="icon" aria-hidden="true"><use href="#i-clock"/></svg>Hébergé et entretenu par nous</span>
         <span><svg class="icon" aria-hidden="true"><use href="#i-fenetre"/></svg>Votre maquette au premier rendez-vous</span>
       </p>
 
     </div>
   </section>
 
+  <!-- =====================================================================
+       S2, LA VIDEO. Copie conforme de la section video de l'accueil (bloc
+       .a3) : meme ecran, memes cases de performance, demande de Nathan du
+       5 novembre 2026 pour que les trois pages de secteur partagent le meme
+       gabarit. Un seul bouton dessous : le diagnostic. La video du secteur se posera dans l'ecran
+       comme celle de l'accueil, voir le mode d'emploi en tete de .a3.
+       ===================================================================== -->
+  <section id="hebergements-s2" class="a3" aria-label="Notre presentation en video et nos resultats">
+    <span class="a3__ronds" aria-hidden="true"><i></i><i></i><i></i></span>
 
+    <div class="a3__dedans">
 
-<!-- ======================= S2 : LE CALCUL QUI DÉCIDE ======================== -->
-<!-- ========================= A5 : LES DEUX LEVIERS =========================
-     Fond creme avec un halo bleu a droite. Deux colonnes hautes : a gauche
-     le referencement, a droite le site. Chacune porte une maquette qui
-     bouge, pas une liste a puces.
-     A gauche, la ligne « Votre entreprise » remonte de la cinquieme a la
-     premiere place : les numeros de place restent fixes dans leur colonne,
-     ce sont les lignes qui glissent entre eux. A droite, un curseur coupe
-     l'image en deux entre l'ancien site et le site refait.
-     Les deux maquettes sont dessinees, aucune capture d'un site client.
-     ========================================================================= -->
-  <section id="accueil-s5" class="a5 a5--nuit a5--sans-tete" data-fond="sombre" aria-label="Le site et l&rsquo;application de gestion">
-    <span class="a6__arc" aria-hidden="true">
-      <i class="a6__arc-cercle a6__arc-cercle--3"></i>
-      <i class="a6__arc-cercle a6__arc-cercle--2"></i>
-      <i class="a6__arc-cercle a6__arc-cercle--1"></i>
-    </span>
-    <span class="a5__ronds" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
-
-    <div class="a5__dedans">
-      <div class="a5__colonnes">
-
-        <!-- ---------------------- a gauche : le site ---------------------- -->
-        <article class="a5__colonne">
-          <p class="a5__numero">01</p>
-          <h3 class="a5__nom">Le site</h3>
-          <p class="a5__phrase">Un site qui donne envie de séjourner, pensé d&rsquo;abord pour le téléphone, sur lequel vos voyageurs réservent en direct.</p>
-          <!-- Une vraie capture : T'Nature, gite et chambres d'hotes a
-               Chateau-Chalon. Aucune personne sur l'image. -->
-          <div class="a5__capture">
-            <img src="assets/img/realisation-tnature.jpg" width="1600" height="838" loading="lazy" decoding="async"
-                 alt="Page d&rsquo;accueil du site de T&rsquo;Nature, réalisé par OBT Agency">
+      <div class="a3__poste">
+        <div class="a3__cadre a3__cadre--nu">
+          <div class="cadre__ecran">
+            <div class="a3__film a3__film--vide" role="img" aria-label="La vidéo de présentation arrive bientôt">
+              <span class="a3__play" aria-hidden="true"><i></i></span>
+            </div>
           </div>
-          <p class="a5__source"><a href="https://tnature.fr/" target="_blank" rel="noopener">T&rsquo;Nature</a>, gîte et chambres d&rsquo;hôtes à Château-Chalon.</p>
-          <p class="a5__legende">Ce qui change pour vos voyageurs</p>
-          <ul class="a5__atouts">
-            <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Lisible du premier coup sur un téléphone</li>
-            <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Vos logements, vos photos et vos avis mis en avant</li>
-            <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Le panneau de réservation, directement sur le site</li>
-          </ul>
-          <p class="a5__voir">
-            <a href="hebergements.html#hebergements-s4" class="a1__bouton a1__bouton--bleu">Voir l&rsquo;offre<svg class="icon" aria-hidden="true"><use href="#i-arrow-right"/></svg></a>
-          </p>
-        </article>
-
-        <!-- ---------------------- a droite : l'application ----------------- -->
-        <article class="a5__colonne">
-          <p class="a5__numero">02</p>
-          <h3 class="a5__nom">L&rsquo;application de gestion</h3>
-          <p class="a5__phrase">Elle se branche sur votre site&nbsp;: un panneau de réservation pour vos voyageurs, un espace de gestion pour vous.</p>
-          <div class="a5__capture">
-            <img src="assets/img/application/application-planning.webp" width="1420" height="888" loading="lazy" decoding="async"
-                 alt="Le planning de l&rsquo;application de gestion, avec les dates prises sur Airbnb et Booking">
-          </div>
-          <p class="a5__source">Votre planning, dans l&rsquo;application.</p>
-          <p class="a5__legende">Ce qui change pour vous</p>
-          <ul class="a5__atouts">
-            <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Fini les doubles réservations avec Airbnb et Booking</li>
-            <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Des réservations en direct, sans commission</li>
-            <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Le prix du séjour calculé tout seul</li>
-            <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Vos prix changés par vous, quand vous voulez</li>
-            <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Planning, demandes et alertes au même endroit</li>
-          </ul>
-          <p class="a5__voir">
-            <a href="hebergements.html#hebergements-s5" class="a1__bouton a1__bouton--bleu">Découvrir l&rsquo;application<svg class="icon" aria-hidden="true"><use href="#i-arrow-right"/></svg></a>
-          </p>
-        </article>
+        </div>
 
       </div>
 
-      <!-- Le bouton commun sous les deux colonnes a saute le 6 novembre 2026 :
-           chaque colonne porte le sien, vers les offres qui lui correspondent
-           (les formules de referencement, les offres de site). -->
+      <p class="a3__action">
+        <a href="#rendez-vous" data-rdv-ouvrir class="a1__bouton">
+          <span class="a1__bouton-points" aria-hidden="true"><i></i><i></i><i></i></span>
+          Réserver un diagnostic
+          <svg class="icon" aria-hidden="true"><use href="#i-arrow-right"/></svg>
+        </a>
+      </p>
+
     </div>
   </section>
 
-<!-- ======================= A4 : NOS PERFORMANCES ===========================
-     Depuis le 6 novembre 2026, la section des resultats des pages de secteur,
-     en grand : trois rangees de trois tableaux de bord (les fenetres
-     attendent leurs captures), puis le carrousel de tous les sites livres.
-     Chaque carte ouvre le vrai site du client dans un autre onglet.
-     ========================================================================= -->
-  <section id="accueil-s4" class="sr" aria-labelledby="a4-titre">
-    <span class="sr__ronds" aria-hidden="true"><i></i><i></i><i></i></span>
-    <div class="sr__dedans">
-      <div class="sr__tete">
-        <h2 id="a4-titre" class="sr__titre titre--ligne" style="--fit-l: min(60px, 6.87vw)">Des lieux qu&rsquo;on a mis en ligne.</h2>
-        <p class="sr__chapeau">Chaque site est en ligne&nbsp;: cliquez pour le visiter, il s&rsquo;ouvre dans un nouvel onglet.</p>
+  <!-- =====================================================================
+       S3, LES OFFRES. Deux cartes et pas trois : a un hebergement on vend le
+       site, pas le referencement seul. A gauche le site complet, carte
+       reprise de la page Creation de site. A droite le pack, carte reprise
+       de la page du pack, pour qui veut aussi passer devant sur Google.
+       Aucun montant. Nathan, 5 novembre 2026.
+       ===================================================================== -->
+  <section id="hebergements-s3" class="pr" aria-labelledby="hebergements-s3-title">
+    <span class="pr__ronds" aria-hidden="true"><i></i><i></i><i></i></span>
+
+    <div class="pr__dedans">
+      <div class="pr__tete">
+        <h2 id="hebergements-s3-title" class="p2__titre titre--ligne" style="--fit-l: min(60px, 5.30vw)">Des sites en ligne, pas des promesses.</h2>
       </div>
-
-
     </div>
+
     <div class="carousel pr__carrousel" data-carousel>
       <button class="carousel-arrow carousel-arrow--prev" type="button" data-carousel-prev aria-label="Réalisation précédente">
         <svg class="icon" aria-hidden="true"><use href="#i-arrow-right"/></svg>
@@ -383,95 +312,79 @@
     </div>
   </section>
 
-<!-- ============================ A6 : LA METHODE ============================
-     Fond blanc avec la grille fine, comme chez Sorank. A gauche une maquette
-     qui reste collee pendant qu'on descend, a droite quatre etapes. L'etape
-     qui passe au milieu de l'ecran s'allume, les trois autres s'eteignent, et
-     la maquette change avec elle. Toute la section repond a une seule
-     question : est-ce que j'aurai quelque chose a gerer.
-     ========================================================================= -->
-  <!-- La methode commence droite depuis le 6 novembre 2026 : l'arc en
-       degrade ouvre deja « Ce qu'on fait », le repeter ici faisait deux fois
-       la meme entree. -->
-  <section id="accueil-s6" class="a6 a6--droit" data-fond="sombre" aria-labelledby="a6-titre">
-    <span class="a6__ronds" aria-hidden="true"><i></i><i></i></span>
-
-    <div class="a6__dedans">
-      <div class="a6__tete">
-        <h2 id="a6-titre" class="a6__titre titre--ligne" data-mots style="--fit-l: min(60px, 5.09vw)">Quatre étapes. Vous n&rsquo;avez <span class="a1__surligne">rien à gérer</span><span class="a1__point a1__point--fin">.</span></h2>
-        <p class="a6__chapeau">On crée le site, on branche l&rsquo;application, on vous remet les clés. Vos prix restent entre vos mains.</p>
+  <!-- =====================================================================
+       S4, LA COMPARAISON. Remplace les offres (Nathan, 17 novembre 2026) :
+       faire son site seul sur une plateforme, passer par une agence
+       classique, ou venir chez nous. Aucun montant, aucun chiffre.
+       ===================================================================== -->
+  <section id="hebergements-s4" class="po po--arc cmp" data-fond="sombre" aria-labelledby="hebergements-s4-title">
+    <span class="a6__arc" aria-hidden="true">
+      <i class="a6__arc-cercle a6__arc-cercle--3"></i>
+      <i class="a6__arc-cercle a6__arc-cercle--2"></i>
+      <i class="a6__arc-cercle a6__arc-cercle--1"></i>
+    </span>
+    <span class="po__ronds" aria-hidden="true"><i></i><i></i><i></i></span>
+    <div class="po__dedans">
+      <div class="po__tete">
+        <h2 id="hebergements-s4-title" class="po__titre titre--ligne" style="--fit-l: min(60px, 5.27vw)">Faire seul, une agence ou <span class="a1__insecable"><span class="a1__surligne est-peint">nous</span><span class="a1__point a1__point--fin">.</span></span></h2>
+        <p class="cmp__sous">Trois façons d&rsquo;avoir le site de votre lieu. Voici ce que chacune vous laisse sur les bras.</p>
       </div>
 
-      <div class="a6__corps" data-etapier>
-
-        <!-- la maquette collee, quatre vues qui se relaient -->
-        <div class="a6__scene">
-          <div class="a6__cadre">
-
-            <!-- La maquette du premier rendez-vous, dessinee : un bandeau, une
-                 grande photo, trois blocs. Nathan, 17 novembre 2026. -->
-            <div class="a6__vue a6__vue--1 est-actif" aria-hidden="true">
-              <span class="a6__entete"><i></i><b>Votre maquette</b></span>
-              <span class="a6__maquette"><i class="a6__mq-nav"></i><i class="a6__mq-photo"><b></b><b></b></i><span class="a6__mq-blocs"><i></i><i></i><i></i></span></span>
-            </div>
-
-            <div class="a6__vue a6__vue--2" aria-hidden="true"><img class="a6__capture" src="assets/img/realisation-tnature.jpg" width="1600" height="838" loading="lazy" decoding="async" alt=""></div>
-
-            <div class="a6__vue a6__vue--2 a6__vue--3" aria-hidden="true"><img class="a6__capture" src="assets/img/application/application-tarifs.webp" width="1420" height="888" loading="lazy" decoding="async" alt=""></div>
-
-            <div class="a6__vue a6__vue--4" aria-hidden="true">
-              <span class="a6__entete"><i></i><b>Vos accès et votre guide</b>
-              </span>
-              <ul class="a6__lignes">
-                <li><span></span><i></i></li>
-                <li><span></span><i></i></li>
-                <li><span></span><i></i></li>
-              </ul>
-              <span class="a6__mini" aria-hidden="true">
-                <i style="--h: 34%"></i><i style="--h: 48%"></i><i style="--h: 42%"></i><i style="--h: 60%"></i><i style="--h: 72%"></i><i style="--h: 66%"></i><i style="--h: 88%"></i><i style="--h: 100%"></i>
-              </span>
-              <span class="a6__envoi">Remis à la mise en ligne</span>
-            </div>
-
-          </div>
+      <div class="cmp__tableau" role="table" aria-label="Comparaison : site fait seul, agence traditionnelle, OBT Agency">
+        <div class="cmp__ligne cmp__ligne--tete" role="row">
+          <span class="cmp__critere" role="columnheader"><span class="visually-hidden">Critère</span></span>
+          <span class="cmp__col cmp__col--nous" role="columnheader"><b class="cmp__marque"><img src="assets/img/logo-obt.png" width="1200" height="300" alt="OBT Agency" decoding="async"></b></span>
+          <span class="cmp__col" role="columnheader"><b>Site fait seul</b><small>Wix, Squarespace, Jimdo</small></span>
+          <span class="cmp__col" role="columnheader"><b>Agence traditionnelle</b><small>Le devis, puis le site</small></span>
         </div>
-
-        <!-- les quatre etapes -->
-        <ol class="a6__etapes">
-          <li class="a6__etape est-actif" data-etape="1">
-            <span class="a6__numero">01</span>
-            <h3 class="a6__nom">On vous montre votre maquette</h3>
-            <p class="a6__texte">Dès le premier rendez-vous, vous voyez à quoi ressemblera votre site&nbsp;: une maquette faite pour votre lieu. On en parle ensemble et on en sort avec une direction claire.</p>
-            <p class="a6__part">De votre côté&nbsp;: un rendez-vous.</p>
-          </li>
-          <li class="a6__etape" data-etape="2">
-            <span class="a6__numero">02</span>
-            <h3 class="a6__nom">On crée le site</h3>
-            <p class="a6__texte">Un site qui se lit sur un téléphone, qui charge vite et qui donne envie de réserver. Vos photos et vos avis mis en avant.</p>
-            <p class="a6__part">De votre côté&nbsp;: vous validez les textes.</p>
-          </li>
-          <li class="a6__etape" data-etape="3">
-            <span class="a6__numero">03</span>
-            <h3 class="a6__nom">On branche l&rsquo;application</h3>
-            <p class="a6__texte">Vous remplissez un formulaire&nbsp;: logements, prix, options et règles, compter 30 à 45 minutes. Nous créons votre espace et l&rsquo;intégrons à votre site.</p>
-            <p class="a6__part">De votre côté&nbsp;: le formulaire.</p>
-          </li>
-          <li class="a6__etape" data-etape="4">
-            <span class="a6__numero">04</span>
-            <h3 class="a6__nom">Vous recevez vos accès</h3>
-            <p class="a6__texte">À la mise en ligne, vous recevez vos accès et votre guide écran par écran. Vous changez vos prix vous-même, quand vous voulez.</p>
-            <p class="a6__part">De votre côté&nbsp;: vous accueillez vos voyageurs.</p>
-          </li>
-        </ol>
-
+        <div class="cmp__ligne" role="row">
+          <span class="cmp__critere" role="rowheader">Une maquette de votre site</span>
+          <span class="cmp__case cmp__case--oui cmp__case--nous" role="cell" data-col="OBT Agency"><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span><b class="visually-hidden">oui : </b>Dès le premier rendez-vous</span></span>
+          <span class="cmp__case cmp__case--non" role="cell" data-col="Site fait seul"><svg class="icon" aria-hidden="true"><use href="#i-cross"/></svg><span><b class="visually-hidden">non : </b>Un modèle à remplir vous-même</span></span>
+          <span class="cmp__case cmp__case--mi" role="cell" data-col="Agence traditionnelle"><svg class="icon" aria-hidden="true"><use href="#i-moins"/></svg><span><b class="visually-hidden">en partie : </b>Après le devis signé</span></span>
+        </div>
+        <div class="cmp__ligne" role="row">
+          <span class="cmp__critere" role="rowheader">Application de réservation reliée au site</span>
+          <span class="cmp__case cmp__case--oui cmp__case--nous" role="cell" data-col="OBT Agency"><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span><b class="visually-hidden">oui : </b>Comprise, faite par nous</span></span>
+          <span class="cmp__case cmp__case--non" role="cell" data-col="Site fait seul"><svg class="icon" aria-hidden="true"><use href="#i-cross"/></svg><span><b class="visually-hidden">non : </b>Un module à installer et régler</span></span>
+          <span class="cmp__case cmp__case--mi" role="cell" data-col="Agence traditionnelle"><svg class="icon" aria-hidden="true"><use href="#i-moins"/></svg><span><b class="visually-hidden">en partie : </b>Rarement, ou chez un autre prestataire</span></span>
+        </div>
+        <div class="cmp__ligne" role="row">
+          <span class="cmp__critere" role="rowheader">Calendrier synchronisé avec Airbnb et Booking</span>
+          <span class="cmp__case cmp__case--oui cmp__case--nous" role="cell" data-col="OBT Agency"><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span><b class="visually-hidden">oui : </b>Pour les gîtes, sans double réservation</span></span>
+          <span class="cmp__case cmp__case--non" role="cell" data-col="Site fait seul"><svg class="icon" aria-hidden="true"><use href="#i-cross"/></svg><span><b class="visually-hidden">non : </b>À brancher vous-même</span></span>
+          <span class="cmp__case cmp__case--mi" role="cell" data-col="Agence traditionnelle"><svg class="icon" aria-hidden="true"><use href="#i-moins"/></svg><span><b class="visually-hidden">en partie : </b>Selon l&rsquo;agence</span></span>
+        </div>
+        <div class="cmp__ligne" role="row">
+          <span class="cmp__critere" role="rowheader">Réservations en direct, sans commission</span>
+          <span class="cmp__case cmp__case--oui cmp__case--nous" role="cell" data-col="OBT Agency"><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span><b class="visually-hidden">oui : </b>Le voyageur réserve chez vous</span></span>
+          <span class="cmp__case cmp__case--mi" role="cell" data-col="Site fait seul"><svg class="icon" aria-hidden="true"><use href="#i-moins"/></svg><span><b class="visually-hidden">en partie : </b>Selon les réglages que vous faites</span></span>
+          <span class="cmp__case cmp__case--mi" role="cell" data-col="Agence traditionnelle"><svg class="icon" aria-hidden="true"><use href="#i-moins"/></svg><span><b class="visually-hidden">en partie : </b>Selon l&rsquo;outil choisi</span></span>
+        </div>
+        <div class="cmp__ligne" role="row">
+          <span class="cmp__critere" role="rowheader">Hébergement, sauvegardes et mises à jour</span>
+          <span class="cmp__case cmp__case--oui cmp__case--nous" role="cell" data-col="OBT Agency"><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span><b class="visually-hidden">oui : </b>Compris, on s&rsquo;en occupe</span></span>
+          <span class="cmp__case cmp__case--mi" role="cell" data-col="Site fait seul"><svg class="icon" aria-hidden="true"><use href="#i-moins"/></svg><span><b class="visually-hidden">en partie : </b>À surveiller vous-même</span></span>
+          <span class="cmp__case cmp__case--mi" role="cell" data-col="Agence traditionnelle"><svg class="icon" aria-hidden="true"><use href="#i-moins"/></svg><span><b class="visually-hidden">en partie : </b>Souvent en supplément</span></span>
+        </div>
+        <div class="cmp__ligne" role="row">
+          <span class="cmp__critere" role="rowheader">Modifications de contenu</span>
+          <span class="cmp__case cmp__case--oui cmp__case--nous" role="cell" data-col="OBT Agency"><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span><b class="visually-hidden">oui : </b>Sur simple message</span></span>
+          <span class="cmp__case cmp__case--non" role="cell" data-col="Site fait seul"><svg class="icon" aria-hidden="true"><use href="#i-cross"/></svg><span><b class="visually-hidden">non : </b>Vous les faites, le soir</span></span>
+          <span class="cmp__case cmp__case--mi" role="cell" data-col="Agence traditionnelle"><svg class="icon" aria-hidden="true"><use href="#i-moins"/></svg><span><b class="visually-hidden">en partie : </b>Sur devis</span></span>
+        </div>
+        <div class="cmp__ligne" role="row">
+          <span class="cmp__critere" role="rowheader">Vos interlocuteurs</span>
+          <span class="cmp__case cmp__case--oui cmp__case--nous" role="cell" data-col="OBT Agency"><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span><b class="visually-hidden">oui : </b>Tom et Nathan, du début à la fin</span></span>
+          <span class="cmp__case cmp__case--non" role="cell" data-col="Site fait seul"><svg class="icon" aria-hidden="true"><use href="#i-cross"/></svg><span><b class="visually-hidden">non : </b>Un centre d&rsquo;aide en ligne</span></span>
+          <span class="cmp__case cmp__case--mi" role="cell" data-col="Agence traditionnelle"><svg class="icon" aria-hidden="true"><use href="#i-moins"/></svg><span><b class="visually-hidden">en partie : </b>Un chef de projet, qui peut changer</span></span>
+        </div>
       </div>
 
-      <!-- De la methode a l'appel final, la page n'avait plus aucun bouton.
-           Celui-ci ouvre la prise de rendez-vous. Nathan, 6 novembre 2026. -->
-      <p class="a6__action">
-        <a href="#rendez-vous" data-rdv-ouvrir class="a1__bouton a1__bouton--bleu">
+      <p class="cmp__action">
+        <a href="#rendez-vous" data-rdv-ouvrir class="a1__bouton a1__bouton--nuit">
           <span class="a1__bouton-points" aria-hidden="true"><i></i><i></i><i></i></span>
-          Réserver le diagnostic de mon site
+          Réserver un diagnostic
           <svg class="icon" aria-hidden="true"><use href="#i-arrow-right"/></svg>
         </a>
       </p>
@@ -479,20 +392,107 @@
   </section>
 
 
-<!-- ========================= A9 : QUI FAIT LE TRAVAIL ======================
-     Repond a « a qui je parle ». Un seul cadre, une seule photo : les deux
-     freres de trois quarts, un de chaque cote. Deux pastilles posees sur
-     l'image nomment celui de gauche et celui de droite, comme les pastilles
-     flottantes de Blast.
-     LA PHOTO : le cadre porte pour l'instant deux silhouettes dessinees. Pour
-     poser la vraie image, remplacer le <svg class="a9__silhouettes"> par :
-       <img class="a9__photo" src="assets/img/tom-et-nathan.jpg?v=437"
-            width="1000" height="1200" loading="lazy" decoding="async"
-            alt="Tom et Nathan Boyer">
-     Cadrage a respecter : Tom a gauche, Nathan a droite, de trois quarts,
-     tous les deux tournes vers le centre. Les pastilles ne bougent pas.
-     ========================================================================= -->
-  <section id="accueil-s9" class="a9" aria-labelledby="a9-titre">
+  <!-- =====================================================================
+       S5, L'APPLICATION DE GESTION. Six captures de l'application, envoyees
+       par Nathan le 17 novembre 2026. Le nom du client, celui des chambres et
+       les photos des logements sont floutes.
+       La video du secteur en montre une partie. Rien n'est change dans
+       l'application elle-meme : on ne fait que la montrer.
+       ===================================================================== -->
+  <section id="hebergements-s5" class="sr sr--creme" aria-labelledby="hebergements-s5-title">
+    <span class="sr__ronds" aria-hidden="true"><i></i><i></i><i></i></span>
+    <div class="sr__dedans">
+      <div class="sr__tete">
+        <h2 id="hebergements-s5-title" class="sr__titre titre--ligne" style="--fit-l: min(60px, 4.76vw)">L&rsquo;application de gestion, <span class="a1__insecable" style="margin-left: .14em"><span class="a1__surligne est-peint">reliée à votre site</span><span class="a1__point a1__point--fin">.</span></span></h2>
+        <p class="sr__chapeau">Les doubles réservations, la commission qui mange la marge, les prix à calculer à la main, le webmaster à relancer, les demandes éparpillées&nbsp;: elle règle les cinq. Construite et tenue par nous, elle est proposée avec la création de votre site.</p>
+      </div>
+
+      <!-- Le parcours de l'application : six ecrans qui defilent de droite a
+           gauche pendant qu'on descend la page (la section reste epinglee le
+           temps du trajet). Au telephone, on les fait glisser du doigt.
+           Nathan, 17 novembre 2026. -->
+      <div class="ap" data-parcours>
+        <div class="ap__scene">
+          <ol class="ap__rail" data-parcours-rail>
+          <li class="ap__etape">
+            <div class="ap__fenetre">
+              <span class="ap__barre"><i></i><i></i><i></i><b>Votre planning</b></span>
+              <img class="ap__capture" src="assets/img/application/application-planning.webp" width="1420" height="888" loading="lazy" decoding="async" alt="Le planning de l’application, avec les dates déjà prises sur Airbnb et Booking">
+            </div>
+            <div class="ap__texte">
+              <span class="ap__num">01</span>
+              <h3 class="ap__titre">Fini les doubles réservations</h3>
+              <p class="ap__dit">Votre calendrier Airbnb et Booking est relu toutes les 45 minutes et bloque les dates sur votre site. Vous ne recopiez plus rien à la main.</p>
+            </div>
+          </li>
+          <li class="ap__etape">
+            <div class="ap__fenetre">
+              <span class="ap__barre"><i></i><i></i><i></i><b>Vos demandes</b></span>
+              <img class="ap__capture" src="assets/img/application/application-formulaire.webp" width="1420" height="888" loading="lazy" decoding="async" alt="Les questions du formulaire de demande, réglées par le propriétaire">
+            </div>
+            <div class="ap__texte">
+              <span class="ap__num">02</span>
+              <h3 class="ap__titre">Des réservations en direct, sans commission</h3>
+              <p class="ap__dit">Le voyageur choisit ses dates sur votre site, dans un panneau en six langues. Vous validez la demande ou l&rsquo;abandonnez en un clic.</p>
+            </div>
+          </li>
+          <li class="ap__etape">
+            <div class="ap__fenetre">
+              <span class="ap__barre"><i></i><i></i><i></i><b>Vos options</b></span>
+              <img class="ap__capture" src="assets/img/application/application-options.webp" width="1420" height="888" loading="lazy" decoding="async" alt="Les options d’un séjour : ménage, taxe de séjour, chauffage">
+            </div>
+            <div class="ap__texte">
+              <span class="ap__num">03</span>
+              <h3 class="ap__titre">Le prix du séjour se calcule tout seul</h3>
+              <p class="ap__dit">Jour de la semaine, nombre de personnes, enfants, ménage, taxe de séjour, draps, petit déjeuner, réductions&nbsp;: le voyageur voit le total tout de suite.</p>
+            </div>
+          </li>
+          <li class="ap__etape">
+            <div class="ap__fenetre">
+              <span class="ap__barre"><i></i><i></i><i></i><b>Vos tarifs</b></span>
+              <img class="ap__capture" src="assets/img/application/application-tarifs.webp" width="1420" height="888" loading="lazy" decoding="async" alt="L’écran des tarifs, pour changer ses prix sur les dates de son choix">
+            </div>
+            <div class="ap__texte">
+              <span class="ap__num">04</span>
+              <h3 class="ap__titre">Vous restez maître de vos prix</h3>
+              <p class="ap__dit">Un tarif, un minimum de nuits, une date spéciale&nbsp;: vous le changez vous-même, sans écrire à un webmaster. Un guide vous accompagne écran par écran.</p>
+            </div>
+          </li>
+          <li class="ap__etape">
+            <div class="ap__fenetre">
+              <span class="ap__barre"><i></i><i></i><i></i><b>Vos logements</b></span>
+              <img class="ap__capture" src="assets/img/application/application-logements.webp" width="1420" height="888" loading="lazy" decoding="async" alt="Les logements tels que les voyageurs les voient">
+            </div>
+            <div class="ap__texte">
+              <span class="ap__num">05</span>
+              <h3 class="ap__titre">Vos logements, tels que vos voyageurs les voient</h3>
+              <p class="ap__dit">Une photo, les couchages, le nombre de places et le minimum de nuits pour chaque chambre et chaque gîte.</p>
+            </div>
+          </li>
+          <li class="ap__etape">
+            <div class="ap__fenetre">
+              <span class="ap__barre"><i></i><i></i><i></i><b>Vos conditions</b></span>
+              <img class="ap__capture" src="assets/img/application/application-conditions.webp" width="1420" height="888" loading="lazy" decoding="async" alt="Les conditions du séjour, écrites par le propriétaire">
+            </div>
+            <div class="ap__texte">
+              <span class="ap__num">06</span>
+              <h3 class="ap__titre">Vos règles, écrites par vous</h3>
+              <p class="ap__dit">Arrivée, départ, annulation, animaux&nbsp;: le voyageur lit vos conditions juste avant d&rsquo;envoyer sa demande.</p>
+            </div>
+          </li>
+          </ol>
+          <div class="ap__avance" aria-hidden="true"><i data-parcours-barre></i></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =====================================================================
+       S7, QUI TRAVAILLE SUR VOTRE DOSSIER. Le bloc humain de l'accueil,
+       texte ecrit pour cette page. La photo remplacera les silhouettes :
+       Tom a gauche, Nathan a droite, de trois quarts, tournes vers le centre.
+       ===================================================================== -->
+  <section id="hebergements-s7" class="a9" aria-labelledby="hebergements-s7-title">
     <span class="a9__ronds" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
     <div class="a9__dedans">
 
@@ -514,69 +514,29 @@
       </div>
 
       <div class="a9__mots">
-        <h2 id="a9-titre" class="a9__titre">Deux frères experts<br>
-          <span class="a1__insecable"><span class="a1__surligne est-peint">pour vous</span><span class="a1__point a1__point--fin">.</span></span></h2>
-        <p class="a9__texte">On prend votre dossier à deux et on le garde du début à la fin : le premier rendez-vous, le site, l&rsquo;application, les corrections, les mises à jour de saison. Personne ne reprend le dossier en route, personne ne redécouvre votre métier. Quand vous rappelez six mois plus tard, c&rsquo;est la même voix et elle sait déjà de quoi vous parlez.</p>
-        <p class="a9__pied">Si quelque chose ne va pas, vous savez à qui le dire.</p>
-        <p class="a9__action">
-          <a href="test-visibilite.html" class="a1__bouton">
-            <span class="a1__bouton-points" aria-hidden="true"><i></i><i></i><i></i></span>
-            Tester votre visibilité
-            <svg class="icon" aria-hidden="true"><use href="#i-arrow-right"/></svg>
-          </a>
-        </p>
+        <h2 id="hebergements-s7-title" class="a9__titre">Votre lieu, raconté par<br>
+          <span class="a1__insecable"><span class="a1__surligne est-peint">deux frères du Jura</span><span class="a1__point a1__point--fin">.</span></span></h2>
+        <p class="a9__texte">Tom vous rencontre, sur place quand c&rsquo;est possible. Il écoute ce qui fait revenir vos voyageurs, la vue, le calme, l&rsquo;accueil. Nathan construit le site, le relie à votre application de gestion et le tient à jour saison après saison. D&rsquo;un bout à l&rsquo;autre, vous avez les deux mêmes interlocuteurs&nbsp;: ceux qui connaissent votre lieu.</p>
+        <p class="a9__pied">Vous accueillez vos voyageurs vous-même. On fait pareil avec vous.</p>
       </div>
 
     </div>
   </section>
 
-
-
-
-
-
-
-<!-- ========================= S5 : CE QU'ON FAIT ============================= -->
-
-  <!-- ======================== A10 : LES AVIS ================================
-     Repond a « d'autres l'ont fait avant moi ». La note en tres gros, le
-     logo Google a cote, les cinq etoiles qui se remplissent une par une.
-     Les trois avis montres ici sont ceux que la bande A7 n'affiche pas :
-     la page ne redit pas deux fois la meme chose. Le lien ouvre notre fiche
-     Google, ou les sept sont lisibles.
-     Les noms de famille des particuliers sont reduits a l'initiale, les noms
-     d'entreprise restent entiers. Verbatim exact, aucune reformulation.
-     ========================================================================= -->
-  <section id="accueil-s10" class="a10" aria-labelledby="a10-titre">
-    <span class="a10__ronds" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
-    <div class="a10__dedans">
-
-      <div class="a10__tete">
-        <div>
-          <h2 id="a10-titre" class="a10__titre">Ce que disent <span class="a1__insecable"><span class="a1__surligne est-peint">nos clients</span><span class="a1__point a1__point--fin">.</span></span></h2>
-          <p class="a10__chapeau">Pas de témoignage recopié sur notre site : des avis publiés sur notre fiche Google, sous leur nom, que n&rsquo;importe qui peut aller relire.</p>
-        </div>
-
-        <a class="a10__note" href="https://share.google/RHD0CkD38IK6VSCKV" target="_blank" rel="noopener">
-          <span class="a10__chiffre"><span data-compteur="5.0">5,0</span></span>
-          <span class="a10__etoiles" data-cascade aria-label="5 sur 5"><svg class="icon a10__etoile" aria-hidden="true"><use href="#i-star"/></svg><svg class="icon a10__etoile" aria-hidden="true"><use href="#i-star"/></svg><svg class="icon a10__etoile" aria-hidden="true"><use href="#i-star"/></svg><svg class="icon a10__etoile" aria-hidden="true"><use href="#i-star"/></svg><svg class="icon a10__etoile" aria-hidden="true"><use href="#i-star"/></svg></span>
-          <span class="a10__source">
-            <svg class="icon a10__google" aria-hidden="true"><use href="#i-google"/></svg>
-            Avis Google
-          </span>
-          <span class="a10__voir">Les lire sur Google<svg class="icon" aria-hidden="true"><use href="#i-arrow-right"/></svg></span>
-        </a>
-      </div>
-
-      <!-- Les sept avis de la fiche, dans une bande qui defile. main.js
-           duplique le groupe pour que la boucle ne saute pas et rend la
-           copie muette pour les lecteurs d'ecran. Les largeurs varient
-           selon la longueur du texte : une carte courte dans un grand
-           cadre sonne vide. -->
-      <div class="a10__cadre">
-        <div class="a10__piste" data-defile>
-          <div class="a10__groupe">
-            <article class="a10__carte">
+  <!-- =====================================================================
+       S8, LES AVIS. Deux bandes defilantes en sens contraire, la
+       premiere vers la gauche, la seconde vers la droite. Les sept avis de
+       notre fiche Google, verbatim, noms de famille des particuliers
+       reduits a l'initiale. Nathan, 5 novembre 2026.
+       ===================================================================== -->
+  <section id="hebergements-s8" class="bd bd--avis avb" aria-labelledby="hebergements-s8-title">
+    <div class="avb__tete">
+      <h2 id="hebergements-s8-title" class="sr__titre">Ce que disent <span class="a1__insecable"><span class="a1__surligne est-peint">nos clients</span><span class="a1__point a1__point--fin">.</span></span></h2>
+    </div>
+    <div class="avb__bandes">
+      <div class="bd__cadre">
+        <div class="bd__piste" data-defile>
+          <div class="bd__groupe">            <article class="a10__carte">
               <span class="a10__etoiles a10__etoiles--carte" aria-label="5 sur 5"><svg class="icon a10__etoile" aria-hidden="true"><use href="#i-star"/></svg><svg class="icon a10__etoile" aria-hidden="true"><use href="#i-star"/></svg><svg class="icon a10__etoile" aria-hidden="true"><use href="#i-star"/></svg><svg class="icon a10__etoile" aria-hidden="true"><use href="#i-star"/></svg><svg class="icon a10__etoile" aria-hidden="true"><use href="#i-star"/></svg></span>
               <blockquote>&laquo;&nbsp;Travail très qualitatif, équipe très motivée et aimable<br>Je vous remercie pour votre rapidité&nbsp;&raquo;</blockquote>
               <p class="a10__auteur"><span class="a10__initiale" style="--teinte: #2558D6">S</span><span>Sophie R.<small>Avis Google</small></span></p>
@@ -614,71 +574,83 @@
           </div>
         </div>
       </div>
-
+      <div class="bd__cadre bd__cadre--droite">
+        <div class="bd__piste" data-defile>
+          <div class="bd__groupe">
+            <article class="a10__carte">
+              <span class="a10__etoiles a10__etoiles--carte" aria-label="5 sur 5"><svg class="icon a10__etoile" aria-hidden="true"><use href="#i-star"/></svg><svg class="icon a10__etoile" aria-hidden="true"><use href="#i-star"/></svg><svg class="icon a10__etoile" aria-hidden="true"><use href="#i-star"/></svg><svg class="icon a10__etoile" aria-hidden="true"><use href="#i-star"/></svg><svg class="icon a10__etoile" aria-hidden="true"><use href="#i-star"/></svg></span>
+              <blockquote>&laquo;&nbsp;Équipe chaleureuse, remplie de motivation et digne de confiance !&nbsp;&raquo;</blockquote>
+              <p class="a10__auteur"><span class="a10__initiale" style="--teinte: #C2410C">R</span><span>Raphaël H.<small>Avis Google</small></span></p>
+            </article>
+            <article class="a10__carte a10__carte--court">
+              <span class="a10__etoiles a10__etoiles--carte" aria-label="5 sur 5"><svg class="icon a10__etoile" aria-hidden="true"><use href="#i-star"/></svg><svg class="icon a10__etoile" aria-hidden="true"><use href="#i-star"/></svg><svg class="icon a10__etoile" aria-hidden="true"><use href="#i-star"/></svg><svg class="icon a10__etoile" aria-hidden="true"><use href="#i-star"/></svg><svg class="icon a10__etoile" aria-hidden="true"><use href="#i-star"/></svg></span>
+              <blockquote>&laquo;&nbsp;Équipe agréable et efficace, je recommande !&nbsp;&raquo;</blockquote>
+              <p class="a10__auteur"><span class="a10__initiale" style="--teinte: #2558D6">B</span><span>Benjamin M.<small>Avis Google</small></span></p>
+            </article>
+            <article class="a10__carte a10__carte--large">
+              <span class="a10__etoiles a10__etoiles--carte" aria-label="5 sur 5"><svg class="icon a10__etoile" aria-hidden="true"><use href="#i-star"/></svg><svg class="icon a10__etoile" aria-hidden="true"><use href="#i-star"/></svg><svg class="icon a10__etoile" aria-hidden="true"><use href="#i-star"/></svg><svg class="icon a10__etoile" aria-hidden="true"><use href="#i-star"/></svg><svg class="icon a10__etoile" aria-hidden="true"><use href="#i-star"/></svg></span>
+              <blockquote>&laquo;&nbsp;Nous sommes très contents du travail de cette jeune entreprise sur la refonte de notre site internet. […] Un partenariat prometteur !&nbsp;&raquo;</blockquote>
+              <p class="a10__auteur"><span class="a10__initiale" style="--teinte: #2E9E63">M</span><span>Les Terrasses de Merlue<small>Avis Google</small></span></p>
+            </article>
+            <article class="a10__carte">
+              <span class="a10__etoiles a10__etoiles--carte" aria-label="5 sur 5"><svg class="icon a10__etoile" aria-hidden="true"><use href="#i-star"/></svg><svg class="icon a10__etoile" aria-hidden="true"><use href="#i-star"/></svg><svg class="icon a10__etoile" aria-hidden="true"><use href="#i-star"/></svg><svg class="icon a10__etoile" aria-hidden="true"><use href="#i-star"/></svg><svg class="icon a10__etoile" aria-hidden="true"><use href="#i-star"/></svg></span>
+              <blockquote>&laquo;&nbsp;Le travail fourni est très qualitatif et l&rsquo;équipe est super dynamique et agréable !<br>Un grand merci à vous pour votre service.&nbsp;&raquo;</blockquote>
+              <p class="a10__auteur"><span class="a10__initiale" style="--teinte: #6B4FD8">A</span><span>Anatole A.<small>Avis Google</small></span></p>
+            </article>
+            <article class="a10__carte a10__carte--court">
+              <span class="a10__etoiles a10__etoiles--carte" aria-label="5 sur 5"><svg class="icon a10__etoile" aria-hidden="true"><use href="#i-star"/></svg><svg class="icon a10__etoile" aria-hidden="true"><use href="#i-star"/></svg><svg class="icon a10__etoile" aria-hidden="true"><use href="#i-star"/></svg><svg class="icon a10__etoile" aria-hidden="true"><use href="#i-star"/></svg><svg class="icon a10__etoile" aria-hidden="true"><use href="#i-star"/></svg></span>
+              <blockquote>&laquo;&nbsp;Équipe très professionnel et travail de qualité&nbsp;&raquo;</blockquote>
+              <p class="a10__auteur"><span class="a10__initiale" style="--teinte: #2E9E63">Y</span><span>Yanis B.<small>Avis Google</small></span></p>
+            </article>
+            <article class="a10__carte a10__carte--large">
+              <span class="a10__etoiles a10__etoiles--carte" aria-label="5 sur 5"><svg class="icon a10__etoile" aria-hidden="true"><use href="#i-star"/></svg><svg class="icon a10__etoile" aria-hidden="true"><use href="#i-star"/></svg><svg class="icon a10__etoile" aria-hidden="true"><use href="#i-star"/></svg><svg class="icon a10__etoile" aria-hidden="true"><use href="#i-star"/></svg><svg class="icon a10__etoile" aria-hidden="true"><use href="#i-star"/></svg></span>
+              <blockquote>&laquo;&nbsp;Une équipe compétente, à l&rsquo;écoute et réactive ! OBT Agency a su mettre en valeur nos activités, notre état d&rsquo;esprit et retranscrire l&rsquo;atmosphère de notre lieu d&rsquo;accueil afin de donner envie d&rsquo;y séjourner.&nbsp;&raquo;</blockquote>
+              <p class="a10__auteur"><span class="a10__initiale" style="--teinte: #B4531B">T</span><span>T&rsquo;nature<small>Avis Google</small></span></p>
+            </article>            <article class="a10__carte">
+              <span class="a10__etoiles a10__etoiles--carte" aria-label="5 sur 5"><svg class="icon a10__etoile" aria-hidden="true"><use href="#i-star"/></svg><svg class="icon a10__etoile" aria-hidden="true"><use href="#i-star"/></svg><svg class="icon a10__etoile" aria-hidden="true"><use href="#i-star"/></svg><svg class="icon a10__etoile" aria-hidden="true"><use href="#i-star"/></svg><svg class="icon a10__etoile" aria-hidden="true"><use href="#i-star"/></svg></span>
+              <blockquote>&laquo;&nbsp;Travail très qualitatif, équipe très motivée et aimable<br>Je vous remercie pour votre rapidité&nbsp;&raquo;</blockquote>
+              <p class="a10__auteur"><span class="a10__initiale" style="--teinte: #2558D6">S</span><span>Sophie R.<small>Avis Google</small></span></p>
+            </article>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
+  <!-- =====================================================================
+       S8, LA FIN. A gauche la phrase et les boutons, a droite la carte de
+       l'offre qu'on pousse sur cette page. Aucun montant.
+       ===================================================================== -->
+  <section id="hebergements-s9" class="ab-fp" data-fond="sombre" aria-labelledby="hebergements-s9-title">
+    <span class="ab-fp__ronds" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
 
-<!-- ============================ S6 : MÉTHODE =============================== -->
-
-<!-- =========================== S7 : LES OFFRES ============================= -->
-<!-- ========================== S8 : COMPARATIF ============================== -->
-
-  
-  <!-- ACCUEIL, SECTION 8 : Réassurance (réf. "section 8") + preuves (réf. "section 8bis") -->
-
-  <!-- ACCUEIL, SECTION 4 : Depuis 2014 (réf. "section 4") -->
-
-<!-- ========================= S13 : DERNIER APPEL =========================== -->
-
-  <!-- ===================== A11 : LE DERNIER APPEL ============================
-     Repond a « qu'est-ce que je risque ». Reponse : rien, vous repartez avec
-     un chiffre. Un seul bloc noir tres arrondi pose sur le creme, les ronds
-     bleus dans les angles.
-     Trois champs seulement : le metier, la ville et l'adresse ou envoyer le
-     releve. Le plan n'en prevoyait que deux, mais sans adresse on ne peut
-     pas tenir la promesse des 24 heures.
-     LA PHOTO DE TOM : la signature porte une pastille a son initiale. Pour
-     poser sa photo, remplacer <span class="a11__initiale">T</span> par :
-       <img class="a11__visage" src="assets/img/tom.jpg?v=437" width="96"
-            height="96" loading="lazy" decoding="async" alt="Tom Boyer">
-     ========================================================================= -->
-  <section id="accueil-s11" class="a11" aria-labelledby="a11-titre">
-    <div class="a11__dedans">
-      <div class="a11__bloc" data-fond="sombre">
-        <span class="a11__ronds" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
-
-        <!-- Section d'appel : elle envoie ailleurs, elle ne fait rien sur place.
-             Rien d'autre que la note, le titre et les deux boutons. Le second
-             bouton mene a la page Contact tant qu'il n'y a pas d'agenda en
-             ligne : le jour ou il y en a un, on change juste son href. -->
-        <a class="a11__note" href="https://share.google/RHD0CkD38IK6VSCKV" target="_blank" rel="noopener"
-           aria-label="Note 5 sur 5 : voir nos avis Google (nouvel onglet)">
-          <span class="a1__visages" aria-hidden="true">
-            <i><img src="assets/img/humains/visage-charpentier.jpg" alt="" width="32" height="32" decoding="async"></i><i><img src="assets/img/humains/visage-gite.jpg" alt="" width="32" height="32" decoding="async"></i><i><img src="assets/img/humains/visage-peintre.jpg" alt="" width="32" height="32" decoding="async"></i><i><img src="assets/img/humains/visage-plombier.jpg" alt="" width="32" height="32" decoding="async"></i><i class="a1__visages--plus">+3</i>
-          </span>
-          <svg class="icon icon--google" aria-hidden="true"><use href="#i-google"/></svg>
-          <span class="a1__etoiles" aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
-          <b>5/5</b>
-        </a>
-
-        <h2 id="a11-titre" class="a11__titre titre--deux" style="--fit-l: min(60px, 5.83vw)"><span class="titre__ligne">Vos voyageurs réservent en direct.</span><br><span class="titre__ligne">La commission reste <span class="a1__insecable"><span class="a1__surligne est-peint">chez vous</span><span class="a1__point a1__point--fin">.</span></span></span></h2>
-
-        <p class="a11__action">
-          <a href="test-visibilite.html" class="a11__bouton">
+    <div class="ab-fp__dedans">
+      <div>
+        <h2 id="hebergements-s9-title" class="ab-fp__titre">Le voyageur hésite entre trois adresses.<br>
+          <span class="ab-fp__clair">Que ce soit la vôtre</span><span class="a1__point a1__point--fin">.</span></h2>
+        <p class="ab-fp__sous">On regarde votre lieu, on vous dit ce qu&rsquo;il faut, vous repartez avec le prix écrit.</p>
+        <p class="ab-fp__action">
+          <a href="#rendez-vous" data-rdv-ouvrir class="a1__bouton a1__bouton--bleu">
             <span class="a1__bouton-points" aria-hidden="true"><i></i><i></i><i></i></span>
-            Faire un test de visibilité
-            <svg class="icon" aria-hidden="true"><use href="#i-arrow-right"/></svg>
-          </a>
-          <a href="#rendez-vous" data-rdv-ouvrir class="a11__bouton a11__bouton--clair">
             Réserver le diagnostic de mon site
             <svg class="icon" aria-hidden="true"><use href="#i-arrow-right"/></svg>
           </a>
         </p>
       </div>
+
+      <div class="ab-fp__carte">
+        <p class="ab-fp__eti">Le plus choisi</p>
+        <p class="ab-fp__nom">Le site complet</p>
+        <ul class="ab-fp__liste">
+          <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Version ordinateur et version mobile</li>
+          <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Reliée à votre application de gestion</li>
+          <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Hébergement, sauvegardes et mises à jour</li>
+          <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Modifications de contenu sur simple message</li>
+        </ul>
+        <p class="ab-fp__pied">Le site est à votre nom depuis le premier jour. <a href="#hebergements-s4">Voir la comparaison</a>.</p>
+      </div>
     </div>
   </section>
-
 </main>
 
 <!-- ============================================================
@@ -716,7 +688,6 @@
         <ul>
           <li><a href="index.html">Accueil</a></li>
           <li><a href="resultats.html">Résultats</a></li>
-          <li><a href="blog.html">Blog</a></li>
           <li><a href="#rendez-vous" data-rdv-ouvrir>Réserver un diagnostic</a></li>
         </ul>
       </nav>
@@ -747,12 +718,7 @@
   </div>
 </footer>
 
-<script src="js/main.js?v=437" defer></script>
-<!-- La visionneuse qui ouvrait le site d'un client dans un cadre, par-dessus
-     la page, a ete retiree le 5 novembre 2026 : on ne reproduit jamais le site
-     d'un client chez nous. Sa capture est un lien vers son adresse, ouvert
-     dans un autre onglet. Regle de Nathan. -->
-
+<script src="js/main.js?v=438" defer></script>
 <!-- Barre d'appel flottante, commune aux cinq pages. Elle reste accessible où
      qu'on soit dans la page : c'est le raccourci vers la prise de contact. -->
 
