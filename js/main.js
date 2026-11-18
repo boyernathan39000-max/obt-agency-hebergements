@@ -2445,9 +2445,9 @@
       + '  <span class="bulle-carte__qui"><b>Tom et Nathan</b><span>Fondateurs d’OBT Agency</span></span>'
       + '  <button type="button" class="bulle-carte__fermer" aria-label="Fermer"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M6.28 5.22a.75.75 0 00-1.06 1.06L8.94 10l-3.72 3.72a.75.75 0 101.06 1.06L10 11.06l3.72 3.72a.75.75 0 101.06-1.06L11.06 10l3.72-3.72a.75.75 0 00-1.06-1.06L10 8.94 6.28 5.22z" fill="currentColor"/></svg></button>'
       + '</div>'
-      + '<p class="bulle-carte__titre">Un projet de site pour votre hébergement&nbsp;?</p>'
-      + '<p class="bulle-carte__texte">Choisissez un créneau en 30 secondes, on vous appelle à l’heure prévue pour vous montrer votre maquette.</p>'
-      + '<button type="button" class="bulle-carte__action"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Réserver mon rendez-vous de maquette</button>';
+      + '<p class="bulle-carte__titre">Un projet de création ou refonte de site&nbsp;?</p>'
+      + '<p class="bulle-carte__texte">Choisissez un créneau en 30 secondes pour qu’on vous présente votre maquette gratuite.</p>'
+      + '<button type="button" class="bulle-carte__action">Réserver un rendez-vous<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>';
     document.body.appendChild(carte);
 
     var bulle = document.createElement('button');

@@ -8371,3 +8371,8 @@ main section h2[class*="__titre"] { font-size: clamp(34px, 5.3vw, 72px) !importa
 @media (max-width: 620px) { .bulle-carte { bottom: calc(18px + 52px + 12px + env(safe-area-inset-bottom, 0px)); } }
 @media (prefers-reduced-motion: reduce) { .bulle-carte, .bulle-rdv svg { transition: none; } }
 @media (max-width: 420px) { .bulle-carte__action { font-size: 13px; gap: 6px; padding-inline: 8px; white-space: nowrap; } .bulle-carte__action svg { width: 16px; height: 16px; } }
+/* La vague de la bulle bat en permanence, sauf quand la carte est ouverte. */
+.bulle-rdv::after { animation: bulleOnde 2.4s ease-out infinite; }
+.bulle-rdv.est-ouverte::after { animation: none; opacity: 0; }
+@media (prefers-reduced-motion: reduce) { .bulle-rdv::after { animation: none; } }
+.bulle-carte__titre { color: #000; }
