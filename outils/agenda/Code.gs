@@ -155,7 +155,7 @@ function doPost(e) {
     }
 
     var notes = [
-      'Rendez-vous maquette pris depuis le site.',
+      'Rendez-vous maquette pris depuis le site, par téléphone : OBT Agency appelle le client.',
       '',
       'Nom : ' + nom,
       'Entreprise : ' + entreprise,
@@ -172,14 +172,10 @@ function doPost(e) {
       description: notes,
       start: { dateTime: debut.toISOString(), timeZone: FUSEAU },
       end: { dateTime: fin.toISOString(), timeZone: FUSEAU },
-      attendees: [{ email: email, displayName: nom }],
-      conferenceData: {
-        createRequest: {
-          requestId: Utilities.getUuid(),
-          conferenceSolutionKey: { type: 'hangoutsMeet' }
-        }
-      }
-    }, AGENDA, { conferenceDataVersion: 1, sendUpdates: 'all' });
+      /* Rendez-vous par téléphone uniquement : c'est nous qui appelons. */
+      location: 'Par téléphone : OBT Agency vous appelle au ' + tel,
+      attendees: [{ email: email, displayName: nom }]
+    }, AGENDA, { sendUpdates: 'all' });
 
     /* La date en français : formatDate écrit les jours et les mois en anglais. */
     var JOURS_FR = ['', 'lundi', 'mardi', 'mercredi', 'jeudi', 'vendredi', 'samedi', 'dimanche'];
@@ -194,8 +190,8 @@ function doPost(e) {
       to: Session.getEffectiveUser().getEmail(),
       replyTo: email,
       subject: 'Nouveau rendez-vous maquette : ' + entreprise,
-      body: notes + '\n\nQuand : ' + quand + ' (heure de Paris)\nLien Meet : ' +
-        (evenement.hangoutLink || 'dans l’agenda') + '\nÉvénement : ' + (evenement.htmlLink || '')
+      body: notes + '\n\nQuand : ' + quand + ' (heure de Paris)\nÀ appeler au : ' + tel +
+        '\nÉvénement : ' + (evenement.htmlLink || '')
     });
 
     return json_({ ok: true, reference: evenement.id });

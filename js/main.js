@@ -2124,7 +2124,7 @@
       + '<div class="rdv__fini" data-rdv-fini hidden>'
       + '  <span class="rdv__coche" aria-hidden="true"><svg class="icon"><use href="#i-check"/></svg></span>'
       + '  <h3>C’est noté, votre rendez-vous maquette est réservé.</h3>'
-      + '  <p>Vous recevez la confirmation par e-mail d’ici une minute, avec le lien de l’appel et de quoi le déplacer si besoin.</p>'
+      + '  <p>Vous recevez la confirmation par e-mail d’ici une minute, Nous vous appelons au numéro indiqué, à l’heure prévue.</p>'
       + '  <p class="rdv__quand"><svg class="icon" aria-hidden="true"><use href="#i-agenda"/></svg><span data-rdv-fini-quand></span></p>'
       + '</div>'
       + '</div>';
