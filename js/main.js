@@ -1291,6 +1291,10 @@
      En apercu local (127.0.0.1), on dessine des creneaux de demonstration
      pour pouvoir juger le dessin : ils ne partent nulle part.
      ------------------------------------------------------------------------ */
+  /* Le moteur de rendez-vous : programme Google Apps Script publié depuis le
+     compte de l'agence, branché sur son agenda Google (outils/agenda/). */
+  var AGENDA_URL = 'https://script.google.com/macros/s/AKfycbzax3kMXm0f49-dNHd3UoWUzDaRDKpQRFhJlH_xroOLAxn4flu-p4D69l5F71uBCzwFwA/exec';
+
   function initRdv(racine) {
     var API = racine.getAttribute('data-api') || '/api';
     var LOCAL = location.hostname === '127.0.0.1' || location.hostname === 'localhost';
@@ -1435,9 +1439,7 @@
       var fin = new Date(mois.getFullYear(), mois.getMonth() + 1, 0);
       if (fin < debut) { dessineMois(); return; }
 
-      fetch(API + '/creneaux?debut=' + cle(debut) + '&fin=' + cle(fin), {
-        headers: { 'Accept': 'application/json' }
-      }).then(function (r) {
+      fetch(AGENDA_URL + '?action=creneaux&debut=' + cle(debut) + '&fin=' + cle(fin)).then(function (r) {
         if (!r.ok) throw new Error('HTTP ' + r.status);
         return r.json();
       }).then(function (json) {
@@ -1592,20 +1594,30 @@
           botcheck: form.botcheck.checked ? '1' : ''
         };
 
-        fetch(API + '/rendez-vous', {
+        /* text/plain : le navigateur envoie la demande sans requête préalable,
+           le seul format que Google Apps Script accepte d'un autre site. */
+        fetch(AGENDA_URL, {
           method: 'POST',
-          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+          headers: { 'Content-Type': 'text/plain;charset=utf-8' },
           body: JSON.stringify(corps)
         }).then(function (r) {
           return r.json().catch(function () { return {}; }).then(function (json) {
-            if (!r.ok || json.ok !== true) throw new Error(json.erreur || ('HTTP ' + r.status));
+            if (!r.ok || json.ok !== true) {
+              var err = new Error(json.erreur || ('HTTP ' + r.status));
+              err.pris = json.code === 'pris';
+              throw err;
+            }
             return json;
           });
         }).then(termine).catch(function (err) {
           if (bouton) { bouton.disabled = false; bouton.textContent = libelle; }
           /* En apercu local, la fonction serveur n'existe pas : on montre
              l'ecran de fin pour juger le dessin, sans rien reserver. */
-          if (LOCAL) { termine(); return; }
+          if (err && err.pris) {
+            parle('Ce créneau vient d’être pris. Choisissez-en un autre, vos informations sont gardées.', 'echec');
+            moisCharges = {}; creneaux = {}; chargeMois();
+            return;
+          }
           parle('La réservation n’a pas abouti. Écrivez à contact@obt-agency.fr, on vous donne un créneau tout de suite.', 'echec');
         });
       });
