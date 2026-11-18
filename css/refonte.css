@@ -8320,3 +8320,11 @@ main section h2[class*="__titre"] { font-size: clamp(34px, 5.3vw, 72px) !importa
 .rdv__restants { margin: 16px 0 0; display: flex; align-items: center; justify-content: center; gap: 9px; text-align: center; font-size: 15px; font-weight: 600; color: var(--c-text); }
 .rdv__restants i { width: 10px; height: 10px; flex: 0 0 auto; border-radius: 50%; background: #FF6B4A; box-shadow: 0 0 0 4px rgba(255, 107, 74, .25); animation: cf-pouls 1.8s ease-in-out infinite; }
 @media (prefers-reduced-motion: reduce) { .rdv__restants i { animation: none; } }
+.modale__preuve { flex-wrap: wrap; align-items: center; gap: 10px 12px; }
+.modale__preuve .a1__projets { white-space: nowrap; }
+@media (max-width: 560px) {
+  .modale__tete { padding-inline: 0; }
+  .modale__preuve { padding-top: 36px; }
+  .modale__preuve .a1__projets { font-size: 13.5px; padding: 8px 14px; }
+}
+.modale__titre .a1__surligne { white-space: nowrap; }
