@@ -8267,3 +8267,9 @@ main .ex-chap > .ex-tableau-cadre + p { margin-top: 18px; }
 /* Titre des avis sur une seule ligne. */
 .avb__tete { max-width: none; }
 @media (min-width: 640px) { .avb__tete .sr__titre { white-space: nowrap; } }
+
+/* ===== Lot 10, Nathan 18 novembre 2026 ===== */
+/* Carte OBT : le rond du milieu part, un rond d'un autre bleu en bas à gauche. */
+.cf__carte-ronds i:nth-child(2) { width: 280px; height: 280px; right: auto; top: auto; left: -110px; bottom: -110px; background: #3D8BFF; opacity: .28; }
+/* Pastille « Populaire » de la couleur du point des places. */
+.cf__badge { background: #FF6B4A; color: #fff; }
