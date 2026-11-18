@@ -8273,3 +8273,24 @@ main .ex-chap > .ex-tableau-cadre + p { margin-top: 18px; }
 .cf__carte-ronds i:nth-child(2) { width: 280px; height: 280px; right: auto; top: auto; left: -110px; bottom: -110px; background: #3D8BFF; opacity: .28; }
 /* Pastille « Populaire » de la couleur du point des places. */
 .cf__badge { background: #FF6B4A; color: #fff; }
+
+/* ===== Lot 11, Nathan 18 novembre 2026 : l'orange = #FF6B4A ===== */
+@keyframes battement-orange {
+  0%   { box-shadow: 0 0 0 0 rgba(255, 107, 74, .55); }
+  70%  { box-shadow: 0 0 0 14px rgba(255, 107, 74, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(255, 107, 74, 0); }
+}
+.a1__bouton--orange { background: #FF6B4A; color: #fff; padding-left: 22px; animation: battement-orange 2.2s ease-out infinite; }
+.a1__bouton--orange:hover { background: #FF8466; animation: none; box-shadow: 0 22px 40px -18px rgba(255, 107, 74, .9); }
+.a1__bouton--orange .a1__bouton-points i { background: #fff; }
+.site-header .header-cta, .site-header .header-cta:hover { background: #FF6B4A; border-color: #FF6B4A; color: #fff; animation: battement-orange 2.2s ease-out infinite; }
+.site-header .header-cta:hover { background: #FF8466; border-color: #FF8466; animation: none; }
+@media (prefers-reduced-motion: reduce) { .a1__bouton--orange, .site-header .header-cta { animation: none; } }
+/* Pastille penchée « Application de gestion » dans la carte de réalisation. */
+.work-open { position: relative; }
+.work-badge { position: absolute; top: 16px; right: 16px; z-index: 2; padding: 7px 14px; border-radius: 999px; background: var(--c-accent); color: #fff; font-size: 13px; font-weight: 700; white-space: nowrap; transform: rotate(6deg); box-shadow: 0 10px 22px -10px rgba(18, 21, 26, .6); }
+@media (max-width: 560px) { .work-badge { top: 10px; right: 10px; padding: 5px 10px; font-size: 11.5px; } }
+/* Carte OBT : la pastille devient un ruban qui barre l'angle. */
+.cf__badge--ruban { top: 30px; right: -52px; left: auto; width: 200px; padding: 9px 0; border-radius: 0; text-align: center; transform: rotate(40deg); box-shadow: 0 8px 18px -8px rgba(0, 0, 0, .5); }
+/* Boutons ajoutés sous l'application et sous les avis. */
+.ac__action, .avb__action { margin: clamp(32px, 3.6vw, 48px) 0 0; display: flex; justify-content: center; }
