@@ -2429,14 +2429,56 @@
       ouvre(mRdv);
     }
 
+    /* La bulle en bas a droite ouvre d'abord une petite carte (Tom et
+       Nathan, point vert, un bouton) ; c'est le bouton de la carte qui ouvre
+       la prise de rendez-vous. Sur le modele du site offbound.fr, demande de
+       Nathan le 18 novembre 2026. */
+    var carte = document.createElement('div');
+    carte.className = 'bulle-carte';
+    carte.id = 'bulle-carte';
+    carte.setAttribute('role', 'dialog');
+    carte.setAttribute('aria-label', 'Parler à Tom et Nathan');
+    carte.hidden = true;
+    carte.innerHTML = ''
+      + '<div class="bulle-carte__haut">'
+      + '  <span class="bulle-carte__visages" aria-hidden="true"><i class="bulle-carte__t">T</i><i class="bulle-carte__n">N</i><b class="bulle-carte__point"></b></span>'
+      + '  <span class="bulle-carte__qui"><b>Tom et Nathan</b><span>Fondateurs d’OBT Agency</span></span>'
+      + '  <button type="button" class="bulle-carte__fermer" aria-label="Fermer"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M6.28 5.22a.75.75 0 00-1.06 1.06L8.94 10l-3.72 3.72a.75.75 0 101.06 1.06L10 11.06l3.72 3.72a.75.75 0 101.06-1.06L11.06 10l3.72-3.72a.75.75 0 00-1.06-1.06L10 8.94 6.28 5.22z" fill="currentColor"/></svg></button>'
+      + '</div>'
+      + '<p class="bulle-carte__titre">Un projet de site pour votre hébergement&nbsp;?</p>'
+      + '<p class="bulle-carte__texte">Choisissez un créneau en 30 secondes, on vous appelle à l’heure prévue pour vous montrer votre maquette.</p>'
+      + '<button type="button" class="bulle-carte__action"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Réserver mon rendez-vous de maquette</button>';
+    document.body.appendChild(carte);
+
     var bulle = document.createElement('button');
     bulle.type = 'button';
     bulle.className = 'bulle-rdv';
-    bulle.setAttribute('aria-label', 'Demander ma maquette');
-    bulle.innerHTML = '<svg class="icon" aria-hidden="true"><use href="#i-agenda"/></svg>'
-      + '<span class="bulle-rdv__infobulle">Demander ma maquette</span>';
-    bulle.addEventListener('click', function () { ouvre(mRdv); });
+    bulle.setAttribute('aria-label', 'Parler à Tom et Nathan');
+    bulle.setAttribute('aria-expanded', 'false');
+    bulle.setAttribute('aria-controls', 'bulle-carte');
+    bulle.innerHTML = '<svg class="icon bulle-rdv__agenda" aria-hidden="true"><use href="#i-agenda"/></svg>'
+      + '<svg class="bulle-rdv__chevron" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.25 4.5l7.5 7.5-7.5 7.5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>';
     document.body.appendChild(bulle);
+
+    var fermeCarteMinuteur = null;
+    function carteOuverte(oui) {
+      clearTimeout(fermeCarteMinuteur);
+      bulle.classList.toggle('est-ouverte', oui);
+      bulle.setAttribute('aria-expanded', String(oui));
+      if (oui) {
+        carte.hidden = false;
+        requestAnimationFrame(function () { requestAnimationFrame(function () { carte.classList.add('est-visible'); }); });
+      } else {
+        carte.classList.remove('est-visible');
+        fermeCarteMinuteur = setTimeout(function () { carte.hidden = true; }, 220);
+      }
+    }
+    bulle.addEventListener('click', function () { carteOuverte(!bulle.classList.contains('est-ouverte')); });
+    carte.querySelector('.bulle-carte__fermer').addEventListener('click', function () { carteOuverte(false); bulle.focus(); });
+    carte.querySelector('.bulle-carte__action').addEventListener('click', function () { carteOuverte(false); ouvre(mRdv); });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && bulle.classList.contains('est-ouverte')) { carteOuverte(false); bulle.focus(); }
+    });
 
     /* --- le test de visibilite, cinq secondes apres l'ouverture ---
        Il ne s'affiche que sur la page d'accueil. Une seule fois par visite :
