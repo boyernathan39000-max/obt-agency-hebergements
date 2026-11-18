@@ -181,7 +181,15 @@ function doPost(e) {
       }
     }, AGENDA, { conferenceDataVersion: 1, sendUpdates: 'all' });
 
-    var quand = Utilities.formatDate(debut, FUSEAU, "EEEE d MMMM yyyy 'à' HH'h'mm");
+    /* La date en français : formatDate écrit les jours et les mois en anglais. */
+    var JOURS_FR = ['', 'lundi', 'mardi', 'mercredi', 'jeudi', 'vendredi', 'samedi', 'dimanche'];
+    var MOIS_FR = ['janvier', 'février', 'mars', 'avril', 'mai', 'juin', 'juillet', 'août',
+      'septembre', 'octobre', 'novembre', 'décembre'];
+    var quand = JOURS_FR[Number(Utilities.formatDate(debut, FUSEAU, 'u'))] + ' ' +
+      Number(Utilities.formatDate(debut, FUSEAU, 'd')) + ' ' +
+      MOIS_FR[Number(Utilities.formatDate(debut, FUSEAU, 'M')) - 1] + ' ' +
+      Utilities.formatDate(debut, FUSEAU, 'yyyy') + ' à ' +
+      Utilities.formatDate(debut, FUSEAU, "H'h'mm");
     MailApp.sendEmail({
       to: Session.getEffectiveUser().getEmail(),
       replyTo: email,
