@@ -1302,9 +1302,9 @@
     var fil = document.querySelector('[data-rdv-fil]');
     var etapes = {
       1: racine.querySelector('[data-rdv-etape="1"]'),
-      2: racine.querySelector('[data-rdv-etape="2"]'),
-      3: racine.querySelector('[data-rdv-etape="3"]')
+      2: racine.querySelector('[data-rdv-etape="2"]')
     };
+    var restants = racine.querySelector('[data-rdv-restants]');
     var fini = racine.querySelector('[data-rdv-fini]');
     var boiteJours = racine.querySelector('[data-rdv-jours]');
     var boiteHeures = racine.querySelector('[data-rdv-creneaux]');
@@ -1343,20 +1343,10 @@
       });
     }
 
-    /* --- l'avancement --- */
+    /* --- l'avancement : 1. la date, 2. les coordonnees. L'etape du choix
+       de la prestation a ete retiree le 18 novembre 2026 (Nathan). --- */
     function montrer(n) {
-      [1, 2, 3].forEach(function (i) { etapes[i].hidden = (i !== n); });
-      /* Quand on revient sur le choix de la prestation, rien n'est plus
-         selectionne : la page se redecouvre comme la premiere fois. Le
-         focus laisse sur l'ancien bouton est retire aussi, sinon son
-         contour bleu restait affiche. Nathan, 6 novembre 2026. */
-      if (n === 2) {
-        racine.querySelectorAll('[data-rdv-besoin]').forEach(function (a) {
-          a.setAttribute('aria-pressed', 'false');
-          a.blur();
-        });
-        choix.besoin = null;
-      }
+      [1, 2].forEach(function (i) { etapes[i].hidden = (i !== n); });
       if (fil) {
         Array.prototype.forEach.call(fil.children, function (li, i) {
           li.classList.toggle('est-actif', i + 1 === n);
@@ -1365,23 +1355,6 @@
       }
       racine.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
-
-    /* --- etape 2 : la prestation. Choisie apres le creneau depuis le
-       3 novembre 2026 : le visiteur vient pour un rendez-vous, on lui montre
-       d'abord quand on est libre. --- */
-    racine.querySelectorAll('[data-rdv-besoin]').forEach(function (b) {
-      b.addEventListener('click', function () {
-        racine.querySelectorAll('[data-rdv-besoin]').forEach(function (a) {
-          a.setAttribute('aria-pressed', String(a === b));
-        });
-        choix.besoin = b.getAttribute('data-rdv-besoin');
-        if (recap && choix.jour && choix.heure) {
-          recap.textContent = longue(choix.jour) + ' à ' + enLettres(choix.heure)
-            + ', trente minutes. ' + choix.besoin + '.';
-        }
-        montrer(3);
-      });
-    });
 
     racine.querySelectorAll('[data-rdv-retour]').forEach(function (b) {
       b.addEventListener('click', function () {
@@ -1509,8 +1482,16 @@
     function dessineHeures() {
       if (!boiteHeures) return;
       boiteHeures.textContent = '';
+      if (restants) restants.hidden = true;
       if (!choix.jour) { attente.hidden = false; jourChoisiTexte.textContent = ''; return; }
       var liste = creneaux[choix.jour] || [];
+      /* Le nombre d'horaires encore libres ce jour-la, recalcule a chaque
+         affichage : chaque reservation en retire un. */
+      if (restants && liste.length) {
+        restants.querySelector('span').innerHTML = '<b>' + liste.length + '</b>&nbsp;'
+          + (liste.length > 1 ? 'horaires disponibles' : 'horaire disponible');
+        restants.hidden = false;
+      }
       jourChoisiTexte.textContent = longue(choix.jour);
       attente.hidden = liste.length > 0;
       if (!liste.length) { attente.textContent = 'Plus de créneau ce jour-là, choisissez-en un autre.'; return; }
@@ -1527,6 +1508,9 @@
           boiteHeures.querySelectorAll('.rdv__heure').forEach(function (a) {
             a.setAttribute('aria-pressed', String(a === b));
           });
+          if (recap) {
+            recap.textContent = longue(choix.jour) + ' à ' + enLettres(choix.heure) + ', trente minutes.';
+          }
           montrer(2);
         });
         boiteHeures.appendChild(b);
@@ -1574,13 +1558,12 @@
         champs.forEach(function (c) { if (!verifie(c) && !faux) faux = c; });
         if (faux) { faux.focus(); return; }
         if (!choix.jour || !choix.heure) { montrer(1); return; }
-        if (!choix.besoin) { montrer(2); return; }
 
         if (dit) dit.hidden = true;
         if (bouton) { bouton.disabled = true; bouton.textContent = 'Réservation en cours…'; }
 
         var corps = {
-          besoin: choix.besoin,
+          besoin: '',
           debut: choix.debut,
           jour: choix.jour,
           heure: choix.heure,
@@ -2061,8 +2044,8 @@
       + '  </p>'
       + '  <ol class="rdv__fil" data-rdv-fil>'
       + '    <li class="est-actif"><b>1</b><span class="visually-hidden">La date</span></li>'
-      + '    <li><b>2</b><span class="visually-hidden">Votre besoin</span></li>'
-      + '    <li><b>3</b><span class="visually-hidden">Vos coordonnées</span></li>'
+      + '    <li><b>2</b><span class="visually-hidden">Vos coordonnées</span></li>'
+      + '    <li><b>3</b><span class="visually-hidden">La confirmation</span></li>'
       + '  </ol>'
       + '</div>'
       + '<div class="rdv__carte" data-rdv>'
@@ -2083,24 +2066,13 @@
       + '    <div>'
       + '      <p class="rdv__jourchoisi" data-rdv-jour-choisi></p>'
       + '      <div class="rdv__creneaux" data-rdv-creneaux role="group" aria-label="Choisir une heure"></div>'
+      + '      <p class="rdv__restants" data-rdv-restants hidden><i aria-hidden="true"></i><span></span></p>'
       + '      <p class="rdv__attente" data-rdv-attente>Choisissez d’abord un jour en bleu.</p>'
       + '    </div>'
       + '  </div>'
       + '</div>'
 
       + '<div class="rdv__etape" data-rdv-etape="2" hidden>'
-      + '  <div class="rdv__choix">'
-      + option('Site + application de réservation', 'i-maison', 'Site +&nbsp;<span class="a1__surligne est-peint">application de réservation</span>', 'Un site qui donne envie de séjourner et des réservations en direct, sans commission.')
-      + option('Création &amp; Refonte de Site Professionnel', 'i-fenetre', 'Création &amp; Refonte de Site Professionnel', 'Un site qui transforme les visites en appels, sur téléphone comme sur ordinateur.')
-      + option('Identité Visuelle &amp; Charte Graphique', 'i-palette', 'Identité Visuelle &amp; Charte Graphique', 'Logo, couleurs, charte : la même image du site au devis.')
-      + option('Pack SEO &amp; GEO + Site Professionnel', 'i-etincelle', 'Pack <span class="a1__surligne est-peint">SEO &amp; GEO</span> +&nbsp;<span class="a1__surligne est-peint">Site Professionnel</span>', 'Le référencement et le site, ensemble, suivis tous les mois.', true)
-      + option('SEO &amp; GEO', 'i-recherche', 'SEO &amp; GEO', 'Sortir sur votre métier et votre ville, sur Google et dans les IA.')
-      + option('Automatisation IA', 'i-sparkle', 'Automatisation IA', 'Confier à un robot les tâches qui vous prennent vos soirées.')
-      + '  </div>'
-      + '  <p class="rdv__pied"><button type="button" class="rdv__retour" data-rdv-retour="1"><svg class="icon" aria-hidden="true"><use href="#i-arrow-right"/></svg>Changer de créneau</button></p>'
-      + '</div>'
-
-      + '<div class="rdv__etape" data-rdv-etape="3" hidden>'
       + '  <p class="rdv__recap" data-rdv-recap><svg class="icon" aria-hidden="true"><use href="#i-agenda"/></svg><span data-rdv-recap-texte></span></p>'
       + '  <form data-rdv-form novalidate>'
       + '    <div class="rdv__lignes">'
@@ -2114,7 +2086,7 @@
       + '    <p class="rdv__rgpd">Ces informations sont utilisées par OBT Agency pour tenir le rendez-vous et vous envoyer sa confirmation. Elles passent par notre service d’agenda en ligne et sont conservées trois ans après notre dernier échange. Vous pouvez y accéder, les faire corriger ou les supprimer en écrivant à <a href="mailto:contact@obt-agency.fr">contact@obt-agency.fr</a>. En savoir plus&nbsp;: <a href="confidentialite.html">politique de confidentialité</a>.</p>'
       + '    <input type="checkbox" name="botcheck" class="piege-robot" tabindex="-1" autocomplete="off" aria-hidden="true">'
       + '    <p class="rdv__pied">'
-      + '      <button type="button" class="rdv__retour" data-rdv-retour="2"><svg class="icon" aria-hidden="true"><use href="#i-arrow-right"/></svg>Changer de prestation</button>'
+      + '      <button type="button" class="rdv__retour" data-rdv-retour="1"><svg class="icon" aria-hidden="true"><use href="#i-arrow-right"/></svg>Changer de créneau</button>'
       + '      <button type="submit" class="a1__bouton a1__bouton--bleu">Réserver mon rendez-vous de maquette<svg class="icon" aria-hidden="true"><use href="#i-arrow-right"/></svg></button>'
       + '      <span class="rdv__dit" data-rdv-dit role="status" hidden></span>'
       + '    </p>'
