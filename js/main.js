@@ -2103,7 +2103,7 @@
       + '    <input type="checkbox" name="botcheck" class="piege-robot" tabindex="-1" autocomplete="off" aria-hidden="true">'
       + '    <p class="rdv__pied">'
       + '      <button type="button" class="rdv__retour" data-rdv-retour="2"><svg class="icon" aria-hidden="true"><use href="#i-arrow-right"/></svg>Changer de prestation</button>'
-      + '      <button type="submit" class="a1__bouton a1__bouton--bleu">Réserver mon rendez-vous maquette<svg class="icon" aria-hidden="true"><use href="#i-arrow-right"/></svg></button>'
+      + '      <button type="submit" class="a1__bouton a1__bouton--bleu">Réserver mon rendez-vous de maquette<svg class="icon" aria-hidden="true"><use href="#i-arrow-right"/></svg></button>'
       + '      <span class="rdv__dit" data-rdv-dit role="status" hidden></span>'
       + '    </p>'
       + '  </form>'
@@ -2330,7 +2330,7 @@
       + '    <ul class="tv__amain-liste" data-tv-amain></ul></div>'
       + '  <p class="tv__pied">'
       + '    <button type="button" class="a1__bouton a1__bouton--bleu" data-tv-rapport>Recevoir le rapport complet<svg class="icon" aria-hidden="true"><use href="#i-arrow-right"/></svg></button>'
-      + '    <a href="#rendez-vous" data-rdv-ouvrir class="a1__bouton a1__bouton--bleu" data-tv-rdv><span class="a1__bouton-points" aria-hidden="true"><i></i><i></i><i></i></span>Demander ma maquette<svg class="icon" aria-hidden="true"><use href="#i-arrow-right"/></svg></a>'
+      + '    <a href="#rendez-vous" data-rdv-ouvrir class="a1__bouton a1__bouton--bleu" data-tv-rdv>Demander ma maquette<svg class="icon" aria-hidden="true"><use href="#i-arrow-right"/></svg></a>'
       + '    <button type="button" class="tv__retour" data-tv-recommencer><svg class="icon" aria-hidden="true"><use href="#i-arrow-right"/></svg>Refaire un test</button>'
       + '  </p>'
       + '  <div class="tv__rapport" data-tv-boite-rapport hidden>'
@@ -2366,7 +2366,7 @@
       + '<span class="field-error" data-error-for="' + id + '" hidden>' + erreur + '</span></p>'
       + '<input type="checkbox" name="botcheck" class="piege-robot" tabindex="-1" autocomplete="off" aria-hidden="true">'
       + '<button type="submit" class="a1__bouton' + (quoi === 'site' ? ' a1__bouton--bleu' : '') + ' tv__lancer">'
-      + (quoi === 'fiche' ? '<span class="a1__bouton-points" aria-hidden="true"><i></i><i></i><i></i></span>' : '')
+      + ''
       + action + '<svg class="icon" aria-hidden="true"><use href="#i-arrow-right"/></svg></button>'
       + '<ul class="tv__liste">' + liste.map(function (l) {
           return '<li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>' + l + '</li>';
