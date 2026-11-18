@@ -8256,3 +8256,14 @@ main .ex-chap > .ex-tableau-cadre + p { margin-top: 18px; }
 /* Résultats : les réalisations reliées à l'application. */
 .work-app { display: inline-flex; align-items: center; gap: 6px; margin: 4px 0 2px; padding: 4px 10px; border-radius: 999px; background: #E6EDFC; color: #1D4DC4; font-size: 12.5px; font-weight: 600; width: fit-content; }
 .work-app .icon { width: 13px; height: 13px; }
+
+/* ===== Lot 9, Nathan 18 novembre 2026 ===== */
+/* Promesses : les quatre cases centrées, texte gardé à gauche. */
+@media (min-width: 900px) { .pm__grille { grid-template-columns: repeat(4, minmax(0, 260px)); justify-content: center; } }
+@media (min-width: 560px) and (max-width: 899px) { .pm__grille { grid-template-columns: repeat(2, minmax(0, 300px)); justify-content: center; } }
+/* Moins d'air entre les promesses et les deux frères. */
+#hebergements-s6.pm { padding-bottom: clamp(28px, 3vw, 44px); }
+#hebergements-s7.a9 { padding-top: clamp(28px, 3vw, 44px); }
+/* Titre des avis sur une seule ligne. */
+.avb__tete { max-width: none; }
+@media (min-width: 640px) { .avb__tete .sr__titre { white-space: nowrap; } }
