@@ -8402,3 +8402,10 @@ main section h2[class*="__titre"] { font-size: clamp(34px, 5.3vw, 72px) !importa
 .rdv__accord a { color: var(--c-accent); }
 .rdv__accord input[aria-invalid="true"] { outline: 2px solid #E05858; outline-offset: 2px; }
 .rdv__accord .field-error { font-size: 12.5px; font-weight: 600; }
+
+/* Ecran de remerciement (19/11/2026) : « Merci Prenom » en grand, le
+   rendez-vous en sous-titre, puis la suite. */
+.rdv__fini { padding-block: clamp(28px, 5vw, 56px); }
+.rdv__fini .rdv__merci { margin: 0 0 12px; font-size: clamp(34px, 5vw, 52px); line-height: 1.06; letter-spacing: -.035em; text-wrap: balance; }
+.rdv__fini .rdv__quand { display: block; padding: 0; background: none; box-shadow: none; margin: 0 auto 22px; font-size: clamp(17px, 2vw, 21px); font-weight: 600; color: var(--c-text); text-wrap: balance; }
+.rdv__fini .rdv__suite { font-size: 16px; color: var(--c-text-muted); text-wrap: balance; }

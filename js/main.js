@@ -1690,9 +1690,15 @@
           li.classList.add('est-faite');
         });
       }
+      /* L'ecran de remerciement prend toute la fenetre (Nathan, 19/11/2026) :
+         le titre, les gages et le fil disparaissent. */
+      var merci = racine.querySelector('[data-rdv-merci]');
+      if (merci && form && form.prenom.value.trim()) merci.textContent = 'Merci ' + form.prenom.value.trim() + '.';
       if (finiQuand && choix.jour && choix.heure) {
-        finiQuand.textContent = longue(choix.jour) + ' à ' + enLettres(choix.heure);
+        finiQuand.textContent = 'Pour ton rendez-vous du ' + longue(choix.jour) + ' à ' + enLettres(choix.heure) + '.';
       }
+      var tete = racine.parentElement && racine.parentElement.querySelector('.modale__tete');
+      if (tete) tete.hidden = true;
       if (fini) fini.hidden = false;
       racine.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
@@ -2169,9 +2175,9 @@
 
       + '<div class="rdv__fini" data-rdv-fini hidden>'
       + '  <span class="rdv__coche" aria-hidden="true"><svg class="icon"><use href="#i-check"/></svg></span>'
-      + '  <h3>C’est noté, votre rendez-vous maquette est réservé.</h3>'
-      + '  <p>Vous recevez la confirmation par e-mail d’ici 1 minute. Nous vous appelons au numéro indiqué, à l’heure prévue.</p>'
-      + '  <p class="rdv__quand"><svg class="icon" aria-hidden="true"><use href="#i-agenda"/></svg><span data-rdv-fini-quand></span></p>'
+      + '  <h3 class="rdv__merci" data-rdv-merci>Merci.</h3>'
+      + '  <p class="rdv__quand" data-rdv-fini-quand></p>'
+      + '  <p class="rdv__suite">Nous commençons la construction de ta maquette.</p>'
       + '</div>'
       + '</div>';
   }
