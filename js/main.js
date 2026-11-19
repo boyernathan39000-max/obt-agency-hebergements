@@ -1695,7 +1695,7 @@
       var merci = racine.querySelector('[data-rdv-merci]');
       if (merci && form && form.prenom.value.trim()) merci.textContent = 'Merci ' + form.prenom.value.trim() + '.';
       if (finiQuand && choix.jour && choix.heure) {
-        finiQuand.textContent = 'Pour ton rendez-vous du ' + longue(choix.jour) + ' à ' + enLettres(choix.heure) + '.';
+        finiQuand.textContent = 'Pour votre rendez-vous du ' + longue(choix.jour) + ' à ' + enLettres(choix.heure) + '.';
       }
       var tete = racine.parentElement && racine.parentElement.querySelector('.modale__tete');
       if (tete) tete.hidden = true;
@@ -2177,7 +2177,7 @@
       + '  <span class="rdv__coche" aria-hidden="true"><svg class="icon"><use href="#i-check"/></svg></span>'
       + '  <h3 class="rdv__merci" data-rdv-merci>Merci.</h3>'
       + '  <p class="rdv__quand" data-rdv-fini-quand></p>'
-      + '  <p class="rdv__suite">Nous commençons la construction de ta maquette.</p>'
+      + '  <p class="rdv__suite">Nous commençons la construction de votre maquette.</p>'
       + '</div>'
       + '</div>';
   }
