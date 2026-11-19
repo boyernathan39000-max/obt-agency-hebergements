@@ -138,7 +138,9 @@ function doPost(e) {
   var message = texte_(d.message, 2000);
   var debut = new Date(texte_(d.debut, 40));
 
-  if (!nom || !tel || !entreprise) return json_({ ok: false, erreur: 'Il manque des informations.' });
+  /* 19/11/2026 : le site ne demande plus l'entreprise, seulement le prénom. */
+  if (!entreprise) entreprise = site || fiche || nom;
+  if (!nom || !tel) return json_({ ok: false, erreur: 'Il manque des informations.' });
   if (!COURRIEL.test(email)) return json_({ ok: false, erreur: 'Adresse e-mail invalide.' });
   if (isNaN(debut.getTime()) || !debutValable_(debut)) {
     return json_({ ok: false, code: 'pris', erreur: 'Ce créneau n’est plus disponible.' });
@@ -157,7 +159,7 @@ function doPost(e) {
     var notes = [
       'Rendez-vous maquette pris depuis le site, par téléphone : OBT Agency appelle le client.',
       '',
-      'Nom : ' + nom,
+      'Prénom : ' + nom,
       'Entreprise : ' + entreprise,
       'Téléphone : ' + tel,
       'E-mail : ' + email,

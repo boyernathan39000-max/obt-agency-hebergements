@@ -1381,6 +1381,8 @@
           for (var x = 9; x <= 18; x++) {
             ['00', '30'].forEach(function (m) {
               var heure = ('0' + x).slice(-2) + ':' + m;
+              /* deux creneaux deja pris, pour juger le grise */
+              if (heure === '10:30' || heure === '14:00') return;
               h.push({ heure: heure, debut: k + 'T' + heure + ':00' });
             });
           }
@@ -1479,37 +1481,79 @@
       });
     }
 
+    /* La grille complete d'une journee : 9 h a 18 h 30, toutes les demi-heures
+       (les memes regles que l'agenda, outils/agenda/Code.gs). */
+    function grilleDuJour() {
+      var h = [];
+      for (var x = 9; x <= 18; x++) {
+        h.push(('0' + x).slice(-2) + ':00', ('0' + x).slice(-2) + ':30');
+      }
+      return h;
+    }
+
+    /* Le compteur voulu par Nathan (19 novembre 2026) : 1 le lendemain,
+       2 le surlendemain, puis 3 a 5 selon le jour. Le chiffre est fixe pour
+       un jour donne (il ne change pas d'un clic a l'autre) et ne depasse
+       jamais le nombre d'horaires vraiment libres. */
+    function compteur(k, libres) {
+      var aujourdhui = new Date(); aujourdhui.setHours(0, 0, 0, 0);
+      var ecart = Math.round((depuisCle(k) - aujourdhui) / 86400000);
+      var n;
+      if (ecart <= 1) n = 1;
+      else if (ecart === 2) n = 2;
+      else {
+        var somme = 0;
+        for (var i = 0; i < k.length; i++) somme = (somme * 31 + k.charCodeAt(i)) % 9973;
+        n = 3 + somme % 3;
+      }
+      return Math.min(n, libres);
+    }
+
     function dessineHeures() {
       if (!boiteHeures) return;
       boiteHeures.textContent = '';
       if (restants) restants.hidden = true;
       if (!choix.jour) { attente.hidden = false; jourChoisiTexte.textContent = ''; return; }
       var liste = creneaux[choix.jour] || [];
-      /* Le nombre d'horaires encore libres ce jour-la, recalcule a chaque
-         affichage : chaque reservation en retire un. */
+      var libres = {};
+      liste.forEach(function (c) { libres[c.heure] = c; });
       if (restants && liste.length) {
-        restants.querySelector('span').innerHTML = '<b>' + liste.length + '</b>&nbsp;'
-          + (liste.length > 1 ? 'horaires disponibles' : 'horaire disponible');
+        var n = compteur(choix.jour, liste.length);
+        restants.querySelector('span').innerHTML = '<b>' + n + '</b>&nbsp;rendez-vous '
+          + (n > 1 ? 'restants' : 'restant') + ' aujourd’hui';
         restants.hidden = false;
       }
       jourChoisiTexte.textContent = longue(choix.jour);
       attente.hidden = liste.length > 0;
       if (!liste.length) { attente.textContent = 'Plus de créneau ce jour-là, choisissez-en un autre.'; return; }
 
-      liste.forEach(function (c) {
+      /* Toutes les heures de la journee restent affichees : celles qui sont
+         deja prises sont grisees et ne se choisissent pas. */
+      var heures = grilleDuJour();
+      liste.forEach(function (c) { if (heures.indexOf(c.heure) < 0) heures.push(c.heure); });
+      heures.sort();
+      heures.forEach(function (heure) {
+        var c = libres[heure];
         var b = document.createElement('button');
         b.type = 'button';
         b.className = 'rdv__heure';
-        b.textContent = c.heure;
+        b.textContent = heure;
+        if (!c) {
+          b.disabled = true;
+          b.classList.add('rdv__heure--prise');
+          b.setAttribute('aria-label', heure + ', déjà pris');
+          boiteHeures.appendChild(b);
+          return;
+        }
         b.setAttribute('aria-pressed', 'false');
         b.addEventListener('click', function () {
           choix.heure = c.heure;
           choix.debut = c.debut;
-          boiteHeures.querySelectorAll('.rdv__heure').forEach(function (a) {
+          boiteHeures.querySelectorAll('.rdv__heure:not(:disabled)').forEach(function (a) {
             a.setAttribute('aria-pressed', String(a === b));
           });
           if (recap) {
-            recap.textContent = longue(choix.jour) + ' à ' + enLettres(choix.heure) + ', trente minutes.';
+            recap.textContent = longue(choix.jour) + ' à ' + enLettres(choix.heure) + ', 30 minutes.';
           }
           montrer(2);
         });
@@ -1519,11 +1563,35 @@
 
     /* --- etape 3 : les coordonnees, puis la reservation --- */
     if (form) {
-      var champs = Array.prototype.slice.call(form.querySelectorAll('input:not(.piege-robot), textarea'));
+      var champs = Array.prototype.slice.call(form.querySelectorAll('input:not(.piege-robot):not([type="checkbox"]), textarea'));
+      var accord = form.querySelector('[name="accord"]');
+
+      /* Le site et la fiche Google sont exiges, sauf si la case « je n'en ai
+         pas » est cochee : cocher vide et grise le champ. */
+      form.querySelectorAll('[data-rdv-sans]').forEach(function (caseSans) {
+        var cible = form.querySelector('#' + caseSans.getAttribute('data-rdv-sans'));
+        caseSans.addEventListener('change', function () {
+          cible.disabled = caseSans.checked;
+          if (caseSans.checked) cible.value = '';
+          verifie(cible);
+          if (!caseSans.checked) cible.focus();
+        });
+      });
+
+      function verifieAccord() {
+        if (!accord) return true;
+        var msg = form.querySelector('[data-error-for="' + accord.id + '"]');
+        if (msg) msg.hidden = accord.checked;
+        accord.setAttribute('aria-invalid', accord.checked ? 'false' : 'true');
+        return accord.checked;
+      }
+      if (accord) accord.addEventListener('change', function () {
+        if (form.classList.contains('is-tried')) verifieAccord();
+      });
 
       function verifie(champ) {
         var msg = form.querySelector('[data-error-for="' + champ.id + '"]');
-        var ok = champ.hasAttribute('required') ? !!champ.value.trim() : true;
+        var ok = (champ.hasAttribute('required') && !champ.disabled) ? !!champ.value.trim() : true;
         if (ok && champ.type === 'email' && champ.value.trim()) {
           ok = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(champ.value.trim());
         }
@@ -1556,6 +1624,7 @@
         form.classList.add('is-tried');
         var faux = null;
         champs.forEach(function (c) { if (!verifie(c) && !faux) faux = c; });
+        if (!verifieAccord() && !faux) faux = accord;
         if (faux) { faux.focus(); return; }
         if (!choix.jour || !choix.heure) { montrer(1); return; }
 
@@ -1567,15 +1636,18 @@
           debut: choix.debut,
           jour: choix.jour,
           heure: choix.heure,
-          nom: form.nom.value.trim(),
+          nom: form.prenom.value.trim(),
           email: form.email.value.trim(),
           tel: form.tel.value.trim(),
-          entreprise: form.entreprise.value.trim(),
-          site: form.site ? form.site.value.trim() : '',
-          fiche: form.fiche ? form.fiche.value.trim() : '',
+          site: form.site.disabled ? 'Pas de site' : form.site.value.trim(),
+          fiche: form.fiche.disabled ? 'Pas de fiche Google' : form.fiche.value.trim(),
           message: form.message ? form.message.value.trim() : '',
           botcheck: form.botcheck.checked ? '1' : ''
         };
+        /* L'agenda attend encore un nom d'entreprise (titre de l'evenement) :
+           le champ a ete retire, on lui passe le site, sinon la fiche. */
+        corps.entreprise = (!form.site.disabled && corps.site) || (!form.fiche.disabled && corps.fiche)
+          || (corps.nom + ', sans site ni fiche Google');
 
         /* text/plain : le navigateur envoie la demande sans requête préalable,
            le seul format que Google Apps Script accepte d'un autre site. */
@@ -2037,7 +2109,7 @@
       + '    </a>'
       + '    <span class="a1__projets"><b>+ de 50</b> projets réalisés en 2026</span>'
       + '  </div>'
-      + '  <h2 class="modale__titre">Votre rendez-vous maquette, <span class="a1__surligne est-peint">en trente minutes</span><span class="a1__point a1__point--fin">.</span></h2>'
+      + '  <h2 class="modale__titre">Votre rendez-vous maquette, <span class="a1__surligne est-peint">en 30 minutes</span><span class="a1__point a1__point--fin">.</span></h2>'
       + '  <p class="modale__gages">'
       + '    <span><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Gratuit</span>'
       + '    <span><svg class="icon" aria-hidden="true"><use href="#i-clock"/></svg>30 minutes</span>'
@@ -2046,7 +2118,6 @@
       + '  <ol class="rdv__fil" data-rdv-fil>'
       + '    <li class="est-actif"><b>1</b><span class="visually-hidden">La date</span></li>'
       + '    <li><b>2</b><span class="visually-hidden">Vos coordonnées</span></li>'
-      + '    <li><b>3</b><span class="visually-hidden">La confirmation</span></li>'
       + '  </ol>'
       + '</div>'
       + '<div class="rdv__carte" data-rdv>'
@@ -2077,14 +2148,16 @@
       + '  <p class="rdv__recap" data-rdv-recap><svg class="icon" aria-hidden="true"><use href="#i-agenda"/></svg><span data-rdv-recap-texte></span></p>'
       + '  <form data-rdv-form novalidate>'
       + '    <div class="rdv__lignes">'
-      + champ('m-rdv-nom', 'nom', 'Nom et prénom', 'name', 'Indiquez votre nom et votre prénom.')
-      + champ('m-rdv-entreprise', 'entreprise', 'Votre entreprise', 'organization', 'Dites-nous le nom de votre entreprise.', 'text', false, false, 'Gîte des Trois Sources')
-      + champ('m-rdv-email', 'email', 'E-mail', 'email', 'Indiquez une adresse e-mail valide, c’est là que part la confirmation.', 'email')
+      + champ('m-rdv-prenom', 'prenom', 'Prénom', 'given-name', 'Indiquez votre prénom.')
       + champ('m-rdv-tel', 'tel', 'Téléphone', 'tel', 'Indiquez un numéro où vous joindre.', 'tel')
-      + champ('m-rdv-site', 'site', 'Lien de votre site', 'url', '', 'url', false, true, 'votre-entreprise.fr')
-      + champ('m-rdv-fiche', 'fiche', 'Lien de votre fiche Google', 'off', '', 'text', false, true, 'Lien ou nom sur Google')
+      + champ('m-rdv-email', 'email', 'E-mail', 'email', 'Indiquez une adresse e-mail valide, c’est là que part la confirmation.', 'email', true)
+      + champ('m-rdv-site', 'site', 'Lien de votre site', 'url', 'Indiquez le lien de votre site, ou cochez la case.', 'url', false, false, 'votre-entreprise.fr', 'pas-de-site', 'Je n’ai pas de site')
+      + champ('m-rdv-fiche', 'fiche', 'Lien de votre fiche Google', 'off', 'Indiquez votre fiche Google, ou cochez la case.', 'text', false, false, 'Lien ou nom sur Google', 'pas-de-fiche', 'Je n’ai pas de fiche Google')
       + '    </div>'
-      + '    <p class="rdv__rgpd">Ces informations sont utilisées par OBT Agency pour tenir le rendez-vous et vous envoyer sa confirmation. Elles passent par notre service d’agenda en ligne et sont conservées trois ans après notre dernier échange. Vous pouvez y accéder, les faire corriger ou les supprimer en écrivant à <a href="mailto:contact@obt-agency.fr">contact@obt-agency.fr</a>. En savoir plus&nbsp;: <a href="confidentialite.html">politique de confidentialité</a>.</p>'
+      + '    <p class="rdv__accord">'
+      + '      <label><input type="checkbox" id="m-rdv-accord" name="accord"><span>J’accepte les <a href="confidentialite.html" target="_blank" rel="noopener">conditions d’utilisation de mes données</a>.</span></label>'
+      + '      <span class="field-error" data-error-for="m-rdv-accord" hidden>Cochez la case pour réserver.</span>'
+      + '    </p>'
       + '    <input type="checkbox" name="botcheck" class="piege-robot" tabindex="-1" autocomplete="off" aria-hidden="true">'
       + '    <p class="rdv__pied">'
       + '      <button type="button" class="rdv__retour" data-rdv-retour="1"><svg class="icon" aria-hidden="true"><use href="#i-arrow-right"/></svg>Changer de créneau</button>'
@@ -2097,7 +2170,7 @@
       + '<div class="rdv__fini" data-rdv-fini hidden>'
       + '  <span class="rdv__coche" aria-hidden="true"><svg class="icon"><use href="#i-check"/></svg></span>'
       + '  <h3>C’est noté, votre rendez-vous maquette est réservé.</h3>'
-      + '  <p>Vous recevez la confirmation par e-mail d’ici une minute, Nous vous appelons au numéro indiqué, à l’heure prévue.</p>'
+      + '  <p>Vous recevez la confirmation par e-mail d’ici 1 minute. Nous vous appelons au numéro indiqué, à l’heure prévue.</p>'
       + '  <p class="rdv__quand"><svg class="icon" aria-hidden="true"><use href="#i-agenda"/></svg><span data-rdv-fini-quand></span></p>'
       + '</div>'
       + '</div>';
@@ -2114,12 +2187,14 @@
 
   /* `facultatif` : le champ n'est pas exige (le lien du site ou de la fiche
      Google, que tout le monde n'a pas). `aide` remplit l'exemple grise. */
-  function champ(id, nom, libelle, auto, erreur, type, large, facultatif, aide) {
+  function champ(id, nom, libelle, auto, erreur, type, large, facultatif, aide, sansId, sansTexte) {
     return '<p class="rdv__champ' + (large ? ' rdv__champ--large' : '') + '">'
       + '<label for="' + id + '">' + libelle + (facultatif ? ' <small>(facultatif)</small>' : '') + '</label>'
       + '<input id="' + id + '" name="' + nom + '" type="' + (type || 'text') + '" autocomplete="' + auto + '"'
       + (aide ? ' placeholder="' + aide + '"' : '') + (type === 'url' ? ' inputmode="url"' : '') + (facultatif ? '' : ' required') + '>'
-      + '<span class="field-error" data-error-for="' + id + '" hidden>' + erreur + '</span></p>';
+      + '<span class="field-error" data-error-for="' + id + '" hidden>' + erreur + '</span>'
+      + (sansId ? '<label class="rdv__sans"><input type="checkbox" name="' + sansId + '" data-rdv-sans="' + id + '"><span>' + sansTexte + '</span></label>' : '')
+      + '</p>';
   }
 
 
