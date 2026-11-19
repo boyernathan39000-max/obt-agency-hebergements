@@ -8444,3 +8444,4 @@ main section h2[class*="__titre"] { font-size: clamp(34px, 5.3vw, 72px) !importa
 .ct__avis .ct__avis-carte { width: auto; }
 @media (max-width: 959px) { .ct__projets { align-self: center; } }
 .ct__insecable { white-space: nowrap !important; }
+main .ct__carte .ct__titre { font-size: 25px !important; line-height: 1.15 !important; max-width: none; }
