@@ -21,12 +21,8 @@
 /services.html       /pack.html       301
 /realisations.html   /resultats.html  301
 
-# La page Contact a ete supprimee le 6 novembre 2026 : la prise de rendez-vous
-# se fait dans la fenetre ouverte par tous les boutons du site. L'ancienne
-# adresse est indexee et partagee : 301 vers l'accueil, qui ouvre la fenetre
-# des qu'il voit #rendez-vous.
-/contact.html   /#rendez-vous   301
-/contact        /#rendez-vous   301
+# La page Contact, supprimee le 6 novembre 2026, revient le 19 novembre
+# pour les questions seulement : ses adresses ne sont plus redirigees.
 
 # Site hebergements, 16 novembre 2026 : les pages de services et la page
 # Artisans sont retirees. Elles menent a la page Hebergements.

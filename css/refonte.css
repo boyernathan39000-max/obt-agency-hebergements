@@ -8410,3 +8410,37 @@ main section h2[class*="__titre"] { font-size: clamp(34px, 5.3vw, 72px) !importa
 .rdv__fini .rdv__quand { display: block; padding: 0; background: none; box-shadow: none; margin: 0 auto 22px; font-size: clamp(17px, 2vw, 21px); font-weight: 600; color: var(--c-text); text-wrap: balance; }
 .rdv__fini .rdv__suite { font-size: 16px; color: var(--c-text-muted); text-wrap: balance; }
 .rdv__fini .rdv__suite--mail { margin-top: 6px; font-size: 14px; color: var(--c-text-faint); }
+
+/* ==========================================================================
+   PAGE CONTACT (19 novembre 2026, Nathan) : une page pour poser une question.
+   Le bandeau reprend celui de l'accueil, puis le formulaire a gauche et les
+   avis complets a droite, sur le meme fond creme.
+   ========================================================================== */
+.ct .a1__dedans { padding-bottom: clamp(36px, 5vw, 56px); }
+.ct__corps {
+  position: relative; z-index: 2;
+  display: grid; gap: clamp(24px, 3vw, 40px); align-items: start;
+  grid-template-columns: minmax(0, 1fr);
+  width: 100%; max-width: 1120px; margin-inline: auto; text-align: left;
+  padding-inline: max(20px, env(safe-area-inset-left, 0px)) max(20px, env(safe-area-inset-right, 0px));
+}
+@media (min-width: 960px) { .ct__corps { grid-template-columns: minmax(0, 1.45fr) minmax(0, 1fr); } }
+.ct__carte {
+  margin: 0; padding: clamp(22px, 3vw, 36px); border-radius: 28px;
+  background: #fff; border: 1px solid rgba(18, 21, 26, .09);
+  box-shadow: 0 30px 60px -40px rgba(18, 21, 26, .45);
+}
+.ct__titre { margin: 0 0 20px; font-size: 25px; line-height: 1.15; letter-spacing: -.03em; }
+.ct__carte .rdv__champ textarea { min-height: 150px; }
+.ct__pied { margin: 22px 0 0; }
+.ct__pied .a1__bouton { width: 100%; justify-content: center; }
+.ct__mention { margin: 14px 0 0; font-size: 13px; line-height: 1.5; color: var(--c-text-faint); text-align: center; }
+.ct__mention a { color: var(--c-accent); }
+.ct__retour { margin: 14px 0 0; font-size: 14.5px; font-weight: 600; text-align: center; }
+.ct__retour.est-reussi { color: #1E9E5A; }
+.ct__retour.est-en-echec { color: #C0392B; }
+.ct__avis { display: flex; flex-direction: column; gap: 14px; }
+.ct__projets { align-self: flex-start; }
+.ct__avis .ct__avis-carte { width: auto; }
+@media (max-width: 959px) { .ct__projets { align-self: center; } }
+.ct__insecable { white-space: nowrap !important; }

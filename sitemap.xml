@@ -18,6 +18,12 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://obt-agency.fr/contact.html</loc>
+    <lastmod>2026-09-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://obt-agency.fr/plan-du-site.html</loc>
     <lastmod>2026-09-04</lastmod>
     <changefreq>yearly</changefreq>
