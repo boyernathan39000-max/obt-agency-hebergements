@@ -2987,6 +2987,40 @@
      projet » et les derniers champs du formulaire. */
   var APPEL_ETAPES = '[data-tunnel-step="2"], [data-tunnel-step="3"]';
 
+
+  /* ------------------------------------------------------------------------
+     AVIS QUI DEFILENT (page Contact, 19/11/2026)
+     Chaque carte porte trois avis empiles. Un seul minuteur fait tourner les
+     trois cartes ensemble toutes les `data-ct-defile` millisecondes ; il
+     s'arrete quand la souris ou le clavier est sur les avis et quand
+     l'onglet passe en arriere-plan.
+     ------------------------------------------------------------------------ */
+  function initDefileAvis(bloc) {
+    var cartes = Array.prototype.slice.call(bloc.querySelectorAll('.ct__defile'));
+    if (!cartes.length) return;
+    var delai = parseInt(bloc.getAttribute('data-ct-defile'), 10) || 2000;
+    var rang = 0, minuteur = null;
+    function montrer() {
+      cartes.forEach(function (c) {
+        var lames = c.querySelectorAll('.ct__lame');
+        Array.prototype.forEach.call(lames, function (l, k) {
+          var vu = k === rang % lames.length;
+          l.classList.toggle('est-visible', vu);
+          if (vu) l.removeAttribute('aria-hidden'); else l.setAttribute('aria-hidden', 'true');
+        });
+      });
+    }
+    function demarrer() { arreter(); minuteur = window.setInterval(function () { rang++; montrer(); }, delai); }
+    function arreter() { if (minuteur) { window.clearInterval(minuteur); minuteur = null; } }
+    bloc.addEventListener('pointerenter', arreter);
+    bloc.addEventListener('pointerleave', demarrer);
+    bloc.addEventListener('focusin', arreter);
+    bloc.addEventListener('focusout', demarrer);
+    document.addEventListener('visibilitychange', function () { if (document.hidden) arreter(); else demarrer(); });
+    montrer();
+    demarrer();
+  }
+
   function initAppelFlottant(barre) {
     var heros  = Array.prototype.slice.call(document.querySelectorAll(APPEL_HEROS));
     var bandes = Array.prototype.slice.call(document.querySelectorAll(APPEL_BANDES));
@@ -3740,6 +3774,7 @@
     initOffscreenPause();
     initViewer();
     document.querySelectorAll('[data-avis]').forEach(initAvis);
+    document.querySelectorAll('[data-ct-defile]').forEach(initDefileAvis);
     document.querySelectorAll('.appel-flottant').forEach(initAppelFlottant);
   }
 
