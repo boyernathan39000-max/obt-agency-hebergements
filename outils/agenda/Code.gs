@@ -215,9 +215,9 @@ function doPost(e) {
 
 /* ---------------------------------------------------------------------------
    L'e-mail de confirmation envoyé au client (Nathan, 19 novembre 2026).
-   Tout en français, au vous, signé « Tom ou Nathan », avec la signature à
-   jour de l'agence (celle de Gmail : logo, OBT Agency, Agence de création
-   Web, contact et site). Un fichier .ics est joint : la boîte du client
+   Tout en français, au vous, signé « Tom ou Nathan », sans bloc de
+   signature (demande de Nathan).
+   Un fichier .ics est joint : la boîte du client
    propose « Ajouter à l'agenda », sans réponse Oui/Non à donner.
    ------------------------------------------------------------------------ */
 function echappe_(t) {
@@ -244,7 +244,6 @@ function ics_(debut, fin, tel) {
 
 function envoieConfirmation_(email, prenom, tel, jourTxt, heureTxt, debut, fin) {
   var P = 'margin:0 0 16px;font-family:Arial,sans-serif;font-size:15px;line-height:1.6;color:#12151A;';
-  var S = 'margin:0;font-family:Arial,sans-serif;font-size:13px;line-height:1.5;color:#12151A;';
   var html = ''
     + '<div style="max-width:560px">'
     + '<p style="' + P + '">Bonjour ' + echappe_(prenom) + ',</p>'
@@ -254,17 +253,13 @@ function envoieConfirmation_(email, prenom, tel, jourTxt, heureTxt, debut, fin) 
     + '<p style="' + P + '">Nous commençons la construction de votre maquette.</p>'
     + '<p style="' + P + '">Pour ajouter le rendez-vous à votre agenda, ouvrez le fichier joint. Pour changer d’horaire, répondez simplement à ce mail.</p>'
     + '<p style="' + P + '">Bien cordialement,<br>Tom ou Nathan</p>'
-    + '<p style="margin:24px 0 8px"><img src="https://obt-agency.fr/assets/img/logo-obt.png" width="96" height="24" alt="OBT Agency"></p>'
-    + '<p style="' + S + 'font-weight:bold;">OBT Agency</p>'
-    + '<p style="' + S + 'font-style:italic;">Agence de création Web</p>'
-    + '<p style="' + S + '"><a href="mailto:contact@obt-agency.fr" style="color:#2558D6">contact@obt-agency.fr</a> · <a href="https://obt-agency.fr/" style="color:#2558D6">obt-agency.fr</a></p>'
     + '</div>';
   var texte = 'Bonjour ' + prenom + ',\n\n'
     + 'Votre rendez-vous de maquette est confirmé : ' + jourTxt + ' à ' + heureTxt + '.\n\n'
     + 'Tom ou Nathan vous appelle au ' + tel + ' à l’heure prévue. Le rendez-vous dure 30 minutes.\n\n'
     + 'Nous commençons la construction de votre maquette.\n\n'
     + 'Pour ajouter le rendez-vous à votre agenda, ouvrez le fichier joint. Pour changer d’horaire, répondez simplement à ce mail.\n\n'
-    + 'Bien cordialement,\nTom ou Nathan\n\nOBT Agency\nAgence de création Web\ncontact@obt-agency.fr · obt-agency.fr';
+    + 'Bien cordialement,\nTom ou Nathan';
   MailApp.sendEmail({
     to: email,
     subject: 'Confirmation de votre rendez-vous de maquette avec OBT Agency',
