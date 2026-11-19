@@ -2178,6 +2178,7 @@
       + '  <h3 class="rdv__merci" data-rdv-merci>Merci.</h3>'
       + '  <p class="rdv__quand" data-rdv-fini-quand></p>'
       + '  <p class="rdv__suite">Nous commençons la construction de votre maquette.</p>'
+      + '  <p class="rdv__suite rdv__suite--mail">Vous recevez la confirmation par e-mail dans 1&nbsp;minute.</p>'
       + '</div>'
       + '</div>';
   }

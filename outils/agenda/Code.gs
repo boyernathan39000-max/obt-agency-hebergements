@@ -169,25 +169,31 @@ function doPost(e) {
       message ? 'Message : ' + message : ''
     ].filter(function (l, i) { return l !== '' || i === 1; }).join('\n');
 
+    /* L'événement reste dans NOTRE agenda, sans invité : l'invitation
+       Google partait en anglais chez les clients hors Gmail, avec des
+       boutons inutiles (plan, liste des invités) et une réponse « Oui » qui
+       menait à « événement introuvable ». Le client reçoit à la place notre
+       propre e-mail, en français, avec un fichier d'agenda joint
+       (Nathan, 19 novembre 2026). */
     var evenement = Calendar.Events.insert({
       summary: 'Rendez-vous maquette OBT Agency : ' + entreprise,
       description: notes,
       start: { dateTime: debut.toISOString(), timeZone: FUSEAU },
       end: { dateTime: fin.toISOString(), timeZone: FUSEAU },
-      /* Rendez-vous par téléphone uniquement : c'est nous qui appelons. */
-      location: 'Par téléphone : OBT Agency vous appelle au ' + tel,
-      attendees: [{ email: email, displayName: nom }]
-    }, AGENDA, { sendUpdates: 'all' });
+      location: 'Par téléphone : OBT Agency appelle le ' + tel
+    }, AGENDA, { sendUpdates: 'none' });
 
     /* La date en français : formatDate écrit les jours et les mois en anglais. */
     var JOURS_FR = ['', 'lundi', 'mardi', 'mercredi', 'jeudi', 'vendredi', 'samedi', 'dimanche'];
     var MOIS_FR = ['janvier', 'février', 'mars', 'avril', 'mai', 'juin', 'juillet', 'août',
       'septembre', 'octobre', 'novembre', 'décembre'];
-    var quand = JOURS_FR[Number(Utilities.formatDate(debut, FUSEAU, 'u'))] + ' ' +
+    var jourTxt = JOURS_FR[Number(Utilities.formatDate(debut, FUSEAU, 'u'))] + ' ' +
       Number(Utilities.formatDate(debut, FUSEAU, 'd')) + ' ' +
-      MOIS_FR[Number(Utilities.formatDate(debut, FUSEAU, 'M')) - 1] + ' ' +
-      Utilities.formatDate(debut, FUSEAU, 'yyyy') + ' à ' +
-      Utilities.formatDate(debut, FUSEAU, "H'h'mm");
+      MOIS_FR[Number(Utilities.formatDate(debut, FUSEAU, 'M')) - 1];
+    var mn = Utilities.formatDate(debut, FUSEAU, 'mm');
+    var heureTxt = Number(Utilities.formatDate(debut, FUSEAU, 'H')) + ' h' + (mn === '00' ? '' : ' ' + mn);
+    var quand = jourTxt + ' ' + Utilities.formatDate(debut, FUSEAU, 'yyyy') + ' à ' + heureTxt;
+
     MailApp.sendEmail({
       to: Session.getEffectiveUser().getEmail(),
       replyTo: email,
@@ -196,10 +202,75 @@ function doPost(e) {
         '\nÉvénement : ' + (evenement.htmlLink || '')
     });
 
+    envoieConfirmation_(email, nom, tel, jourTxt, heureTxt, debut, fin);
+
     return json_({ ok: true, reference: evenement.id });
   } catch (err) {
     return json_({ ok: false, erreur: "La réservation n'a pas abouti." });
   } finally {
     verrou.releaseLock();
   }
+}
+
+
+/* ---------------------------------------------------------------------------
+   L'e-mail de confirmation envoyé au client (Nathan, 19 novembre 2026).
+   Tout en français, au vous, signé « Tom ou Nathan », avec la signature à
+   jour de l'agence (celle de Gmail : logo, OBT Agency, Agence de création
+   Web, contact et site). Un fichier .ics est joint : la boîte du client
+   propose « Ajouter à l'agenda », sans réponse Oui/Non à donner.
+   ------------------------------------------------------------------------ */
+function echappe_(t) {
+  return String(t).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+}
+
+function ics_(debut, fin, tel) {
+  var z = function (d) { return Utilities.formatDate(d, 'UTC', "yyyyMMdd'T'HHmmss'Z'"); };
+  var lignes = [
+    'BEGIN:VCALENDAR', 'VERSION:2.0', 'PRODID:-//OBT Agency//Rendez-vous//FR',
+    'CALSCALE:GREGORIAN', 'METHOD:PUBLISH',
+    'BEGIN:VEVENT',
+    'UID:' + Utilities.getUuid() + '@obt-agency.fr',
+    'DTSTAMP:' + z(new Date()),
+    'DTSTART:' + z(debut),
+    'DTEND:' + z(fin),
+    'SUMMARY:Rendez-vous de maquette avec OBT Agency',
+    'DESCRIPTION:Tom ou Nathan vous appelle au ' + tel + '. Rendez-vous de 30 minutes.',
+    'LOCATION:Par téléphone',
+    'END:VEVENT', 'END:VCALENDAR'
+  ];
+  return Utilities.newBlob(lignes.join('\r\n'), 'text/calendar', 'rendez-vous-obt-agency.ics');
+}
+
+function envoieConfirmation_(email, prenom, tel, jourTxt, heureTxt, debut, fin) {
+  var P = 'margin:0 0 16px;font-family:Arial,sans-serif;font-size:15px;line-height:1.6;color:#12151A;';
+  var S = 'margin:0;font-family:Arial,sans-serif;font-size:13px;line-height:1.5;color:#12151A;';
+  var html = ''
+    + '<div style="max-width:560px">'
+    + '<p style="' + P + '">Bonjour ' + echappe_(prenom) + ',</p>'
+    + '<p style="' + P + '">Votre rendez-vous de maquette est confirmé&nbsp;:</p>'
+    + '<p style="' + P + 'font-size:18px;font-weight:bold;">' + echappe_(jourTxt.charAt(0).toUpperCase() + jourTxt.slice(1)) + ' à ' + echappe_(heureTxt) + '</p>'
+    + '<p style="' + P + '">Tom ou Nathan vous appelle au ' + echappe_(tel) + ' à l’heure prévue. Le rendez-vous dure 30&nbsp;minutes.</p>'
+    + '<p style="' + P + '">Nous commençons la construction de votre maquette.</p>'
+    + '<p style="' + P + '">Pour ajouter le rendez-vous à votre agenda, ouvrez le fichier joint. Pour changer d’horaire, répondez simplement à ce mail.</p>'
+    + '<p style="' + P + '">Bien cordialement,<br>Tom ou Nathan</p>'
+    + '<p style="margin:24px 0 8px"><img src="https://obt-agency.fr/assets/img/logo-obt.png" width="96" height="24" alt="OBT Agency"></p>'
+    + '<p style="' + S + 'font-weight:bold;">OBT Agency</p>'
+    + '<p style="' + S + 'font-style:italic;">Agence de création Web</p>'
+    + '<p style="' + S + '"><a href="mailto:contact@obt-agency.fr" style="color:#2558D6">contact@obt-agency.fr</a> · <a href="https://obt-agency.fr/" style="color:#2558D6">obt-agency.fr</a></p>'
+    + '</div>';
+  var texte = 'Bonjour ' + prenom + ',\n\n'
+    + 'Votre rendez-vous de maquette est confirmé : ' + jourTxt + ' à ' + heureTxt + '.\n\n'
+    + 'Tom ou Nathan vous appelle au ' + tel + ' à l’heure prévue. Le rendez-vous dure 30 minutes.\n\n'
+    + 'Nous commençons la construction de votre maquette.\n\n'
+    + 'Pour ajouter le rendez-vous à votre agenda, ouvrez le fichier joint. Pour changer d’horaire, répondez simplement à ce mail.\n\n'
+    + 'Bien cordialement,\nTom ou Nathan\n\nOBT Agency\nAgence de création Web\ncontact@obt-agency.fr · obt-agency.fr';
+  MailApp.sendEmail({
+    to: email,
+    subject: 'Confirmation de votre rendez-vous de maquette avec OBT Agency',
+    name: 'OBT Agency',
+    body: texte,
+    htmlBody: html,
+    attachments: [ics_(debut, fin, tel)]
+  });
 }

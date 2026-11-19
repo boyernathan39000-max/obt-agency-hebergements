@@ -8409,3 +8409,4 @@ main section h2[class*="__titre"] { font-size: clamp(34px, 5.3vw, 72px) !importa
 .rdv__fini .rdv__merci { margin: 0 0 12px; font-size: clamp(34px, 5vw, 52px); line-height: 1.06; letter-spacing: -.035em; text-wrap: balance; }
 .rdv__fini .rdv__quand { display: block; padding: 0; background: none; box-shadow: none; margin: 0 auto 22px; font-size: clamp(17px, 2vw, 21px); font-weight: 600; color: var(--c-text); text-wrap: balance; }
 .rdv__fini .rdv__suite { font-size: 16px; color: var(--c-text-muted); text-wrap: balance; }
+.rdv__fini .rdv__suite--mail { margin-top: 6px; font-size: 14px; color: var(--c-text-faint); }
