@@ -8634,3 +8634,7 @@ main .ctf__titre { color: #12151A; }
 .ctf__bouton[aria-expanded="true"] .ctf__signe::before, .ctf__bouton[aria-expanded="true"] .ctf__signe::after { background: #fff; }
 .ctf__r p { color: #545B64; }
 .ctf__bouton[aria-expanded="true"]:hover .ctf__signe { border-color: #FF6B4A; }
+
+/* Contact : envoyer en bleu nuit, rendez-vous en orange a cote (Nathan, 21/11/2026). */
+.ct__pied { display: flex; flex-wrap: wrap; gap: 12px; }
+.ct__pied .a1__bouton { width: auto; flex: 1 1 200px; justify-content: center; }
