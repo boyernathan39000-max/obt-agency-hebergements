@@ -8618,3 +8618,19 @@ main > section.lg__corps { background: #FAF9F5; padding-top: clamp(24px, 4vw, 48
 @media (min-width: 1024px) { main .ctf__titre, .ctf__sous { white-space: nowrap; } }
 .ctf__sous { max-width: none; margin-inline: auto; }
 .ctf__liste { width: 100%; max-width: 860px; margin-inline: auto; }
+
+/* Contact, FAQ sur fond clair (Nathan, 21/11/2026). */
+.ctf { background: #FAF9F5; color: #12151A; }
+main .ctf__titre { color: #12151A; }
+.ctf__sous { color: #545B64; }
+.ctf__sous a { color: #2558D6; }
+.ctf__liste { border-top-color: rgba(18, 21, 26, .12); }
+.ctf .ctf__item { border-bottom-color: rgba(18, 21, 26, .12); }
+.ctf .ctf__bouton, .ctf .ctf__bouton:hover { color: #12151A; }
+.ctf__bouton:focus-visible { outline-color: #2558D6; }
+.ctf__signe { border-color: rgba(18, 21, 26, .25); }
+.ctf__signe::before, .ctf__signe::after { background: #12151A; }
+.ctf__bouton:hover .ctf__signe { border-color: #12151A; }
+.ctf__bouton[aria-expanded="true"] .ctf__signe::before, .ctf__bouton[aria-expanded="true"] .ctf__signe::after { background: #fff; }
+.ctf__r p { color: #545B64; }
+.ctf__bouton[aria-expanded="true"]:hover .ctf__signe { border-color: #FF6B4A; }
