@@ -8504,25 +8504,6 @@ main .ctf__titre { margin: 0; color: #fff; text-wrap: balance; }
 @media (max-width: 560px) { .ctf__bouton { font-size: 16.5px; padding: 18px 0; } .ctf__r { padding-right: 0; } }
 
 /* Contact S3, le dernier appel en petite carte. */
-.ctc { background: #FAF9F5; padding-block: clamp(56px, 7vw, 96px); }
-.ctc__dedans { max-width: 1080px; margin-inline: auto; padding-left: max(20px, env(safe-area-inset-left, 0px)); padding-right: max(20px, env(safe-area-inset-right, 0px)); }
-.ctc__carte {
-  display: grid; gap: 22px 36px; justify-items: center; text-align: center;
-  padding: clamp(28px, 4vw, 44px); border-radius: 32px; background: #fff;
-  border: 1px solid rgba(18, 21, 26, .09); box-shadow: 0 24px 50px -40px rgba(18, 21, 26, .55);
-}
-@media (min-width: 860px) {
-  .ctc__carte { grid-template-columns: auto minmax(0, 1fr) auto; justify-items: start; align-items: center; text-align: left; }
-}
-.ctc__rond {
-  display: grid; place-content: center; justify-items: center; margin: 0;
-  width: 112px; height: 112px; border-radius: 50%; background: #0B1A44; color: #fff;
-}
-.ctc__rond b { font-size: 40px; line-height: 1; letter-spacing: -.04em; color: #FF6B4A; }
-.ctc__rond span { margin-top: 4px; font-size: 13px; font-weight: 600; color: rgba(255, 255, 255, .8); }
-main section h2.ctc__titre { margin: 0; font-size: clamp(28px, 2.6vw, 36px) !important; line-height: 1.2; letter-spacing: -.03em; font-weight: 700; color: var(--c-text); max-width: none; }
-.ctc__sous { margin: 10px 0 0; max-width: 52ch; font-size: 16px; line-height: 1.6; color: var(--c-text-muted); }
-.ctc__action { margin: 0; }
 /* La FAQ de Contact se lit en lignes : on retire la carte des FAQ du site. */
 .ctf .ctf__item { border: 0; border-bottom: 1px solid rgba(255, 255, 255, .14); border-radius: 0; background: none; overflow: visible; }
 .ctf .ctf__bouton, .ctf .ctf__bouton:hover { color: #fff; padding-inline: 0; }
@@ -8613,3 +8594,27 @@ main > section.lg__corps { background: #FAF9F5; padding-top: clamp(24px, 4vw, 48
   .lg__corps .legal-liste strong { display: block; }
 }
 .lg__corps a[href^="mailto:"], .lg__corps a[href^="tel:"] { white-space: nowrap; }
+
+/* =====================================================================
+   21/11/2026 (Nathan)
+   ===================================================================== */
+/* Accueil : trois petits ronds du bandeau retirés (capture entourée). */
+#hebergements-s1 .a1__ronds--haut i:nth-child(2),
+#hebergements-s1 .a1__ronds--haut i:nth-child(5),
+#hebergements-s1 .a1__ronds--bas i:nth-child(3) { display: none; }
+
+/* Gages sous le sous-titre : chaque icône prend sa couleur. */
+.a1__gages .a1__gage--vert .icon { color: #2E9E63; }
+.a1__gages .a1__gage--bleu .icon { color: #2558D6; }
+.a1__gages .a1__gage--orange .icon { color: #FF6B4A; }
+
+/* Contact, FAQ : titre et sous-titre centrés sur une ligne, questions dessous. */
+.ctf__dedans { max-width: 1080px; grid-template-columns: minmax(0, 1fr); gap: clamp(32px, 4vw, 48px); }
+@media (min-width: 960px) {
+  .ctf__dedans { grid-template-columns: minmax(0, 1fr); }
+  .ctf__tete { position: static; }
+}
+.ctf__tete { text-align: center; }
+@media (min-width: 1024px) { main .ctf__titre, .ctf__sous { white-space: nowrap; } }
+.ctf__sous { max-width: none; margin-inline: auto; }
+.ctf__liste { width: 100%; max-width: 860px; margin-inline: auto; }
